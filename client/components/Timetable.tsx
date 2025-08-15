@@ -135,14 +135,14 @@ export function Timetable({ className }: TimetableProps) {
   };
 
   return (
-    <div className={cn("space-y-6", className)}>
+    <div className={cn("space-y-4 md:space-y-6", className)}>
       {/* Timetable Grid */}
-      <Card className="p-6 bg-card border-border overflow-hidden">
-        <div className="mb-6">
-          <h2 className="text-xl font-semibold text-foreground mb-2">Weekly Schedule</h2>
-          <p className="text-muted-foreground">Current semester timetable</p>
+      <Card className="p-4 md:p-6 bg-card border-border overflow-hidden">
+        <div className="mb-4 md:mb-6">
+          <h2 className="text-lg md:text-xl font-semibold text-foreground mb-2">Weekly Schedule</h2>
+          <p className="text-sm md:text-base text-muted-foreground">Current semester timetable</p>
         </div>
-        
+
         <div className="overflow-x-auto">
           <div className="min-w-[800px]">
             {/* Header */}
