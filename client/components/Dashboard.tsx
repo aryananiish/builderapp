@@ -44,6 +44,7 @@ export function Dashboard({ className }: DashboardProps) {
     { id: "calendar", label: "Pet Calendar", icon: Calendar },
     { id: "vaccines", label: "Vaccines", icon: Syringe },
     { id: "feeding", label: "Diet", icon: Utensils },
+    { id: "profiles", label: "Pet Profiles", icon: User },
     { id: "shop", label: "Pet Shop", icon: ShoppingBag },
     { id: "analytics", label: "Analytics", icon: BarChart3 },
     { id: "settings", label: "Settings", icon: Settings },
