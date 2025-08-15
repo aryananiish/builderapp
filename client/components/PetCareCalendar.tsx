@@ -1,9 +1,9 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { Syringe, Utensils, Heart, Clock, Calendar as CalendarIcon, MapPin } from "lucide-react";
+import { Syringe, Utensils, Heart, Clock, Calendar as CalendarIcon, MapPin, Loader2 } from "lucide-react";
 import { Pet, Vaccine, FoodSchedule, PetCareEvent } from "@shared/petcare";
-import { weeklySchedule, getPetsSummary } from "@/data/samplePetData";
+import { useWeeklySchedule, useSummary } from "@/hooks/usePetData";
 
 interface PetCareCalendarProps {
   className?: string;
@@ -24,14 +24,18 @@ interface PetCareItem {
 
 export function PetCareCalendar({ className }: PetCareCalendarProps) {
   const timeSlots = [
-    "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", 
+    "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00",
     "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00"
   ];
 
   const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
-  // Use sample pet care data
-  const petCareData = weeklySchedule;
+  // Fetch data from API
+  const { data: scheduleData, loading: scheduleLoading, error: scheduleError } = useWeeklySchedule();
+  const { data: summaryData, loading: summaryLoading, error: summaryError } = useSummary();
+
+  const petCareData = scheduleData?.schedule || {};
+  const summary = summaryData?.summary;
 
   const getIcon = (iconType: string) => {
     switch (iconType) {
@@ -56,6 +60,36 @@ export function PetCareCalendar({ className }: PetCareCalendarProps) {
         return "bg-blue-100 text-blue-800 border-blue-200";
     }
   };
+
+  // Loading state
+  if (scheduleLoading || summaryLoading) {
+    return (
+      <div className={cn("space-y-4 md:space-y-6", className)}>
+        <Card className="p-6 bg-card border-border">
+          <div className="flex items-center justify-center py-8">
+            <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            <span className="ml-2 text-muted-foreground">Loading pet care data...</span>
+          </div>
+        </Card>
+      </div>
+    );
+  }
+
+  // Error state
+  if (scheduleError || summaryError) {
+    return (
+      <div className={cn("space-y-4 md:space-y-6", className)}>
+        <Card className="p-6 bg-card border-border">
+          <div className="text-center py-8">
+            <div className="text-destructive mb-2">Failed to load pet care data</div>
+            <div className="text-sm text-muted-foreground">
+              {scheduleError || summaryError}
+            </div>
+          </div>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <div className={cn("space-y-4 md:space-y-6", className)}>
