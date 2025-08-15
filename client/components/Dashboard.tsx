@@ -13,6 +13,9 @@ export function Dashboard({ className }: DashboardProps) {
   const [activeView, setActiveView] = useState("calendar");
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  // Fetch summary data for analytics
+  const { data: summaryData, loading: summaryLoading, error: summaryError } = useSummary();
+
   const navigationItems = [
     { id: "calendar", label: "Pet Calendar", icon: Calendar },
     { id: "vaccines", label: "Vaccines", icon: Syringe },
