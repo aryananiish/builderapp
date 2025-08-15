@@ -52,10 +52,23 @@ export function Dashboard({ className }: DashboardProps) {
         </div>
       </header>
 
-      <div className="flex h-[calc(100vh-4rem)]">
+      <div className="flex h-[calc(100vh-4rem)] relative">
+        {/* Mobile Sidebar Overlay */}
+        {sidebarOpen && (
+          <div
+            className="fixed inset-0 bg-black/50 z-40 md:hidden"
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
+
         {/* Sidebar */}
-        <aside className="w-64 border-r border-border bg-dashboard-nav">
-          <div className="p-6">
+        <aside className={`
+          w-64 border-r border-border bg-dashboard-nav transition-transform duration-300 ease-in-out
+          md:translate-x-0 md:static md:inset-0
+          ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
+          fixed inset-y-0 left-0 z-50 md:z-auto
+        `}>
+          <div className="p-4 md:p-6">
             <nav className="space-y-2">
               {navigationItems.map((item) => {
                 const Icon = item.icon;
@@ -64,11 +77,14 @@ export function Dashboard({ className }: DashboardProps) {
                     key={item.id}
                     variant={activeView === item.id ? "secondary" : "ghost"}
                     className={`w-full justify-start text-left ${
-                      activeView === item.id 
-                        ? "bg-primary/10 text-primary border border-primary/20" 
+                      activeView === item.id
+                        ? "bg-primary/10 text-primary border border-primary/20"
                         : "text-muted-foreground hover:text-foreground hover:bg-accent"
                     }`}
-                    onClick={() => setActiveView(item.id)}
+                    onClick={() => {
+                      setActiveView(item.id);
+                      setSidebarOpen(false);
+                    }}
                   >
                     <Icon className="mr-3 h-4 w-4" />
                     {item.label}
