@@ -146,13 +146,16 @@ export function Timetable({ className }: TimetableProps) {
         <div className="overflow-x-auto">
           <div className="min-w-[800px]">
             {/* Header */}
-            <div className="grid grid-cols-6 gap-2 mb-4">
-              <div className="p-3 bg-timetable-header rounded-lg">
-                <span className="text-sm font-medium text-foreground">Time</span>
+            <div className="grid grid-cols-6 gap-1 md:gap-2 mb-4">
+              <div className="p-2 md:p-3 bg-timetable-header rounded-lg">
+                <span className="text-xs md:text-sm font-medium text-foreground">Time</span>
               </div>
               {days.map((day) => (
-                <div key={day} className="p-3 bg-timetable-header rounded-lg text-center">
-                  <span className="text-sm font-medium text-foreground">{day}</span>
+                <div key={day} className="p-2 md:p-3 bg-timetable-header rounded-lg text-center">
+                  <span className="text-xs md:text-sm font-medium text-foreground">
+                    <span className="md:hidden">{day.substring(0, 3)}</span>
+                    <span className="hidden md:inline">{day}</span>
+                  </span>
                 </div>
               ))}
             </div>
