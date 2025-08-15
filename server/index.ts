@@ -7,6 +7,7 @@ import { handleGetVaccines } from "./routes/vaccines";
 import { handleGetFoodSchedules } from "./routes/food-schedules";
 import { handleGetEvents } from "./routes/events";
 import { handleGetWeeklySchedule, handleGetSummary } from "./routes/schedule";
+import { handleGetCalendar } from "./routes/calendar";
 
 export function createServer() {
   const app = express();
