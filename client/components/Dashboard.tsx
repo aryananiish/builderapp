@@ -224,6 +224,30 @@ export function Dashboard({ className }: DashboardProps) {
               </div>
             )}
 
+            {activeView === "shop" && (
+              <div className="space-y-4 md:space-y-6">
+                <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
+                  <div>
+                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">
+                      Pet Shop
+                    </h1>
+                    <p className="text-muted-foreground mt-1">
+                      Find everything your pets need
+                    </p>
+                  </div>
+                  <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
+                    View Cart
+                  </Button>
+                </div>
+                <Card className="p-6 md:p-8 bg-card border-border text-center">
+                  <ShoppingBag className="h-10 w-10 md:h-12 md:w-12 text-muted-foreground mx-auto mb-4" />
+                  <p className="text-muted-foreground text-sm md:text-base">
+                    Pet shop coming soon...
+                  </p>
+                </Card>
+              </div>
+            )}
+
             {activeView === "analytics" && (
               <div className="space-y-4 md:space-y-6">
                 <h1 className="text-2xl md:text-3xl font-bold text-foreground">
