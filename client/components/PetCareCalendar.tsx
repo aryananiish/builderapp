@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { Syringe, Utensils, Heart, Clock, Calendar as CalendarIcon, MapPin } from "lucide-react";
 import { Pet, Vaccine, FoodSchedule, PetCareEvent } from "@shared/petcare";
+import { weeklySchedule, getPetsSummary } from "@/data/samplePetData";
 
 interface PetCareCalendarProps {
   className?: string;
