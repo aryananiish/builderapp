@@ -177,40 +177,76 @@ export function Dashboard({ className }: DashboardProps) {
             {activeView === "analytics" && (
               <div className="space-y-4 md:space-y-6">
                 <h1 className="text-2xl md:text-3xl font-bold text-foreground">Pet Care Analytics</h1>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                  <Card className="p-6 bg-card border-border">
-                    <div className="flex items-center space-x-2">
-                      <Syringe className="h-5 w-5 text-primary" />
-                      <span className="text-foreground font-medium">Vaccines This Month</span>
-                    </div>
-                    <div className="mt-2">
-                      <span className="text-2xl font-bold text-foreground">3</span>
-                      <span className="text-muted-foreground ml-1">scheduled</span>
-                    </div>
-                  </Card>
 
+                {summaryLoading ? (
                   <Card className="p-6 bg-card border-border">
-                    <div className="flex items-center space-x-2">
-                      <Heart className="h-5 w-5 text-success" />
-                      <span className="text-foreground font-medium">Active Pets</span>
-                    </div>
-                    <div className="mt-2">
-                      <span className="text-2xl font-bold text-foreground">2</span>
-                      <span className="text-muted-foreground ml-1">pets</span>
+                    <div className="flex items-center justify-center py-8">
+                      <Loader2 className="h-6 w-6 animate-spin text-primary" />
+                      <span className="ml-2 text-muted-foreground">Loading analytics...</span>
                     </div>
                   </Card>
+                ) : summaryError ? (
+                  <Card className="p-6 bg-card border-border">
+                    <div className="text-center py-8">
+                      <div className="text-destructive mb-2">Failed to load analytics data</div>
+                      <div className="text-sm text-muted-foreground">{summaryError}</div>
+                    </div>
+                  </Card>
+                ) : (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                    <Card className="p-6 bg-card border-border">
+                      <div className="flex items-center space-x-2">
+                        <Syringe className="h-5 w-5 text-primary" />
+                        <span className="text-foreground font-medium">Upcoming Vaccines</span>
+                      </div>
+                      <div className="mt-2">
+                        <span className="text-2xl font-bold text-foreground">
+                          {summaryData?.summary?.upcomingVaccines || 0}
+                        </span>
+                        <span className="text-muted-foreground ml-1">scheduled</span>
+                      </div>
+                    </Card>
 
-                  <Card className="p-6 bg-card border-border">
-                    <div className="flex items-center space-x-2">
-                      <Utensils className="h-5 w-5 text-info" />
-                      <span className="text-foreground font-medium">Meals Today</span>
-                    </div>
-                    <div className="mt-2">
-                      <span className="text-2xl font-bold text-foreground">6</span>
-                      <span className="text-muted-foreground ml-1">scheduled</span>
-                    </div>
-                  </Card>
-                </div>
+                    <Card className="p-6 bg-card border-border">
+                      <div className="flex items-center space-x-2">
+                        <Heart className="h-5 w-5 text-success" />
+                        <span className="text-foreground font-medium">Active Pets</span>
+                      </div>
+                      <div className="mt-2">
+                        <span className="text-2xl font-bold text-foreground">
+                          {summaryData?.summary?.totalPets || 0}
+                        </span>
+                        <span className="text-muted-foreground ml-1">pets</span>
+                      </div>
+                    </Card>
+
+                    <Card className="p-6 bg-card border-border">
+                      <div className="flex items-center space-x-2">
+                        <Utensils className="h-5 w-5 text-info" />
+                        <span className="text-foreground font-medium">Daily Meals</span>
+                      </div>
+                      <div className="mt-2">
+                        <span className="text-2xl font-bold text-foreground">
+                          {summaryData?.summary?.dailyMeals || 0}
+                        </span>
+                        <span className="text-muted-foreground ml-1">scheduled</span>
+                      </div>
+                    </Card>
+
+                    <Card className="p-6 bg-card border-border">
+                      <div className="flex items-center space-x-2">
+                        <Calendar className="h-5 w-5 text-warning" />
+                        <span className="text-foreground font-medium">Upcoming Events</span>
+                      </div>
+                      <div className="mt-2">
+                        <span className="text-2xl font-bold text-foreground">
+                          {summaryData?.summary?.upcomingEvents || 0}
+                        </span>
+                        <span className="text-muted-foreground ml-1">events</span>
+                      </div>
+                    </Card>
+                  </div>
+                )}
               </div>
             )}
             
