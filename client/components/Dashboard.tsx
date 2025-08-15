@@ -23,6 +23,7 @@ import { Badge } from "@/components/ui/badge";
 import { PetCareCalendar } from "./PetCareCalendar";
 import { VaccineSchedule } from "./VaccineSchedule";
 import { DietSchedule } from "./DietSchedule";
+import { PetProfile } from "./PetProfile";
 
 interface DashboardProps {
   className?: string;
