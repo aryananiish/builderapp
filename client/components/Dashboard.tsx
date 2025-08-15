@@ -237,15 +237,147 @@ export function Dashboard({ className }: DashboardProps) {
                     </p>
                   </div>
                   <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
-                    View Cart
+                    View Cart (0)
                   </Button>
                 </div>
-                <Card className="p-6 md:p-8 bg-card border-border text-center">
-                  <ShoppingBag className="h-10 w-10 md:h-12 md:w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground text-sm md:text-base">
-                    Pet shop coming soon...
-                  </p>
-                </Card>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+                  {/* Premium Dog Food */}
+                  <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
+                    <div className="aspect-square bg-gradient-to-br from-amber-100 to-orange-200 flex items-center justify-center">
+                      <Utensils className="h-16 w-16 text-amber-600" />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-2">Premium Dog Food</h3>
+                      <p className="text-sm text-muted-foreground mb-3">High-quality nutrition for adult dogs</p>
+                      <div className="flex items-center justify-between">
+                        <Badge variant="secondary">$29.99</Badge>
+                        <Button size="sm" className="bg-primary hover:bg-primary/90">
+                          Add to Cart
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Cat Toy Set */}
+                  <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
+                    <div className="aspect-square bg-gradient-to-br from-pink-100 to-purple-200 flex items-center justify-center">
+                      <Heart className="h-16 w-16 text-pink-600" />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-2">Interactive Cat Toys</h3>
+                      <p className="text-sm text-muted-foreground mb-3">Set of 5 engaging toys for cats</p>
+                      <div className="flex items-center justify-between">
+                        <Badge variant="secondary">$19.99</Badge>
+                        <Button size="sm" className="bg-primary hover:bg-primary/90">
+                          Add to Cart
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Dog Leash */}
+                  <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
+                    <div className="aspect-square bg-gradient-to-br from-blue-100 to-cyan-200 flex items-center justify-center">
+                      <Zap className="h-16 w-16 text-blue-600" />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-2">Reflective Dog Leash</h3>
+                      <p className="text-sm text-muted-foreground mb-3">6ft durable leash with LED lights</p>
+                      <div className="flex items-center justify-between">
+                        <Badge variant="secondary">$24.99</Badge>
+                        <Button size="sm" className="bg-primary hover:bg-primary/90">
+                          Add to Cart
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Pet Bed */}
+                  <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
+                    <div className="aspect-square bg-gradient-to-br from-green-100 to-emerald-200 flex items-center justify-center">
+                      <PawPrint className="h-16 w-16 text-green-600" />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-2">Cozy Pet Bed</h3>
+                      <p className="text-sm text-muted-foreground mb-3">Orthopedic support for better sleep</p>
+                      <div className="flex items-center justify-between">
+                        <Badge variant="secondary">$49.99</Badge>
+                        <Button size="sm" className="bg-primary hover:bg-primary/90">
+                          Add to Cart
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Grooming Kit */}
+                  <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
+                    <div className="aspect-square bg-gradient-to-br from-violet-100 to-purple-200 flex items-center justify-center">
+                      <Settings className="h-16 w-16 text-violet-600" />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-2">Professional Grooming Kit</h3>
+                      <p className="text-sm text-muted-foreground mb-3">Complete set for pet grooming</p>
+                      <div className="flex items-center justify-between">
+                        <Badge variant="secondary">$39.99</Badge>
+                        <Button size="sm" className="bg-primary hover:bg-primary/90">
+                          Add to Cart
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Vaccine Tracker */}
+                  <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
+                    <div className="aspect-square bg-gradient-to-br from-red-100 to-pink-200 flex items-center justify-center">
+                      <Syringe className="h-16 w-16 text-red-600" />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-2">Digital Health Tracker</h3>
+                      <p className="text-sm text-muted-foreground mb-3">Smart collar for health monitoring</p>
+                      <div className="flex items-center justify-between">
+                        <Badge variant="secondary">$89.99</Badge>
+                        <Button size="sm" className="bg-primary hover:bg-primary/90">
+                          Add to Cart
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Water Fountain */}
+                  <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
+                    <div className="aspect-square bg-gradient-to-br from-cyan-100 to-blue-200 flex items-center justify-center">
+                      <Calendar className="h-16 w-16 text-cyan-600" />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-2">Smart Water Fountain</h3>
+                      <p className="text-sm text-muted-foreground mb-3">Auto-refilling with filtration system</p>
+                      <div className="flex items-center justify-between">
+                        <Badge variant="secondary">$59.99</Badge>
+                        <Button size="sm" className="bg-primary hover:bg-primary/90">
+                          Add to Cart
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Training Treats */}
+                  <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
+                    <div className="aspect-square bg-gradient-to-br from-yellow-100 to-amber-200 flex items-center justify-center">
+                      <Users className="h-16 w-16 text-yellow-600" />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-2">Training Treat Pack</h3>
+                      <p className="text-sm text-muted-foreground mb-3">Healthy rewards for good behavior</p>
+                      <div className="flex items-center justify-between">
+                        <Badge variant="secondary">$15.99</Badge>
+                        <Button size="sm" className="bg-primary hover:bg-primary/90">
+                          Add to Cart
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+                </div>
               </div>
             )}
 
