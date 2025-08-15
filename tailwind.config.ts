@@ -70,6 +70,12 @@ export default {
         success: "hsl(var(--success))",
         warning: "hsl(var(--warning))",
         info: "hsl(var(--info))",
+        petcare: {
+          vaccine: "hsl(var(--petcare-vaccine))",
+          food: "hsl(var(--petcare-food))",
+          grooming: "hsl(var(--petcare-grooming))",
+          vet: "hsl(var(--petcare-vet))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
