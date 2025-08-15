@@ -21,7 +21,11 @@ interface VaccineScheduleProps {
 }
 
 export function VaccineSchedule({ className }: VaccineScheduleProps) {
-  const { data: vaccinesData, loading: vaccinesLoading, error: vaccinesError } = useVaccines();
+  const {
+    data: vaccinesData,
+    loading: vaccinesLoading,
+    error: vaccinesError,
+  } = useVaccines();
   const { data: petsData, loading: petsLoading } = usePets();
 
   const vaccines = vaccinesData?.vaccines || [];
@@ -29,7 +33,7 @@ export function VaccineSchedule({ className }: VaccineScheduleProps) {
 
   // Get pet name by ID
   const getPetName = (petId: string) => {
-    const pet = pets.find(p => p.id === petId);
+    const pet = pets.find((p) => p.id === petId);
     return pet?.name || "Unknown Pet";
   };
 
@@ -40,25 +44,25 @@ export function VaccineSchedule({ className }: VaccineScheduleProps) {
         return {
           icon: <CheckCircle className="h-4 w-4" />,
           color: "bg-success/10 text-success border-success/20",
-          label: "Completed"
+          label: "Completed",
         };
       case "overdue":
         return {
           icon: <AlertCircle className="h-4 w-4" />,
           color: "bg-destructive/10 text-destructive border-destructive/20",
-          label: "Overdue"
+          label: "Overdue",
         };
       case "cancelled":
         return {
           icon: <AlertCircle className="h-4 w-4" />,
           color: "bg-muted text-muted-foreground border-muted-foreground/20",
-          label: "Cancelled"
+          label: "Cancelled",
         };
       default:
         return {
           icon: <Clock className="h-4 w-4" />,
           color: "bg-primary/10 text-primary border-primary/20",
-          label: "Scheduled"
+          label: "Scheduled",
         };
     }
   };
@@ -67,17 +71,17 @@ export function VaccineSchedule({ className }: VaccineScheduleProps) {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return {
-      date: date.toLocaleDateString('en-US', { 
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
+      date: date.toLocaleDateString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
       }),
-      time: date.toLocaleTimeString('en-US', { 
-        hour: 'numeric', 
-        minute: '2-digit',
-        hour12: true 
-      })
+      time: date.toLocaleTimeString("en-US", {
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+      }),
     };
   };
 
@@ -119,9 +123,7 @@ export function VaccineSchedule({ className }: VaccineScheduleProps) {
             <div className="text-destructive mb-2">
               Failed to load vaccine data
             </div>
-            <div className="text-sm text-muted-foreground">
-              {vaccinesError}
-            </div>
+            <div className="text-sm text-muted-foreground">{vaccinesError}</div>
           </div>
         </Card>
       </div>
@@ -136,20 +138,27 @@ export function VaccineSchedule({ className }: VaccineScheduleProps) {
           const petName = getPetName(vaccine.petId);
           const statusDisplay = getStatusDisplay(vaccine.status);
           const scheduledDateTime = formatDate(vaccine.scheduledDate);
-          const nextDueDateTime = vaccine.nextDueDate ? formatDate(vaccine.nextDueDate) : null;
+          const nextDueDateTime = vaccine.nextDueDate
+            ? formatDate(vaccine.nextDueDate)
+            : null;
 
           return (
-            <Card key={vaccine.id} className={cn(
-              "p-6 bg-card border-border transition-all duration-200 hover:shadow-lg hover:scale-[1.02]",
-              vaccine.color
-            )}>
+            <Card
+              key={vaccine.id}
+              className={cn(
+                "p-6 bg-card border-border transition-all duration-200 hover:shadow-lg hover:scale-[1.02]",
+                vaccine.color,
+              )}
+            >
               <div className="space-y-4">
                 {/* Header */}
                 <div className="flex items-start justify-between">
                   <div className="flex items-center space-x-2">
                     <Syringe className="h-5 w-5 text-primary" />
                     <div>
-                      <h3 className="font-semibold text-foreground">{vaccine.name}</h3>
+                      <h3 className="font-semibold text-foreground">
+                        {vaccine.name}
+                      </h3>
                       <p className="text-sm text-muted-foreground">{petName}</p>
                     </div>
                   </div>
@@ -168,7 +177,9 @@ export function VaccineSchedule({ className }: VaccineScheduleProps) {
                       {vaccine.type}
                     </Badge>
                     {vaccine.description && (
-                      <span className="text-muted-foreground">{vaccine.description}</span>
+                      <span className="text-muted-foreground">
+                        {vaccine.description}
+                      </span>
                     )}
                   </div>
                 </div>
@@ -177,22 +188,30 @@ export function VaccineSchedule({ className }: VaccineScheduleProps) {
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2 text-sm">
                     <Calendar className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-foreground">{scheduledDateTime.date}</span>
+                    <span className="text-foreground">
+                      {scheduledDateTime.date}
+                    </span>
                   </div>
                   <div className="flex items-center space-x-2 text-sm">
                     <Clock className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-foreground">{scheduledDateTime.time}</span>
+                    <span className="text-foreground">
+                      {scheduledDateTime.time}
+                    </span>
                   </div>
                   {vaccine.location && (
                     <div className="flex items-center space-x-2 text-sm">
                       <MapPin className="h-4 w-4 text-muted-foreground" />
-                      <span className="text-foreground">{vaccine.location}</span>
+                      <span className="text-foreground">
+                        {vaccine.location}
+                      </span>
                     </div>
                   )}
                   {vaccine.veterinarian && (
                     <div className="flex items-center space-x-2 text-sm">
                       <User className="h-4 w-4 text-muted-foreground" />
-                      <span className="text-foreground">{vaccine.veterinarian}</span>
+                      <span className="text-foreground">
+                        {vaccine.veterinarian}
+                      </span>
                     </div>
                   )}
                 </div>
@@ -200,7 +219,9 @@ export function VaccineSchedule({ className }: VaccineScheduleProps) {
                 {/* Next Due Date */}
                 {nextDueDateTime && (
                   <div className="p-3 bg-muted/50 rounded-lg">
-                    <p className="text-xs text-muted-foreground mb-1">Next Due:</p>
+                    <p className="text-xs text-muted-foreground mb-1">
+                      Next Due:
+                    </p>
                     <p className="text-sm font-medium text-foreground">
                       {nextDueDateTime.date} at {nextDueDateTime.time}
                     </p>
@@ -287,7 +308,7 @@ export function VaccineSchedule({ className }: VaccineScheduleProps) {
         <Card className="p-4 bg-card border-border">
           <div className="text-center">
             <div className="text-2xl font-bold text-primary">
-              {vaccines.filter(v => v.status === "scheduled").length}
+              {vaccines.filter((v) => v.status === "scheduled").length}
             </div>
             <div className="text-sm text-muted-foreground">Scheduled</div>
           </div>
@@ -295,7 +316,7 @@ export function VaccineSchedule({ className }: VaccineScheduleProps) {
         <Card className="p-4 bg-card border-border">
           <div className="text-center">
             <div className="text-2xl font-bold text-success">
-              {vaccines.filter(v => v.status === "completed").length}
+              {vaccines.filter((v) => v.status === "completed").length}
             </div>
             <div className="text-sm text-muted-foreground">Completed</div>
           </div>
@@ -303,7 +324,7 @@ export function VaccineSchedule({ className }: VaccineScheduleProps) {
         <Card className="p-4 bg-card border-border">
           <div className="text-center">
             <div className="text-2xl font-bold text-destructive">
-              {vaccines.filter(v => v.status === "overdue").length}
+              {vaccines.filter((v) => v.status === "overdue").length}
             </div>
             <div className="text-sm text-muted-foreground">Overdue</div>
           </div>

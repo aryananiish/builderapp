@@ -336,7 +336,9 @@ export function PetCareCalendar({ className }: PetCareCalendarProps) {
             <div className="text-2xl font-bold text-info">
               {summary?.weeklyExercises || 0}
             </div>
-            <div className="text-sm text-muted-foreground">Weekly Exercises</div>
+            <div className="text-sm text-muted-foreground">
+              Weekly Exercises
+            </div>
           </div>
         </Card>
 

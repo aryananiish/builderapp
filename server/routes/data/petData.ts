@@ -540,8 +540,9 @@ export const getPetCareSummary = (): PetCareSummary => {
   // Count weekly exercise activities from the schedule
   const weeklyExercises = Object.values(weeklySchedule)
     .flat()
-    .filter((item) => item.type === "exercise" && item.status === "scheduled")
-    .length;
+    .filter(
+      (item) => item.type === "exercise" && item.status === "scheduled",
+    ).length;
 
   return {
     totalPets,
