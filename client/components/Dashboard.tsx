@@ -23,8 +23,16 @@ export function Dashboard({ className }: DashboardProps) {
     <div className={`min-h-screen bg-background ${className}`}>
       {/* Header */}
       <header className="border-b border-border bg-dashboard-header backdrop-blur supports-[backdrop-filter]:bg-dashboard-header/95">
-        <div className="container flex h-16 items-center justify-between px-6">
+        <div className="container flex h-16 items-center justify-between px-4 md:px-6">
           <div className="flex items-center space-x-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden text-muted-foreground hover:text-foreground"
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+            >
+              {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
             <div className="flex items-center space-x-2">
               <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
                 <Clock className="h-5 w-5 text-primary-foreground" />
@@ -32,7 +40,7 @@ export function Dashboard({ className }: DashboardProps) {
               <span className="text-xl font-bold text-foreground">TimeTable Pro</span>
             </div>
           </div>
-          
+
           <div className="flex items-center space-x-4">
             <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
               <Bell className="h-5 w-5" />
