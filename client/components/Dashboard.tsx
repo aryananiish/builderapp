@@ -99,17 +99,17 @@ export function Dashboard({ className }: DashboardProps) {
         <main className="flex-1 overflow-auto bg-dashboard-content">
           <div className="p-4 md:p-6">
             {activeView === "timetable" && (
-              <div className="space-y-6">
-                <div className="flex items-center justify-between">
+              <div className="space-y-4 md:space-y-6">
+                <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                   <div>
-                    <h1 className="text-3xl font-bold text-foreground">Class Timetable</h1>
+                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">Class Timetable</h1>
                     <p className="text-muted-foreground mt-1">Manage your weekly schedule</p>
                   </div>
-                  <Button className="bg-primary hover:bg-primary/90">
+                  <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
                     Add Class
                   </Button>
                 </div>
-                
+
                 <Timetable />
               </div>
             )}
