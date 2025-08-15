@@ -370,6 +370,18 @@ export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
       status: "scheduled",
       location: "Happy Paws Vet",
     },
+    {
+      id: "schedule-tue-2",
+      petName: "Max",
+      type: "exercise",
+      title: "Dog Park Visit",
+      description: "Socialization and off-leash play",
+      time: "15:00",
+      color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
+      icon: "zap",
+      status: "scheduled",
+      location: "Central Dog Park",
+    },
   ],
   Wednesday: [
     {
