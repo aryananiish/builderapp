@@ -171,7 +171,7 @@ export function Settings({ className }: SettingsProps) {
               type="tel"
               placeholder="Enter your phone number"
               className="w-full p-3 rounded-lg border border-border bg-background text-foreground"
-              defaultValue="+1 (555) 123-4567"
+              defaultValue="+91 0000000000"
             />
           </div>
         </div>
@@ -186,7 +186,7 @@ export function Settings({ className }: SettingsProps) {
               type="text"
               placeholder="Dr. Smith's Animal Clinic"
               className="w-full p-3 rounded-lg border border-border bg-background text-foreground"
-              defaultValue="Happy Paws Veterinary Clinic"
+              defaultValue="Paws Veterinary Clinic"
             />
           </div>
           <div>
@@ -195,7 +195,7 @@ export function Settings({ className }: SettingsProps) {
               type="tel"
               placeholder="Emergency vet number"
               className="w-full p-3 rounded-lg border border-border bg-background text-foreground"
-              defaultValue="+1 (555) 911-PETS"
+              defaultValue="+91 1111111111"
             />
           </div>
         </div>
