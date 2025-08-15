@@ -33,12 +33,12 @@ export interface GetEventsResponse {
 export interface WeeklyScheduleItem {
   id: string;
   petName: string;
-  type: "vaccine" | "food" | "appointment";
+  type: "vaccine" | "food" | "appointment" | "exercise";
   title: string;
   description: string;
   time: string;
   color: string;
-  icon: "syringe" | "utensils" | "heart";
+  icon: "syringe" | "utensils" | "heart" | "zap";
   status: "scheduled" | "completed" | "overdue";
   location?: string;
 }
@@ -52,6 +52,7 @@ export interface PetCareSummary {
   upcomingVaccines: number;
   dailyMeals: number;
   upcomingEvents: number;
+  weeklyExercises: number;
 }
 
 export interface GetSummaryResponse {
