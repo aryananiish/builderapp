@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Calendar, Heart, Users, Settings, BarChart3, Bell, Menu, X, Syringe, Utensils } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Timetable } from "./Timetable";
+import { PetCareCalendar } from "./PetCareCalendar";
 
 interface DashboardProps {
   className?: string;
