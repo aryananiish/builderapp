@@ -21,6 +21,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { PetCareCalendar } from "./PetCareCalendar";
 import { VaccineSchedule } from "./VaccineSchedule";
+import { DietSchedule } from "./DietSchedule";
 
 interface DashboardProps {
   className?: string;
