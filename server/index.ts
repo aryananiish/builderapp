@@ -42,5 +42,13 @@ export function createServer() {
   app.get("/api/summary", handleGetSummary);
   app.get("/api/calendar", handleGetCalendar);
 
+  // Calendar CRUD operations
+  app.get("/api/calendar/schedule/:day", handleGetDaySchedule);
+  app.post("/api/calendar/schedule/:day", handleAddScheduleItem);
+  app.put("/api/calendar/schedule/:day/:itemId", handleUpdateScheduleItem);
+  app.delete("/api/calendar/schedule/:day/:itemId", handleDeleteScheduleItem);
+  app.post("/api/calendar/schedule/move", handleMoveScheduleItem);
+  app.get("/api/calendar/schedule/reset", handleResetSchedule);
+
   return app;
 }
