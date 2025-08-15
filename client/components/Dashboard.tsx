@@ -115,9 +115,9 @@ export function Dashboard({ className }: DashboardProps) {
             )}
             
             {activeView === "analytics" && (
-              <div className="space-y-6">
-                <h1 className="text-3xl font-bold text-foreground">Analytics</h1>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="space-y-4 md:space-y-6">
+                <h1 className="text-2xl md:text-3xl font-bold text-foreground">Analytics</h1>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                   <Card className="p-6 bg-card border-border">
                     <div className="flex items-center space-x-2">
                       <BarChart3 className="h-5 w-5 text-primary" />
