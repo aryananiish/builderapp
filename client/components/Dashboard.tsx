@@ -189,15 +189,10 @@ export function Dashboard({ className }: DashboardProps) {
                     </p>
                   </div>
                   <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
-                    Add Diet Time
+                    Add Diet Schedule
                   </Button>
                 </div>
-                <Card className="p-6 md:p-8 bg-card border-border text-center">
-                  <Utensils className="h-10 w-10 md:h-12 md:w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground text-sm md:text-base">
-                    Diet management coming soon...
-                  </p>
-                </Card>
+                <DietSchedule />
               </div>
             )}
 
