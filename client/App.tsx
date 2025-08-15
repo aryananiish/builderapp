@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CalendarData from "./pages/CalendarData";
+import CalendarEditorPage from "./pages/CalendarEditor";
 
 const queryClient = new QueryClient();
 
