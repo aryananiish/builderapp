@@ -463,6 +463,18 @@ export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
   ],
   Saturday: [
     {
+      id: "schedule-sat-0",
+      petName: "Max",
+      type: "exercise",
+      title: "Hiking",
+      description: "Mountain trail hike",
+      time: "08:30",
+      color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
+      icon: "zap",
+      status: "scheduled",
+      location: "Mountain Trail",
+    },
+    {
       id: "schedule-sat-1",
       petName: "Luna",
       type: "appointment",
@@ -472,6 +484,18 @@ export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
       color: "bg-pink-500/20 text-pink-400 border-pink-500/30",
       icon: "heart",
       status: "scheduled",
+    },
+    {
+      id: "schedule-sat-2",
+      petName: "Luna",
+      type: "exercise",
+      title: "Window Watching",
+      description: "Bird watching and mental stimulation",
+      time: "14:00",
+      color: "bg-indigo-500/20 text-indigo-400 border-indigo-500/30",
+      icon: "zap",
+      status: "scheduled",
+      location: "Living Room Window",
     },
   ],
   Sunday: [
