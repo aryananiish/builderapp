@@ -32,6 +32,7 @@ export function createServer() {
   app.get("/api/events", handleGetEvents);
   app.get("/api/weekly-schedule", handleGetWeeklySchedule);
   app.get("/api/summary", handleGetSummary);
+  app.get("/api/calendar", handleGetCalendar);
 
   return app;
 }
