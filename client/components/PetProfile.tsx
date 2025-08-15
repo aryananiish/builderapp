@@ -25,11 +25,7 @@ interface PetProfileProps {
 }
 
 export function PetProfile({ className }: PetProfileProps) {
-  const {
-    data: petsData,
-    loading: petsLoading,
-    error: petsError,
-  } = usePets();
+  const { data: petsData, loading: petsLoading, error: petsError } = usePets();
   const { data: vaccinesData } = useVaccines();
   const { data: foodSchedulesData } = useFoodSchedules();
 
@@ -39,15 +35,20 @@ export function PetProfile({ className }: PetProfileProps) {
 
   // Get pet statistics
   const getPetStats = (petId: string) => {
-    const petVaccines = vaccines.filter(v => v.petId === petId);
-    const petFoodSchedules = foodSchedules.filter(s => s.petId === petId);
-    
+    const petVaccines = vaccines.filter((v) => v.petId === petId);
+    const petFoodSchedules = foodSchedules.filter((s) => s.petId === petId);
+
     return {
       totalVaccines: petVaccines.length,
-      upcomingVaccines: petVaccines.filter(v => v.status === "scheduled").length,
-      completedVaccines: petVaccines.filter(v => v.status === "completed").length,
+      upcomingVaccines: petVaccines.filter((v) => v.status === "scheduled")
+        .length,
+      completedVaccines: petVaccines.filter((v) => v.status === "completed")
+        .length,
       dailyMeals: petFoodSchedules.length,
-      totalCalories: petFoodSchedules.reduce((total, s) => total + (s.calories || 0), 0),
+      totalCalories: petFoodSchedules.reduce(
+        (total, s) => total + (s.calories || 0),
+        0,
+      ),
     };
   };
 
@@ -55,13 +56,37 @@ export function PetProfile({ className }: PetProfileProps) {
   const getPetTypeInfo = (type: Pet["type"]) => {
     const typeInfo = {
       dog: { emoji: "🐕", color: "bg-blue-100 text-blue-800", label: "Dog" },
-      cat: { emoji: "🐱", color: "bg-purple-100 text-purple-800", label: "Cat" },
-      bird: { emoji: "🦜", color: "bg-yellow-100 text-yellow-800", label: "Bird" },
-      rabbit: { emoji: "🐰", color: "bg-pink-100 text-pink-800", label: "Rabbit" },
-      hamster: { emoji: "🐹", color: "bg-orange-100 text-orange-800", label: "Hamster" },
+      cat: {
+        emoji: "🐱",
+        color: "bg-purple-100 text-purple-800",
+        label: "Cat",
+      },
+      bird: {
+        emoji: "🦜",
+        color: "bg-yellow-100 text-yellow-800",
+        label: "Bird",
+      },
+      rabbit: {
+        emoji: "🐰",
+        color: "bg-pink-100 text-pink-800",
+        label: "Rabbit",
+      },
+      hamster: {
+        emoji: "🐹",
+        color: "bg-orange-100 text-orange-800",
+        label: "Hamster",
+      },
       fish: { emoji: "🐠", color: "bg-cyan-100 text-cyan-800", label: "Fish" },
-      reptile: { emoji: "🦎", color: "bg-green-100 text-green-800", label: "Reptile" },
-      other: { emoji: "🐾", color: "bg-gray-100 text-gray-800", label: "Other" },
+      reptile: {
+        emoji: "🦎",
+        color: "bg-green-100 text-green-800",
+        label: "Reptile",
+      },
+      other: {
+        emoji: "🐾",
+        color: "bg-gray-100 text-gray-800",
+        label: "Other",
+      },
     };
     return typeInfo[type] || typeInfo.other;
   };
@@ -145,7 +170,9 @@ export function PetProfile({ className }: PetProfileProps) {
                       </div>
                     )}
                     <div className="absolute -bottom-1 -right-1">
-                      <Badge className={cn("text-xs px-2 py-1", typeInfo.color)}>
+                      <Badge
+                        className={cn("text-xs px-2 py-1", typeInfo.color)}
+                      >
                         {typeInfo.label}
                       </Badge>
                     </div>
@@ -167,7 +194,9 @@ export function PetProfile({ className }: PetProfileProps) {
                       {pet.weight && (
                         <div className="flex items-center space-x-1">
                           <Scale className="h-4 w-4 text-muted-foreground" />
-                          <span className="text-foreground">{pet.weight} kg</span>
+                          <span className="text-foreground">
+                            {pet.weight} kg
+                          </span>
                         </div>
                       )}
                     </div>
@@ -258,7 +287,9 @@ export function PetProfile({ className }: PetProfileProps) {
               <Plus className="h-8 w-8 text-primary" />
             </div>
             <div>
-              <h3 className="font-semibold text-foreground mb-1">Add New Pet</h3>
+              <h3 className="font-semibold text-foreground mb-1">
+                Add New Pet
+              </h3>
               <p className="text-sm text-muted-foreground">
                 Create a profile for your new companion
               </p>
@@ -295,7 +326,9 @@ export function PetProfile({ className }: PetProfileProps) {
               <PawPrint className="h-5 w-5 text-primary" />
             </div>
             <div>
-              <div className="text-xl font-bold text-foreground">{pets.length}</div>
+              <div className="text-xl font-bold text-foreground">
+                {pets.length}
+              </div>
               <div className="text-sm text-muted-foreground">Total Pets</div>
             </div>
           </div>
@@ -307,9 +340,11 @@ export function PetProfile({ className }: PetProfileProps) {
             </div>
             <div>
               <div className="text-xl font-bold text-foreground">
-                {vaccines.filter(v => v.status === "completed").length}
+                {vaccines.filter((v) => v.status === "completed").length}
               </div>
-              <div className="text-sm text-muted-foreground">Total Vaccines</div>
+              <div className="text-sm text-muted-foreground">
+                Total Vaccines
+              </div>
             </div>
           </div>
         </Card>
@@ -320,9 +355,11 @@ export function PetProfile({ className }: PetProfileProps) {
             </div>
             <div>
               <div className="text-xl font-bold text-foreground">
-                {vaccines.filter(v => v.status === "scheduled").length}
+                {vaccines.filter((v) => v.status === "scheduled").length}
               </div>
-              <div className="text-sm text-muted-foreground">Upcoming Appointments</div>
+              <div className="text-sm text-muted-foreground">
+                Upcoming Appointments
+              </div>
             </div>
           </div>
         </Card>
@@ -333,7 +370,10 @@ export function PetProfile({ className }: PetProfileProps) {
             </div>
             <div>
               <div className="text-xl font-bold text-foreground">
-                {pets.reduce((total, pet) => total + (pet.weight || 0), 0).toFixed(1)}kg
+                {pets
+                  .reduce((total, pet) => total + (pet.weight || 0), 0)
+                  .toFixed(1)}
+                kg
               </div>
               <div className="text-sm text-muted-foreground">Total Weight</div>
             </div>

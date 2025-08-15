@@ -65,11 +65,31 @@ export function DietSchedule({ className }: DietScheduleProps) {
   // Get feeding type display
   const getFeedingTypeDisplay = (type: FoodSchedule["feedingType"]) => {
     const displays = {
-      breakfast: { icon: "🌅", label: "Breakfast", color: "bg-orange-100 text-orange-800" },
-      lunch: { icon: "☀️", label: "Lunch", color: "bg-yellow-100 text-yellow-800" },
-      dinner: { icon: "🌙", label: "Dinner", color: "bg-blue-100 text-blue-800" },
-      snack: { icon: "🍪", label: "Snack", color: "bg-purple-100 text-purple-800" },
-      medication: { icon: "💊", label: "Medication", color: "bg-red-100 text-red-800" },
+      breakfast: {
+        icon: "🌅",
+        label: "Breakfast",
+        color: "bg-orange-100 text-orange-800",
+      },
+      lunch: {
+        icon: "☀️",
+        label: "Lunch",
+        color: "bg-yellow-100 text-yellow-800",
+      },
+      dinner: {
+        icon: "🌙",
+        label: "Dinner",
+        color: "bg-blue-100 text-blue-800",
+      },
+      snack: {
+        icon: "🍪",
+        label: "Snack",
+        color: "bg-purple-100 text-purple-800",
+      },
+      medication: {
+        icon: "💊",
+        label: "Medication",
+        color: "bg-red-100 text-red-800",
+      },
     };
     return displays[type] || displays.snack;
   };
@@ -77,13 +97,23 @@ export function DietSchedule({ className }: DietScheduleProps) {
   // Format days display
   const formatDays = (days: string[]) => {
     if (days.length === 7) return "Daily";
-    if (days.length === 5 && !days.includes("saturday") && !days.includes("sunday")) {
+    if (
+      days.length === 5 &&
+      !days.includes("saturday") &&
+      !days.includes("sunday")
+    ) {
       return "Weekdays";
     }
-    if (days.length === 2 && days.includes("saturday") && days.includes("sunday")) {
+    if (
+      days.length === 2 &&
+      days.includes("saturday") &&
+      days.includes("sunday")
+    ) {
       return "Weekends";
     }
-    return days.map(day => day.charAt(0).toUpperCase() + day.slice(1)).join(", ");
+    return days
+      .map((day) => day.charAt(0).toUpperCase() + day.slice(1))
+      .join(", ");
   };
 
   // Handle feeding actions
@@ -141,7 +171,9 @@ export function DietSchedule({ className }: DietScheduleProps) {
         {schedules.map((schedule) => {
           const petName = getPetName(schedule.petId);
           const statusDisplay = getStatusDisplay(schedule.status);
-          const feedingTypeDisplay = getFeedingTypeDisplay(schedule.feedingType);
+          const feedingTypeDisplay = getFeedingTypeDisplay(
+            schedule.feedingType,
+          );
 
           return (
             <Card
@@ -174,7 +206,10 @@ export function DietSchedule({ className }: DietScheduleProps) {
                 {/* Food Info */}
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2">
-                    <Badge variant="outline" className={cn("text-xs", feedingTypeDisplay.color)}>
+                    <Badge
+                      variant="outline"
+                      className={cn("text-xs", feedingTypeDisplay.color)}
+                    >
                       <span className="mr-1">{feedingTypeDisplay.icon}</span>
                       {feedingTypeDisplay.label}
                     </Badge>
@@ -202,9 +237,7 @@ export function DietSchedule({ className }: DietScheduleProps) {
                   </div>
                   <div className="flex items-center space-x-2 text-sm">
                     <Scale className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-foreground">
-                      {schedule.amount}
-                    </span>
+                    <span className="text-foreground">{schedule.amount}</span>
                   </div>
                   {schedule.calories && (
                     <div className="flex items-center space-x-2 text-sm">
@@ -247,7 +280,8 @@ export function DietSchedule({ className }: DietScheduleProps) {
                       </Button>
                     </>
                   )}
-                  {(schedule.status === "fed" || schedule.status === "missed") && (
+                  {(schedule.status === "fed" ||
+                    schedule.status === "missed") && (
                     <Button
                       size="sm"
                       variant="outline"
