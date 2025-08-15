@@ -18,6 +18,7 @@ import {
 import { useSummary } from "@/hooks/usePetData";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { PetCareCalendar } from "./PetCareCalendar";
 import { VaccineSchedule } from "./VaccineSchedule";
 
