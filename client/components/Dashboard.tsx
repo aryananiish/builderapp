@@ -97,7 +97,7 @@ export function Dashboard({ className }: DashboardProps) {
 
         {/* Main Content */}
         <main className="flex-1 overflow-auto bg-dashboard-content">
-          <div className="p-6">
+          <div className="p-4 md:p-6">
             {activeView === "timetable" && (
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
