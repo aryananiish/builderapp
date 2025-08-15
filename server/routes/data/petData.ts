@@ -9,17 +9,17 @@ export const samplePets: Pet[] = [
     breed: "Golden Retriever",
     age: 3,
     weight: 25,
-    notes: "Very friendly and energetic. Loves playing fetch and swimming."
+    notes: "Very friendly and energetic. Loves playing fetch and swimming.",
   },
   {
-    id: "pet-2", 
+    id: "pet-2",
     name: "Luna",
     type: "cat",
     breed: "Maine Coon",
     age: 2,
     weight: 4.5,
-    notes: "Indoor cat, loves sunny spots and interactive toys."
-  }
+    notes: "Indoor cat, loves sunny spots and interactive toys.",
+  },
 ];
 
 export const sampleVaccines: Vaccine[] = [
@@ -35,7 +35,7 @@ export const sampleVaccines: Vaccine[] = [
     location: "Happy Paws Veterinary Clinic",
     status: "scheduled",
     color: "bg-red-500/20 text-red-400 border-red-500/30",
-    notes: "Bring vaccination record"
+    notes: "Bring vaccination record",
   },
   {
     id: "vacc-2",
@@ -48,7 +48,7 @@ export const sampleVaccines: Vaccine[] = [
     veterinarian: "Dr. Sarah Johnson",
     location: "Happy Paws Veterinary Clinic",
     status: "scheduled",
-    color: "bg-blue-500/20 text-blue-400 border-blue-500/30"
+    color: "bg-blue-500/20 text-blue-400 border-blue-500/30",
   },
   {
     id: "vacc-3",
@@ -61,7 +61,7 @@ export const sampleVaccines: Vaccine[] = [
     veterinarian: "Dr. Mike Chen",
     location: "City Animal Hospital",
     status: "scheduled",
-    color: "bg-purple-500/20 text-purple-400 border-purple-500/30"
+    color: "bg-purple-500/20 text-purple-400 border-purple-500/30",
   },
   {
     id: "vacc-4",
@@ -74,8 +74,8 @@ export const sampleVaccines: Vaccine[] = [
     veterinarian: "Dr. Mike Chen",
     location: "City Animal Hospital",
     status: "scheduled",
-    color: "bg-red-500/20 text-red-400 border-red-500/30"
-  }
+    color: "bg-red-500/20 text-red-400 border-red-500/30",
+  },
 ];
 
 export const sampleFoodSchedules: FoodSchedule[] = [
@@ -86,12 +86,20 @@ export const sampleFoodSchedules: FoodSchedule[] = [
     brand: "Royal Canin Golden Retriever",
     amount: "1 cup",
     scheduledTime: "07:00",
-    days: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+    days: [
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday",
+      "saturday",
+      "sunday",
+    ],
     feedingType: "breakfast",
     calories: 400,
     status: "pending",
     color: "bg-blue-500/20 text-blue-400 border-blue-500/30",
-    notes: "Morning meal with supplements"
+    notes: "Morning meal with supplements",
   },
   {
     id: "food-2",
@@ -100,12 +108,20 @@ export const sampleFoodSchedules: FoodSchedule[] = [
     brand: "Royal Canin Golden Retriever",
     amount: "1 cup",
     scheduledTime: "18:00",
-    days: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+    days: [
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday",
+      "saturday",
+      "sunday",
+    ],
     feedingType: "dinner",
     calories: 400,
     status: "pending",
     color: "bg-blue-500/20 text-blue-400 border-blue-500/30",
-    notes: "Evening meal"
+    notes: "Evening meal",
   },
   {
     id: "food-3",
@@ -114,12 +130,20 @@ export const sampleFoodSchedules: FoodSchedule[] = [
     brand: "Hill's Science Diet",
     amount: "1 can",
     scheduledTime: "07:30",
-    days: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+    days: [
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday",
+      "saturday",
+      "sunday",
+    ],
     feedingType: "breakfast",
     calories: 200,
     status: "pending",
     color: "bg-purple-500/20 text-purple-400 border-purple-500/30",
-    notes: "Morning wet food"
+    notes: "Morning wet food",
   },
   {
     id: "food-4",
@@ -128,12 +152,20 @@ export const sampleFoodSchedules: FoodSchedule[] = [
     brand: "Hill's Science Diet",
     amount: "1/2 cup",
     scheduledTime: "12:00",
-    days: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+    days: [
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday",
+      "saturday",
+      "sunday",
+    ],
     feedingType: "lunch",
     calories: 150,
     status: "pending",
     color: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
-    notes: "Midday dry food"
+    notes: "Midday dry food",
   },
   {
     id: "food-5",
@@ -142,13 +174,21 @@ export const sampleFoodSchedules: FoodSchedule[] = [
     brand: "Hill's Science Diet",
     amount: "1 can",
     scheduledTime: "18:30",
-    days: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+    days: [
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday",
+      "saturday",
+      "sunday",
+    ],
     feedingType: "dinner",
     calories: 200,
     status: "pending",
     color: "bg-purple-500/20 text-purple-400 border-purple-500/30",
-    notes: "Evening wet food"
-  }
+    notes: "Evening wet food",
+  },
 ];
 
 export const sampleEvents: PetCareEvent[] = [
@@ -165,8 +205,8 @@ export const sampleEvents: PetCareEvent[] = [
     color: "bg-green-500/20 text-green-400 border-green-500/30",
     reminders: [
       { type: "notification", minutesBefore: 60 },
-      { type: "notification", minutesBefore: 15 }
-    ]
+      { type: "notification", minutesBefore: 15 },
+    ],
   },
   {
     id: "event-2",
@@ -181,8 +221,8 @@ export const sampleEvents: PetCareEvent[] = [
     color: "bg-teal-500/20 text-teal-400 border-teal-500/30",
     reminders: [
       { type: "notification", minutesBefore: 1440 }, // 24 hours
-      { type: "notification", minutesBefore: 60 }
-    ]
+      { type: "notification", minutesBefore: 60 },
+    ],
   },
   {
     id: "event-3",
@@ -194,7 +234,7 @@ export const sampleEvents: PetCareEvent[] = [
     time: "10:00",
     duration: 30,
     status: "scheduled",
-    color: "bg-pink-500/20 text-pink-400 border-pink-500/30"
+    color: "bg-pink-500/20 text-pink-400 border-pink-500/30",
   },
   {
     id: "event-4",
@@ -206,7 +246,7 @@ export const sampleEvents: PetCareEvent[] = [
     time: "16:00",
     duration: 90,
     status: "scheduled",
-    color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30"
+    color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
   },
   {
     id: "event-5",
@@ -218,8 +258,8 @@ export const sampleEvents: PetCareEvent[] = [
     time: "08:00",
     duration: 15,
     status: "scheduled",
-    color: "bg-orange-500/20 text-orange-400 border-orange-500/30"
-  }
+    color: "bg-orange-500/20 text-orange-400 border-orange-500/30",
+  },
 ];
 
 // Weekly schedule for calendar display
@@ -234,7 +274,7 @@ export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
       time: "07:00",
       color: "bg-blue-500/20 text-blue-400 border-blue-500/30",
       icon: "utensils",
-      status: "scheduled"
+      status: "scheduled",
     },
     {
       id: "schedule-mon-2",
@@ -245,7 +285,7 @@ export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
       time: "07:30",
       color: "bg-purple-500/20 text-purple-400 border-purple-500/30",
       icon: "utensils",
-      status: "scheduled"
+      status: "scheduled",
     },
     {
       id: "schedule-mon-3",
@@ -256,7 +296,7 @@ export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
       time: "12:00",
       color: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
       icon: "utensils",
-      status: "scheduled"
+      status: "scheduled",
     },
     {
       id: "schedule-mon-4",
@@ -267,7 +307,7 @@ export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
       time: "18:00",
       color: "bg-blue-500/20 text-blue-400 border-blue-500/30",
       icon: "utensils",
-      status: "scheduled"
+      status: "scheduled",
     },
     {
       id: "schedule-mon-5",
@@ -278,8 +318,8 @@ export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
       time: "18:30",
       color: "bg-purple-500/20 text-purple-400 border-purple-500/30",
       icon: "utensils",
-      status: "scheduled"
-    }
+      status: "scheduled",
+    },
   ],
   Tuesday: [
     {
@@ -292,8 +332,8 @@ export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
       color: "bg-red-500/20 text-red-400 border-red-500/30",
       icon: "syringe",
       status: "scheduled",
-      location: "Happy Paws Vet"
-    }
+      location: "Happy Paws Vet",
+    },
   ],
   Wednesday: [
     {
@@ -306,8 +346,8 @@ export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
       color: "bg-red-500/20 text-red-400 border-red-500/30",
       icon: "syringe",
       status: "scheduled",
-      location: "City Animal Hospital"
-    }
+      location: "City Animal Hospital",
+    },
   ],
   Thursday: [
     {
@@ -320,8 +360,8 @@ export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
       color: "bg-green-500/20 text-green-400 border-green-500/30",
       icon: "heart",
       status: "scheduled",
-      location: "Pet Spa"
-    }
+      location: "Pet Spa",
+    },
   ],
   Friday: [
     {
@@ -334,8 +374,8 @@ export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
       color: "bg-teal-500/20 text-teal-400 border-teal-500/30",
       icon: "heart",
       status: "scheduled",
-      location: "Happy Paws Vet"
-    }
+      location: "Happy Paws Vet",
+    },
   ],
   Saturday: [
     {
@@ -347,8 +387,8 @@ export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
       time: "10:00",
       color: "bg-pink-500/20 text-pink-400 border-pink-500/30",
       icon: "heart",
-      status: "scheduled"
-    }
+      status: "scheduled",
+    },
   ],
   Sunday: [
     {
@@ -361,22 +401,26 @@ export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
       color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
       icon: "heart",
       status: "scheduled",
-      location: "Central Dog Park"
-    }
-  ]
+      location: "Central Dog Park",
+    },
+  ],
 };
 
 // Calculate summary statistics
 export const getPetCareSummary = (): PetCareSummary => {
   const totalPets = samplePets.length;
-  const upcomingVaccines = sampleVaccines.filter(v => v.status === "scheduled").length;
+  const upcomingVaccines = sampleVaccines.filter(
+    (v) => v.status === "scheduled",
+  ).length;
   const dailyMeals = sampleFoodSchedules.length;
-  const upcomingEvents = sampleEvents.filter(e => e.status === "scheduled").length;
+  const upcomingEvents = sampleEvents.filter(
+    (e) => e.status === "scheduled",
+  ).length;
 
   return {
     totalPets,
     upcomingVaccines,
     dailyMeals,
-    upcomingEvents
+    upcomingEvents,
   };
 };

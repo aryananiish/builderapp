@@ -1,5 +1,17 @@
 import { useState } from "react";
-import { Calendar, Heart, Users, Settings, BarChart3, Bell, Menu, X, Syringe, Utensils, Loader2 } from "lucide-react";
+import {
+  Calendar,
+  Heart,
+  Users,
+  Settings,
+  BarChart3,
+  Bell,
+  Menu,
+  X,
+  Syringe,
+  Utensils,
+  Loader2,
+} from "lucide-react";
 import { useSummary } from "@/hooks/usePetData";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -14,7 +26,11 @@ export function Dashboard({ className }: DashboardProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Fetch summary data for analytics
-  const { data: summaryData, loading: summaryLoading, error: summaryError } = useSummary();
+  const {
+    data: summaryData,
+    loading: summaryLoading,
+    error: summaryError,
+  } = useSummary();
 
   const navigationItems = [
     { id: "calendar", label: "Pet Calendar", icon: Calendar },
@@ -37,18 +53,28 @@ export function Dashboard({ className }: DashboardProps) {
               className="md:hidden text-muted-foreground hover:text-foreground"
               onClick={() => setSidebarOpen(!sidebarOpen)}
             >
-              {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {sidebarOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </Button>
             <div className="flex items-center space-x-2">
               <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
                 <Heart className="h-5 w-5 text-primary-foreground" />
               </div>
-              <span className="text-xl font-bold text-foreground">PetCare Pro</span>
+              <span className="text-xl font-bold text-foreground">
+                PetCare Pro
+              </span>
             </div>
           </div>
 
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-muted-foreground hover:text-foreground"
+            >
               <Bell className="h-5 w-5" />
             </Button>
             <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center">
@@ -68,12 +94,14 @@ export function Dashboard({ className }: DashboardProps) {
         )}
 
         {/* Sidebar */}
-        <aside className={`
+        <aside
+          className={`
           w-64 border-r border-border bg-dashboard-nav transition-transform duration-300 ease-in-out
           md:translate-x-0 md:static md:inset-0
-          ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
+          ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
           fixed inset-y-0 left-0 z-50 md:z-auto
-        `}>
+        `}
+        >
           <div className="p-4 md:p-6">
             <nav className="space-y-2">
               {navigationItems.map((item) => {
@@ -108,8 +136,12 @@ export function Dashboard({ className }: DashboardProps) {
               <div className="space-y-4 md:space-y-6">
                 <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                   <div>
-                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">Pet Care Calendar</h1>
-                    <p className="text-muted-foreground mt-1">Track vaccines, feeding times, and appointments</p>
+                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">
+                      Pet Care Calendar
+                    </h1>
+                    <p className="text-muted-foreground mt-1">
+                      Track vaccines, feeding times, and appointments
+                    </p>
                   </div>
                   <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
                     Add Event
@@ -119,13 +151,17 @@ export function Dashboard({ className }: DashboardProps) {
                 <PetCareCalendar />
               </div>
             )}
-            
+
             {activeView === "vaccines" && (
               <div className="space-y-4 md:space-y-6">
                 <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                   <div>
-                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">Vaccine Schedule</h1>
-                    <p className="text-muted-foreground mt-1">Keep your pets healthy with timely vaccinations</p>
+                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">
+                      Vaccine Schedule
+                    </h1>
+                    <p className="text-muted-foreground mt-1">
+                      Keep your pets healthy with timely vaccinations
+                    </p>
                   </div>
                   <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
                     Schedule Vaccine
@@ -133,7 +169,9 @@ export function Dashboard({ className }: DashboardProps) {
                 </div>
                 <Card className="p-6 md:p-8 bg-card border-border text-center">
                   <Syringe className="h-10 w-10 md:h-12 md:w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground text-sm md:text-base">Vaccine management coming soon...</p>
+                  <p className="text-muted-foreground text-sm md:text-base">
+                    Vaccine management coming soon...
+                  </p>
                 </Card>
               </div>
             )}
@@ -142,8 +180,12 @@ export function Dashboard({ className }: DashboardProps) {
               <div className="space-y-4 md:space-y-6">
                 <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                   <div>
-                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">Feeding Schedule</h1>
-                    <p className="text-muted-foreground mt-1">Track meal times and nutrition for your pets</p>
+                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">
+                      Feeding Schedule
+                    </h1>
+                    <p className="text-muted-foreground mt-1">
+                      Track meal times and nutrition for your pets
+                    </p>
                   </div>
                   <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
                     Add Feeding Time
@@ -151,7 +193,9 @@ export function Dashboard({ className }: DashboardProps) {
                 </div>
                 <Card className="p-6 md:p-8 bg-card border-border text-center">
                   <Utensils className="h-10 w-10 md:h-12 md:w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground text-sm md:text-base">Feeding management coming soon...</p>
+                  <p className="text-muted-foreground text-sm md:text-base">
+                    Feeding management coming soon...
+                  </p>
                 </Card>
               </div>
             )}
@@ -160,8 +204,12 @@ export function Dashboard({ className }: DashboardProps) {
               <div className="space-y-4 md:space-y-6">
                 <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                   <div>
-                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">My Pets</h1>
-                    <p className="text-muted-foreground mt-1">Manage your pet profiles and information</p>
+                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">
+                      My Pets
+                    </h1>
+                    <p className="text-muted-foreground mt-1">
+                      Manage your pet profiles and information
+                    </p>
                   </div>
                   <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
                     Add Pet
@@ -169,27 +217,37 @@ export function Dashboard({ className }: DashboardProps) {
                 </div>
                 <Card className="p-6 md:p-8 bg-card border-border text-center">
                   <Heart className="h-10 w-10 md:h-12 md:w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground text-sm md:text-base">Pet management coming soon...</p>
+                  <p className="text-muted-foreground text-sm md:text-base">
+                    Pet management coming soon...
+                  </p>
                 </Card>
               </div>
             )}
 
             {activeView === "analytics" && (
               <div className="space-y-4 md:space-y-6">
-                <h1 className="text-2xl md:text-3xl font-bold text-foreground">Pet Care Analytics</h1>
+                <h1 className="text-2xl md:text-3xl font-bold text-foreground">
+                  Pet Care Analytics
+                </h1>
 
                 {summaryLoading ? (
                   <Card className="p-6 bg-card border-border">
                     <div className="flex items-center justify-center py-8">
                       <Loader2 className="h-6 w-6 animate-spin text-primary" />
-                      <span className="ml-2 text-muted-foreground">Loading analytics...</span>
+                      <span className="ml-2 text-muted-foreground">
+                        Loading analytics...
+                      </span>
                     </div>
                   </Card>
                 ) : summaryError ? (
                   <Card className="p-6 bg-card border-border">
                     <div className="text-center py-8">
-                      <div className="text-destructive mb-2">Failed to load analytics data</div>
-                      <div className="text-sm text-muted-foreground">{summaryError}</div>
+                      <div className="text-destructive mb-2">
+                        Failed to load analytics data
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        {summaryError}
+                      </div>
                     </div>
                   </Card>
                 ) : (
@@ -197,20 +255,26 @@ export function Dashboard({ className }: DashboardProps) {
                     <Card className="p-6 bg-card border-border">
                       <div className="flex items-center space-x-2">
                         <Syringe className="h-5 w-5 text-primary" />
-                        <span className="text-foreground font-medium">Upcoming Vaccines</span>
+                        <span className="text-foreground font-medium">
+                          Upcoming Vaccines
+                        </span>
                       </div>
                       <div className="mt-2">
                         <span className="text-2xl font-bold text-foreground">
                           {summaryData?.summary?.upcomingVaccines || 0}
                         </span>
-                        <span className="text-muted-foreground ml-1">scheduled</span>
+                        <span className="text-muted-foreground ml-1">
+                          scheduled
+                        </span>
                       </div>
                     </Card>
 
                     <Card className="p-6 bg-card border-border">
                       <div className="flex items-center space-x-2">
                         <Heart className="h-5 w-5 text-success" />
-                        <span className="text-foreground font-medium">Active Pets</span>
+                        <span className="text-foreground font-medium">
+                          Active Pets
+                        </span>
                       </div>
                       <div className="mt-2">
                         <span className="text-2xl font-bold text-foreground">
@@ -223,40 +287,51 @@ export function Dashboard({ className }: DashboardProps) {
                     <Card className="p-6 bg-card border-border">
                       <div className="flex items-center space-x-2">
                         <Utensils className="h-5 w-5 text-info" />
-                        <span className="text-foreground font-medium">Daily Meals</span>
+                        <span className="text-foreground font-medium">
+                          Daily Meals
+                        </span>
                       </div>
                       <div className="mt-2">
                         <span className="text-2xl font-bold text-foreground">
                           {summaryData?.summary?.dailyMeals || 0}
                         </span>
-                        <span className="text-muted-foreground ml-1">scheduled</span>
+                        <span className="text-muted-foreground ml-1">
+                          scheduled
+                        </span>
                       </div>
                     </Card>
 
                     <Card className="p-6 bg-card border-border">
                       <div className="flex items-center space-x-2">
                         <Calendar className="h-5 w-5 text-warning" />
-                        <span className="text-foreground font-medium">Upcoming Events</span>
+                        <span className="text-foreground font-medium">
+                          Upcoming Events
+                        </span>
                       </div>
                       <div className="mt-2">
                         <span className="text-2xl font-bold text-foreground">
                           {summaryData?.summary?.upcomingEvents || 0}
                         </span>
-                        <span className="text-muted-foreground ml-1">events</span>
+                        <span className="text-muted-foreground ml-1">
+                          events
+                        </span>
                       </div>
                     </Card>
                   </div>
                 )}
               </div>
             )}
-            
 
             {activeView === "settings" && (
               <div className="space-y-4 md:space-y-6">
-                <h1 className="text-2xl md:text-3xl font-bold text-foreground">Settings</h1>
+                <h1 className="text-2xl md:text-3xl font-bold text-foreground">
+                  Settings
+                </h1>
                 <Card className="p-6 md:p-8 bg-card border-border text-center">
                   <Settings className="h-10 w-10 md:h-12 md:w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground text-sm md:text-base">Settings panel coming soon...</p>
+                  <p className="text-muted-foreground text-sm md:text-base">
+                    Settings panel coming soon...
+                  </p>
                 </Card>
               </div>
             )}

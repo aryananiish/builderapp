@@ -1,4 +1,4 @@
-import { Pet, Vaccine, FoodSchedule, PetCareEvent } from './petcare';
+import { Pet, Vaccine, FoodSchedule, PetCareEvent } from "./petcare";
 
 export interface PingResponse {
   message: string;

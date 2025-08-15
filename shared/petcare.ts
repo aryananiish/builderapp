@@ -1,7 +1,15 @@
 export interface Pet {
   id: string;
   name: string;
-  type: "dog" | "cat" | "bird" | "rabbit" | "hamster" | "fish" | "reptile" | "other";
+  type:
+    | "dog"
+    | "cat"
+    | "bird"
+    | "rabbit"
+    | "hamster"
+    | "fish"
+    | "reptile"
+    | "other";
   breed?: string;
   age: number;
   weight?: number; // in kg
@@ -32,7 +40,15 @@ export interface FoodSchedule {
   brand?: string;
   amount: string; // e.g., "1 cup", "100g"
   scheduledTime: string; // Time in HH:MM format
-  days: ("monday" | "tuesday" | "wednesday" | "thursday" | "friday" | "saturday" | "sunday")[];
+  days: (
+    | "monday"
+    | "tuesday"
+    | "wednesday"
+    | "thursday"
+    | "friday"
+    | "saturday"
+    | "sunday"
+  )[];
   feedingType: "breakfast" | "lunch" | "dinner" | "snack" | "medication";
   calories?: number;
   status: "pending" | "fed" | "missed";
@@ -43,7 +59,13 @@ export interface FoodSchedule {
 export interface PetCareEvent {
   id: string;
   petId: string;
-  type: "vaccine" | "food" | "vet-visit" | "grooming" | "medication" | "exercise";
+  type:
+    | "vaccine"
+    | "food"
+    | "vet-visit"
+    | "grooming"
+    | "medication"
+    | "exercise";
   title: string;
   description?: string;
   date: string; // ISO date string
@@ -61,7 +83,13 @@ export interface VaccineType {
   name: string;
   description: string;
   requiredFor: Pet["type"][];
-  frequency: "annual" | "biannual" | "triennial" | "puppy-series" | "kitten-series" | "one-time";
+  frequency:
+    | "annual"
+    | "biannual"
+    | "triennial"
+    | "puppy-series"
+    | "kitten-series"
+    | "one-time";
   ageRange?: {
     min: number; // in months
     max?: number; // in months
@@ -73,43 +101,43 @@ export const COMMON_VACCINES: VaccineType[] = [
     name: "Rabies",
     description: "Protects against rabies virus",
     requiredFor: ["dog", "cat"],
-    frequency: "annual"
+    frequency: "annual",
   },
   {
     name: "DHPP (Dogs)",
     description: "Distemper, Hepatitis, Parvovirus, Parainfluenza",
     requiredFor: ["dog"],
-    frequency: "annual"
+    frequency: "annual",
   },
   {
     name: "FVRCP (Cats)",
     description: "Feline Viral Rhinotracheitis, Calicivirus, Panleukopenia",
     requiredFor: ["cat"],
-    frequency: "annual"
+    frequency: "annual",
   },
   {
     name: "Bordetella",
     description: "Kennel cough prevention",
     requiredFor: ["dog"],
-    frequency: "annual"
+    frequency: "annual",
   },
   {
     name: "Lyme Disease",
     description: "Tick-borne disease prevention",
     requiredFor: ["dog"],
-    frequency: "annual"
-  }
+    frequency: "annual",
+  },
 ];
 
 export const FOOD_SCHEDULE_PRESETS = {
   dog: {
     puppy: ["breakfast", "lunch", "dinner", "snack"],
     adult: ["breakfast", "dinner"],
-    senior: ["breakfast", "dinner"]
+    senior: ["breakfast", "dinner"],
   },
   cat: {
     kitten: ["breakfast", "lunch", "dinner", "snack"],
     adult: ["breakfast", "dinner"],
-    senior: ["breakfast", "dinner"]
-  }
+    senior: ["breakfast", "dinner"],
+  },
 };

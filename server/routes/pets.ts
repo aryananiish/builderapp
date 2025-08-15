@@ -6,14 +6,14 @@ export const handleGetPets: RequestHandler = (req, res) => {
   try {
     const response: GetPetsResponse = {
       pets: samplePets,
-      total: samplePets.length
+      total: samplePets.length,
     };
     res.json(response);
   } catch (error) {
     res.status(500).json({
       error: "Internal Server Error",
       message: "Failed to fetch pets data",
-      status: 500
+      status: 500,
     });
   }
 };

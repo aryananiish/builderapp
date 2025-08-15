@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
-import { 
-  GetPetsResponse, 
-  GetVaccinesResponse, 
-  GetFoodSchedulesResponse, 
-  GetEventsResponse, 
-  GetWeeklyScheduleResponse, 
+import { useState, useEffect } from "react";
+import {
+  GetPetsResponse,
+  GetVaccinesResponse,
+  GetFoodSchedulesResponse,
+  GetEventsResponse,
+  GetWeeklyScheduleResponse,
   GetSummaryResponse,
-  ApiError
-} from '@shared/api';
+  ApiError,
+} from "@shared/api";
 
 interface UseApiDataResult<T> {
   data: T | null;
@@ -25,18 +25,22 @@ function useApiData<T>(url: string): UseApiDataResult<T> {
     try {
       setLoading(true);
       setError(null);
-      
+
       const response = await fetch(url);
-      
+
       if (!response.ok) {
         const errorData: ApiError = await response.json();
-        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+        throw new Error(
+          errorData.message || `HTTP error! status: ${response.status}`,
+        );
       }
-      
+
       const result = await response.json();
       setData(result);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An unknown error occurred');
+      setError(
+        err instanceof Error ? err.message : "An unknown error occurred",
+      );
     } finally {
       setLoading(false);
     }
@@ -55,27 +59,27 @@ function useApiData<T>(url: string): UseApiDataResult<T> {
 
 // Specific hooks for each endpoint
 export function usePets() {
-  return useApiData<GetPetsResponse>('/api/pets');
+  return useApiData<GetPetsResponse>("/api/pets");
 }
 
 export function useVaccines() {
-  return useApiData<GetVaccinesResponse>('/api/vaccines');
+  return useApiData<GetVaccinesResponse>("/api/vaccines");
 }
 
 export function useFoodSchedules() {
-  return useApiData<GetFoodSchedulesResponse>('/api/food-schedules');
+  return useApiData<GetFoodSchedulesResponse>("/api/food-schedules");
 }
 
 export function useEvents() {
-  return useApiData<GetEventsResponse>('/api/events');
+  return useApiData<GetEventsResponse>("/api/events");
 }
 
 export function useWeeklySchedule() {
-  return useApiData<GetWeeklyScheduleResponse>('/api/weekly-schedule');
+  return useApiData<GetWeeklyScheduleResponse>("/api/weekly-schedule");
 }
 
 export function useSummary() {
-  return useApiData<GetSummaryResponse>('/api/summary');
+  return useApiData<GetSummaryResponse>("/api/summary");
 }
 
 // Combined hook for all pet data
@@ -87,11 +91,21 @@ export function useAllPetData() {
   const weeklySchedule = useWeeklySchedule();
   const summary = useSummary();
 
-  const loading = pets.loading || vaccines.loading || foodSchedules.loading || 
-                  events.loading || weeklySchedule.loading || summary.loading;
-  
-  const error = pets.error || vaccines.error || foodSchedules.error || 
-                events.error || weeklySchedule.error || summary.error;
+  const loading =
+    pets.loading ||
+    vaccines.loading ||
+    foodSchedules.loading ||
+    events.loading ||
+    weeklySchedule.loading ||
+    summary.loading;
+
+  const error =
+    pets.error ||
+    vaccines.error ||
+    foodSchedules.error ||
+    events.error ||
+    weeklySchedule.error ||
+    summary.error;
 
   const refetchAll = () => {
     pets.refetch();
@@ -111,6 +125,6 @@ export function useAllPetData() {
     summary: summary.data,
     loading,
     error,
-    refetch: refetchAll
+    refetch: refetchAll,
   };
 }
