@@ -200,30 +200,6 @@ export function Dashboard({ className }: DashboardProps) {
               </div>
             )}
 
-            {activeView === "pets" && (
-              <div className="space-y-4 md:space-y-6">
-                <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
-                  <div>
-                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">
-                      My Pets
-                    </h1>
-                    <p className="text-muted-foreground mt-1">
-                      Manage your pet profiles and information
-                    </p>
-                  </div>
-                  <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
-                    Add Pet
-                  </Button>
-                </div>
-                <Card className="p-6 md:p-8 bg-card border-border text-center">
-                  <Heart className="h-10 w-10 md:h-12 md:w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground text-sm md:text-base">
-                    Pet management coming soon...
-                  </p>
-                </Card>
-              </div>
-            )}
-
             {activeView === "shop" && (
               <div className="space-y-4 md:space-y-6">
                 <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
