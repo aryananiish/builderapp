@@ -251,7 +251,7 @@ export function Dashboard({ className }: DashboardProps) {
                       <h3 className="font-semibold text-foreground mb-2">Interactive Cat Toys</h3>
                       <p className="text-sm text-muted-foreground mb-3">Set of 5 engaging toys for cats</p>
                       <div className="flex items-center justify-between">
-                        <Badge variant="secondary">$19.99</Badge>
+                        <Badge variant="secondary">₹1,659</Badge>
                         <Button size="sm" className="bg-primary hover:bg-primary/90">
                           Add to Cart
                         </Button>
@@ -272,7 +272,7 @@ export function Dashboard({ className }: DashboardProps) {
                       <h3 className="font-semibold text-foreground mb-2">Reflective Dog Leash</h3>
                       <p className="text-sm text-muted-foreground mb-3">6ft durable leash with LED lights</p>
                       <div className="flex items-center justify-between">
-                        <Badge variant="secondary">$24.99</Badge>
+                        <Badge variant="secondary">₹2,074</Badge>
                         <Button size="sm" className="bg-primary hover:bg-primary/90">
                           Add to Cart
                         </Button>
@@ -293,7 +293,7 @@ export function Dashboard({ className }: DashboardProps) {
                       <h3 className="font-semibold text-foreground mb-2">Cozy Pet Bed</h3>
                       <p className="text-sm text-muted-foreground mb-3">Orthopedic support for better sleep</p>
                       <div className="flex items-center justify-between">
-                        <Badge variant="secondary">$49.99</Badge>
+                        <Badge variant="secondary">₹4,149</Badge>
                         <Button size="sm" className="bg-primary hover:bg-primary/90">
                           Add to Cart
                         </Button>
@@ -314,7 +314,7 @@ export function Dashboard({ className }: DashboardProps) {
                       <h3 className="font-semibold text-foreground mb-2">Professional Grooming Kit</h3>
                       <p className="text-sm text-muted-foreground mb-3">Complete set for pet grooming</p>
                       <div className="flex items-center justify-between">
-                        <Badge variant="secondary">$39.99</Badge>
+                        <Badge variant="secondary">₹3,319</Badge>
                         <Button size="sm" className="bg-primary hover:bg-primary/90">
                           Add to Cart
                         </Button>
@@ -335,7 +335,7 @@ export function Dashboard({ className }: DashboardProps) {
                       <h3 className="font-semibold text-foreground mb-2">Digital Health Tracker</h3>
                       <p className="text-sm text-muted-foreground mb-3">Smart collar for health monitoring</p>
                       <div className="flex items-center justify-between">
-                        <Badge variant="secondary">$89.99</Badge>
+                        <Badge variant="secondary">₹7,469</Badge>
                         <Button size="sm" className="bg-primary hover:bg-primary/90">
                           Add to Cart
                         </Button>
@@ -356,7 +356,7 @@ export function Dashboard({ className }: DashboardProps) {
                       <h3 className="font-semibold text-foreground mb-2">Smart Water Fountain</h3>
                       <p className="text-sm text-muted-foreground mb-3">Auto-refilling with filtration system</p>
                       <div className="flex items-center justify-between">
-                        <Badge variant="secondary">$59.99</Badge>
+                        <Badge variant="secondary">₹4,979</Badge>
                         <Button size="sm" className="bg-primary hover:bg-primary/90">
                           Add to Cart
                         </Button>
@@ -377,7 +377,7 @@ export function Dashboard({ className }: DashboardProps) {
                       <h3 className="font-semibold text-foreground mb-2">Training Treat Pack</h3>
                       <p className="text-sm text-muted-foreground mb-3">Healthy rewards for good behavior</p>
                       <div className="flex items-center justify-between">
-                        <Badge variant="secondary">$15.99</Badge>
+                        <Badge variant="secondary">₹1,327</Badge>
                         <Button size="sm" className="bg-primary hover:bg-primary/90">
                           Add to Cart
                         </Button>
