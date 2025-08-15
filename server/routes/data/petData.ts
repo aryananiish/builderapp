@@ -537,10 +537,17 @@ export const getPetCareSummary = (): PetCareSummary => {
     (e) => e.status === "scheduled",
   ).length;
 
+  // Count weekly exercise activities from the schedule
+  const weeklyExercises = Object.values(weeklySchedule)
+    .flat()
+    .filter((item) => item.type === "exercise" && item.status === "scheduled")
+    .length;
+
   return {
     totalPets,
     upcomingVaccines,
     dailyMeals,
     upcomingEvents,
+    weeklyExercises,
   };
 };
