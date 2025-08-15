@@ -199,6 +199,25 @@ export function Dashboard({ className }: DashboardProps) {
               </div>
             )}
 
+            {activeView === "profiles" && (
+              <div className="space-y-4 md:space-y-6">
+                <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
+                  <div>
+                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">
+                      Pet Profiles
+                    </h1>
+                    <p className="text-muted-foreground mt-1">
+                      Manage your pets' information and health records
+                    </p>
+                  </div>
+                  <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
+                    Add New Pet
+                  </Button>
+                </div>
+                <PetProfile />
+              </div>
+            )}
+
             {activeView === "shop" && (
               <div className="space-y-4 md:space-y-6">
                 <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
