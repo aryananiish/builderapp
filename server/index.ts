@@ -8,6 +8,14 @@ import { handleGetFoodSchedules } from "./routes/food-schedules";
 import { handleGetEvents } from "./routes/events";
 import { handleGetWeeklySchedule, handleGetSummary } from "./routes/schedule";
 import { handleGetCalendar } from "./routes/calendar";
+import {
+  handleGetDaySchedule,
+  handleAddScheduleItem,
+  handleUpdateScheduleItem,
+  handleDeleteScheduleItem,
+  handleMoveScheduleItem,
+  handleResetSchedule
+} from "./routes/calendar-crud";
 
 export function createServer() {
   const app = express();
