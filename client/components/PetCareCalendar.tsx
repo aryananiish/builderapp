@@ -222,7 +222,7 @@ export function PetCareCalendar({ className }: PetCareCalendarProps) {
             <div className="flex items-center justify-center mb-2">
               <Syringe className="h-5 w-5 text-red-400" />
             </div>
-            <div className="text-2xl font-bold text-primary">{getPetsSummary().upcomingVaccines}</div>
+            <div className="text-2xl font-bold text-primary">{summary?.upcomingVaccines || 0}</div>
             <div className="text-sm text-muted-foreground">Vaccines Due</div>
           </div>
         </Card>
@@ -232,7 +232,7 @@ export function PetCareCalendar({ className }: PetCareCalendarProps) {
             <div className="flex items-center justify-center mb-2">
               <Utensils className="h-5 w-5 text-blue-400" />
             </div>
-            <div className="text-2xl font-bold text-success">{getPetsSummary().dailyMeals}</div>
+            <div className="text-2xl font-bold text-success">{summary?.dailyMeals || 0}</div>
             <div className="text-sm text-muted-foreground">Daily Meals</div>
           </div>
         </Card>
@@ -242,7 +242,7 @@ export function PetCareCalendar({ className }: PetCareCalendarProps) {
             <div className="flex items-center justify-center mb-2">
               <Heart className="h-5 w-5 text-green-400" />
             </div>
-            <div className="text-2xl font-bold text-info">{getPetsSummary().totalPets}</div>
+            <div className="text-2xl font-bold text-info">{summary?.totalPets || 0}</div>
             <div className="text-sm text-muted-foreground">Active Pets</div>
           </div>
         </Card>
@@ -252,7 +252,7 @@ export function PetCareCalendar({ className }: PetCareCalendarProps) {
             <div className="flex items-center justify-center mb-2">
               <Clock className="h-5 w-5 text-yellow-400" />
             </div>
-            <div className="text-2xl font-bold text-warning">{getPetsSummary().upcomingEvents}</div>
+            <div className="text-2xl font-bold text-warning">{summary?.upcomingEvents || 0}</div>
             <div className="text-sm text-muted-foreground">Upcoming Events</div>
           </div>
         </Card>
