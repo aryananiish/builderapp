@@ -230,7 +230,7 @@ export function Dashboard({ className }: DashboardProps) {
                       <h3 className="font-semibold text-foreground mb-2">Premium Dog Food</h3>
                       <p className="text-sm text-muted-foreground mb-3">High-quality nutrition for adult dogs</p>
                       <div className="flex items-center justify-between">
-                        <Badge variant="secondary">$29.99</Badge>
+                        <Badge variant="secondary">₹2,489</Badge>
                         <Button size="sm" className="bg-primary hover:bg-primary/90">
                           Add to Cart
                         </Button>
