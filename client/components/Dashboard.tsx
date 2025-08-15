@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Calendar, Clock, Users, Settings, BarChart3, Bell } from "lucide-react";
+import { Calendar, Clock, Users, Settings, BarChart3, Bell, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Timetable } from "./Timetable";
@@ -10,6 +10,7 @@ interface DashboardProps {
 
 export function Dashboard({ className }: DashboardProps) {
   const [activeView, setActiveView] = useState("timetable");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const navigationItems = [
     { id: "timetable", label: "Timetable", icon: Calendar },
