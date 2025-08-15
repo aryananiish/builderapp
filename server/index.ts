@@ -14,7 +14,7 @@ import {
   handleUpdateScheduleItem,
   handleDeleteScheduleItem,
   handleMoveScheduleItem,
-  handleResetSchedule
+  handleResetSchedule,
 } from "./routes/calendar-crud";
 
 export function createServer() {

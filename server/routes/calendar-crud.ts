@@ -32,7 +32,7 @@ export const handleAddScheduleItem: RequestHandler = (req, res) => {
 
     // Generate unique ID
     newItem.id = `schedule-${day.toLowerCase()}-${Date.now()}`;
-    
+
     mutableSchedule[day].push(newItem);
 
     res.status(201).json({
@@ -62,8 +62,10 @@ export const handleUpdateScheduleItem: RequestHandler = (req, res) => {
       });
     }
 
-    const itemIndex = mutableSchedule[day].findIndex(item => item.id === itemId);
-    
+    const itemIndex = mutableSchedule[day].findIndex(
+      (item) => item.id === itemId,
+    );
+
     if (itemIndex === -1) {
       return res.status(404).json({
         error: "Not Found",
@@ -101,8 +103,10 @@ export const handleDeleteScheduleItem: RequestHandler = (req, res) => {
       });
     }
 
-    const itemIndex = mutableSchedule[day].findIndex(item => item.id === itemId);
-    
+    const itemIndex = mutableSchedule[day].findIndex(
+      (item) => item.id === itemId,
+    );
+
     if (itemIndex === -1) {
       return res.status(404).json({
         error: "Not Found",
@@ -140,8 +144,10 @@ export const handleMoveScheduleItem: RequestHandler = (req, res) => {
       });
     }
 
-    const itemIndex = mutableSchedule[fromDay].findIndex(item => item.id === itemId);
-    
+    const itemIndex = mutableSchedule[fromDay].findIndex(
+      (item) => item.id === itemId,
+    );
+
     if (itemIndex === -1) {
       return res.status(404).json({
         error: "Not Found",
