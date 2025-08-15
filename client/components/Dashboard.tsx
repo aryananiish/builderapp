@@ -230,7 +230,7 @@ export function Dashboard({ className }: DashboardProps) {
                       <h3 className="font-semibold text-foreground mb-2">Premium Dog Food</h3>
                       <p className="text-sm text-muted-foreground mb-3">High-quality nutrition for adult dogs</p>
                       <div className="flex items-center justify-between">
-                        <Badge variant="secondary">₹2,489</Badge>
+                        <Badge variant="secondary">₹1,493</Badge>
                         <Button size="sm" className="bg-primary hover:bg-primary/90">
                           Add to Cart
                         </Button>
@@ -251,7 +251,7 @@ export function Dashboard({ className }: DashboardProps) {
                       <h3 className="font-semibold text-foreground mb-2">Interactive Cat Toys</h3>
                       <p className="text-sm text-muted-foreground mb-3">Set of 5 engaging toys for cats</p>
                       <div className="flex items-center justify-between">
-                        <Badge variant="secondary">₹1,659</Badge>
+                        <Badge variant="secondary">₹995</Badge>
                         <Button size="sm" className="bg-primary hover:bg-primary/90">
                           Add to Cart
                         </Button>
@@ -272,7 +272,7 @@ export function Dashboard({ className }: DashboardProps) {
                       <h3 className="font-semibold text-foreground mb-2">Reflective Dog Leash</h3>
                       <p className="text-sm text-muted-foreground mb-3">6ft durable leash with LED lights</p>
                       <div className="flex items-center justify-between">
-                        <Badge variant="secondary">₹2,074</Badge>
+                        <Badge variant="secondary">₹1,244</Badge>
                         <Button size="sm" className="bg-primary hover:bg-primary/90">
                           Add to Cart
                         </Button>
@@ -293,7 +293,7 @@ export function Dashboard({ className }: DashboardProps) {
                       <h3 className="font-semibold text-foreground mb-2">Cozy Pet Bed</h3>
                       <p className="text-sm text-muted-foreground mb-3">Orthopedic support for better sleep</p>
                       <div className="flex items-center justify-between">
-                        <Badge variant="secondary">₹4,149</Badge>
+                        <Badge variant="secondary">₹2,489</Badge>
                         <Button size="sm" className="bg-primary hover:bg-primary/90">
                           Add to Cart
                         </Button>
@@ -314,7 +314,7 @@ export function Dashboard({ className }: DashboardProps) {
                       <h3 className="font-semibold text-foreground mb-2">Professional Grooming Kit</h3>
                       <p className="text-sm text-muted-foreground mb-3">Complete set for pet grooming</p>
                       <div className="flex items-center justify-between">
-                        <Badge variant="secondary">₹3,319</Badge>
+                        <Badge variant="secondary">₹1,991</Badge>
                         <Button size="sm" className="bg-primary hover:bg-primary/90">
                           Add to Cart
                         </Button>
@@ -335,7 +335,7 @@ export function Dashboard({ className }: DashboardProps) {
                       <h3 className="font-semibold text-foreground mb-2">Digital Health Tracker</h3>
                       <p className="text-sm text-muted-foreground mb-3">Smart collar for health monitoring</p>
                       <div className="flex items-center justify-between">
-                        <Badge variant="secondary">₹7,469</Badge>
+                        <Badge variant="secondary">₹4,481</Badge>
                         <Button size="sm" className="bg-primary hover:bg-primary/90">
                           Add to Cart
                         </Button>
@@ -356,7 +356,7 @@ export function Dashboard({ className }: DashboardProps) {
                       <h3 className="font-semibold text-foreground mb-2">Smart Water Fountain</h3>
                       <p className="text-sm text-muted-foreground mb-3">Auto-refilling with filtration system</p>
                       <div className="flex items-center justify-between">
-                        <Badge variant="secondary">₹4,979</Badge>
+                        <Badge variant="secondary">₹2,987</Badge>
                         <Button size="sm" className="bg-primary hover:bg-primary/90">
                           Add to Cart
                         </Button>
@@ -377,7 +377,7 @@ export function Dashboard({ className }: DashboardProps) {
                       <h3 className="font-semibold text-foreground mb-2">Training Treat Pack</h3>
                       <p className="text-sm text-muted-foreground mb-3">Healthy rewards for good behavior</p>
                       <div className="flex items-center justify-between">
-                        <Badge variant="secondary">₹1,327</Badge>
+                        <Badge variant="secondary">₹796</Badge>
                         <Button size="sm" className="bg-primary hover:bg-primary/90">
                           Add to Cart
                         </Button>
