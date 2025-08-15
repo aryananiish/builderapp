@@ -13,6 +13,7 @@ import {
   Loader2,
   Zap,
   PawPrint,
+  ShoppingBag,
 } from "lucide-react";
 import { useSummary } from "@/hooks/usePetData";
 import { Button } from "@/components/ui/button";
