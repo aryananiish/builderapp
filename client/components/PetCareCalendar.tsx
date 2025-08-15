@@ -303,7 +303,7 @@ export function PetCareCalendar({ className }: PetCareCalendarProps) {
       </Card>
 
       {/* Quick Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
         <Card className="p-4 bg-card border-border">
           <div className="text-center">
             <div className="flex items-center justify-center mb-2">
@@ -331,9 +331,21 @@ export function PetCareCalendar({ className }: PetCareCalendarProps) {
         <Card className="p-4 bg-card border-border">
           <div className="text-center">
             <div className="flex items-center justify-center mb-2">
-              <Heart className="h-5 w-5 text-green-400" />
+              <Zap className="h-5 w-5 text-cyan-400" />
             </div>
             <div className="text-2xl font-bold text-info">
+              {summary?.weeklyExercises || 0}
+            </div>
+            <div className="text-sm text-muted-foreground">Weekly Exercises</div>
+          </div>
+        </Card>
+
+        <Card className="p-4 bg-card border-border">
+          <div className="text-center">
+            <div className="flex items-center justify-center mb-2">
+              <Heart className="h-5 w-5 text-green-400" />
+            </div>
+            <div className="text-2xl font-bold text-warning">
               {summary?.totalPets || 0}
             </div>
             <div className="text-sm text-muted-foreground">Active Pets</div>
@@ -345,7 +357,7 @@ export function PetCareCalendar({ className }: PetCareCalendarProps) {
             <div className="flex items-center justify-center mb-2">
               <Clock className="h-5 w-5 text-yellow-400" />
             </div>
-            <div className="text-2xl font-bold text-warning">
+            <div className="text-2xl font-bold text-primary">
               {summary?.upcomingEvents || 0}
             </div>
             <div className="text-sm text-muted-foreground">Upcoming Events</div>
