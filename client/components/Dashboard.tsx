@@ -248,7 +248,7 @@ export function Dashboard({ className }: DashboardProps) {
                     </div>
                   </Card>
                 ) : (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
                     <Card className="p-6 bg-card border-border">
                       <div className="flex items-center space-x-2">
                         <Syringe className="h-5 w-5 text-primary" />
@@ -294,6 +294,23 @@ export function Dashboard({ className }: DashboardProps) {
                         </span>
                         <span className="text-muted-foreground ml-1">
                           scheduled
+                        </span>
+                      </div>
+                    </Card>
+
+                    <Card className="p-6 bg-card border-border">
+                      <div className="flex items-center space-x-2">
+                        <Zap className="h-5 w-5 text-cyan-400" />
+                        <span className="text-foreground font-medium">
+                          Weekly Exercises
+                        </span>
+                      </div>
+                      <div className="mt-2">
+                        <span className="text-2xl font-bold text-foreground">
+                          {summaryData?.summary?.weeklyExercises || 0}
+                        </span>
+                        <span className="text-muted-foreground ml-1">
+                          activities
                         </span>
                       </div>
                     </Card>
