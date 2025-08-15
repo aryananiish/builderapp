@@ -580,15 +580,17 @@ export function Dashboard({ className }: DashboardProps) {
 
             {activeView === "settings" && (
               <div className="space-y-4 md:space-y-6">
-                <h1 className="text-2xl md:text-3xl font-bold text-foreground">
-                  Settings
-                </h1>
-                <Card className="p-6 md:p-8 bg-card border-border text-center">
-                  <Settings className="h-10 w-10 md:h-12 md:w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground text-sm md:text-base">
-                    Settings panel coming soon...
-                  </p>
-                </Card>
+                <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
+                  <div>
+                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">
+                      Settings
+                    </h1>
+                    <p className="text-muted-foreground mt-1">
+                      Customize your app preferences and account settings
+                    </p>
+                  </div>
+                </div>
+                <SettingsComponent />
               </div>
             )}
           </div>
