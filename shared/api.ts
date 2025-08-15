@@ -1,12 +1,66 @@
-/**
- * Shared code between client and server
- * Useful to share types between client and server
- * and/or small pure JS functions that can be used on both client and server
- */
+import { Pet, Vaccine, FoodSchedule, PetCareEvent } from './petcare';
 
-/**
- * Example response type for /api/demo
- */
+export interface PingResponse {
+  message: string;
+}
+
 export interface DemoResponse {
   message: string;
+  timestamp: string;
+}
+
+// Pet Care API Interfaces
+export interface GetPetsResponse {
+  pets: Pet[];
+  total: number;
+}
+
+export interface GetVaccinesResponse {
+  vaccines: Vaccine[];
+  total: number;
+}
+
+export interface GetFoodSchedulesResponse {
+  schedules: FoodSchedule[];
+  total: number;
+}
+
+export interface GetEventsResponse {
+  events: PetCareEvent[];
+  total: number;
+}
+
+export interface WeeklyScheduleItem {
+  id: string;
+  petName: string;
+  type: "vaccine" | "food" | "appointment";
+  title: string;
+  description: string;
+  time: string;
+  color: string;
+  icon: "syringe" | "utensils" | "heart";
+  status: "scheduled" | "completed" | "overdue";
+  location?: string;
+}
+
+export interface GetWeeklyScheduleResponse {
+  schedule: Record<string, WeeklyScheduleItem[]>;
+}
+
+export interface PetCareSummary {
+  totalPets: number;
+  upcomingVaccines: number;
+  dailyMeals: number;
+  upcomingEvents: number;
+}
+
+export interface GetSummaryResponse {
+  summary: PetCareSummary;
+}
+
+// Error response type
+export interface ApiError {
+  error: string;
+  message: string;
+  status: number;
 }
