@@ -112,7 +112,7 @@ export function Dashboard({ className }: DashboardProps) {
                   </Button>
                 </div>
 
-                <Timetable />
+                <PetCareCalendar />
               </div>
             )}
             
