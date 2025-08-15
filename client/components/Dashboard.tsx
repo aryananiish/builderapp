@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Calendar, Heart, Users, Settings, BarChart3, Bell, Menu, X, Syringe, Utensils } from "lucide-react";
+import { Calendar, Heart, Users, Settings, BarChart3, Bell, Menu, X, Syringe, Utensils, Loader2 } from "lucide-react";
+import { useSummary } from "@/hooks/usePetData";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { PetCareCalendar } from "./PetCareCalendar";
