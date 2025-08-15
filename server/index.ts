@@ -2,6 +2,11 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
+import { handleGetPets } from "./routes/pets";
+import { handleGetVaccines } from "./routes/vaccines";
+import { handleGetFoodSchedules } from "./routes/food-schedules";
+import { handleGetEvents } from "./routes/events";
+import { handleGetWeeklySchedule, handleGetSummary } from "./routes/schedule";
 
 export function createServer() {
   const app = express();
