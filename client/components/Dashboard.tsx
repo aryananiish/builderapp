@@ -16,6 +16,7 @@ import { useSummary } from "@/hooks/usePetData";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { PetCareCalendar } from "./PetCareCalendar";
+import { VaccineSchedule } from "./VaccineSchedule";
 
 interface DashboardProps {
   className?: string;
