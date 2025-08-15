@@ -9,6 +9,7 @@ import {
   Calendar as CalendarIcon,
   MapPin,
   Loader2,
+  Zap,
 } from "lucide-react";
 import { Pet, Vaccine, FoodSchedule, PetCareEvent } from "@shared/petcare";
 import { useWeeklySchedule, useSummary } from "@/hooks/usePetData";
