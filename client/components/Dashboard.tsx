@@ -219,8 +219,12 @@ export function Dashboard({ className }: DashboardProps) {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
                   {/* Premium Dog Food */}
                   <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
-                    <div className="aspect-square bg-gradient-to-br from-amber-100 to-orange-200 flex items-center justify-center">
-                      <Utensils className="h-16 w-16 text-amber-600" />
+                    <div className="aspect-square relative">
+                      <img
+                        src="https://images.pexels.com/photos/13581209/pexels-photo-13581209.jpeg"
+                        alt="Premium dog food with happy dog"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div className="p-4">
                       <h3 className="font-semibold text-foreground mb-2">Premium Dog Food</h3>
@@ -236,8 +240,12 @@ export function Dashboard({ className }: DashboardProps) {
 
                   {/* Cat Toy Set */}
                   <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
-                    <div className="aspect-square bg-gradient-to-br from-pink-100 to-purple-200 flex items-center justify-center">
-                      <Heart className="h-16 w-16 text-pink-600" />
+                    <div className="aspect-square relative">
+                      <img
+                        src="https://images.pexels.com/photos/16577568/pexels-photo-16577568.jpeg"
+                        alt="Fluffy kitten playing with toys"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div className="p-4">
                       <h3 className="font-semibold text-foreground mb-2">Interactive Cat Toys</h3>
@@ -253,8 +261,12 @@ export function Dashboard({ className }: DashboardProps) {
 
                   {/* Dog Leash */}
                   <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
-                    <div className="aspect-square bg-gradient-to-br from-blue-100 to-cyan-200 flex items-center justify-center">
-                      <Zap className="h-16 w-16 text-blue-600" />
+                    <div className="aspect-square relative">
+                      <img
+                        src="https://images.pexels.com/photos/32255850/pexels-photo-32255850.jpeg"
+                        alt="Happy Jack Russell Terrier in outdoor park"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div className="p-4">
                       <h3 className="font-semibold text-foreground mb-2">Reflective Dog Leash</h3>
@@ -270,8 +282,12 @@ export function Dashboard({ className }: DashboardProps) {
 
                   {/* Pet Bed */}
                   <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
-                    <div className="aspect-square bg-gradient-to-br from-green-100 to-emerald-200 flex items-center justify-center">
-                      <PawPrint className="h-16 w-16 text-green-600" />
+                    <div className="aspect-square relative">
+                      <img
+                        src="https://images.pexels.com/photos/2646483/pexels-photo-2646483.jpeg"
+                        alt="Gray tabby cat sleeping soundly"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div className="p-4">
                       <h3 className="font-semibold text-foreground mb-2">Cozy Pet Bed</h3>
@@ -287,8 +303,12 @@ export function Dashboard({ className }: DashboardProps) {
 
                   {/* Grooming Kit */}
                   <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
-                    <div className="aspect-square bg-gradient-to-br from-violet-100 to-purple-200 flex items-center justify-center">
-                      <Settings className="h-16 w-16 text-violet-600" />
+                    <div className="aspect-square relative">
+                      <img
+                        src="https://images.pexels.com/photos/9230441/pexels-photo-9230441.jpeg"
+                        alt="Professional grooming brushes and tools"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div className="p-4">
                       <h3 className="font-semibold text-foreground mb-2">Professional Grooming Kit</h3>
@@ -302,10 +322,14 @@ export function Dashboard({ className }: DashboardProps) {
                     </div>
                   </Card>
 
-                  {/* Vaccine Tracker */}
+                  {/* Digital Health Tracker */}
                   <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
-                    <div className="aspect-square bg-gradient-to-br from-red-100 to-pink-200 flex items-center justify-center">
-                      <Syringe className="h-16 w-16 text-red-600" />
+                    <div className="aspect-square relative">
+                      <img
+                        src="https://images.pexels.com/photos/20782645/pexels-photo-20782645.jpeg"
+                        alt="White cat with smart collar"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div className="p-4">
                       <h3 className="font-semibold text-foreground mb-2">Digital Health Tracker</h3>
@@ -319,10 +343,14 @@ export function Dashboard({ className }: DashboardProps) {
                     </div>
                   </Card>
 
-                  {/* Water Fountain */}
+                  {/* Smart Water Fountain */}
                   <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
-                    <div className="aspect-square bg-gradient-to-br from-cyan-100 to-blue-200 flex items-center justify-center">
-                      <Calendar className="h-16 w-16 text-cyan-600" />
+                    <div className="aspect-square relative">
+                      <img
+                        src="https://images.pexels.com/photos/22798164/pexels-photo-22798164.jpeg"
+                        alt="Beautiful decorative fountain with lotus flower"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div className="p-4">
                       <h3 className="font-semibold text-foreground mb-2">Smart Water Fountain</h3>
@@ -338,8 +366,12 @@ export function Dashboard({ className }: DashboardProps) {
 
                   {/* Training Treats */}
                   <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
-                    <div className="aspect-square bg-gradient-to-br from-yellow-100 to-amber-200 flex items-center justify-center">
-                      <Users className="h-16 w-16 text-yellow-600" />
+                    <div className="aspect-square relative">
+                      <img
+                        src="https://images.pexels.com/photos/4692169/pexels-photo-4692169.jpeg"
+                        alt="Delicious training treats and snacks"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div className="p-4">
                       <h3 className="font-semibold text-foreground mb-2">Training Treat Pack</h3>
