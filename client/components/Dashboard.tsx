@@ -12,6 +12,7 @@ import {
   Utensils,
   Loader2,
   Zap,
+  PawPrint,
 } from "lucide-react";
 import { useSummary } from "@/hooks/usePetData";
 import { Button } from "@/components/ui/button";
@@ -37,7 +38,7 @@ export function Dashboard({ className }: DashboardProps) {
   const navigationItems = [
     { id: "calendar", label: "Pet Calendar", icon: Calendar },
     { id: "vaccines", label: "Vaccines", icon: Syringe },
-    { id: "feeding", label: "Feeding", icon: Utensils },
+    { id: "feeding", label: "Diet", icon: Utensils },
     { id: "pets", label: "My Pets", icon: Heart },
     { id: "analytics", label: "Analytics", icon: BarChart3 },
     { id: "settings", label: "Settings", icon: Settings },
@@ -63,10 +64,10 @@ export function Dashboard({ className }: DashboardProps) {
             </Button>
             <div className="flex items-center space-x-2">
               <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-                <Heart className="h-5 w-5 text-primary-foreground" />
+                <PawPrint className="h-5 w-5 text-primary-foreground" />
               </div>
               <span className="text-xl font-bold text-foreground">
-                PetCare Pro
+                PAWSPECTIVE
               </span>
             </div>
           </div>
@@ -178,20 +179,20 @@ export function Dashboard({ className }: DashboardProps) {
                 <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                   <div>
                     <h1 className="text-2xl md:text-3xl font-bold text-foreground">
-                      Feeding Schedule
+                      Diet Schedule
                     </h1>
                     <p className="text-muted-foreground mt-1">
                       Track meal times and nutrition for your pets
                     </p>
                   </div>
                   <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
-                    Add Feeding Time
+                    Add Diet Time
                   </Button>
                 </div>
                 <Card className="p-6 md:p-8 bg-card border-border text-center">
                   <Utensils className="h-10 w-10 md:h-12 md:w-12 text-muted-foreground mx-auto mb-4" />
                   <p className="text-muted-foreground text-sm md:text-base">
-                    Feeding management coming soon...
+                    Diet management coming soon...
                   </p>
                 </Card>
               </div>
