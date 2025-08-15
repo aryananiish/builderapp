@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Calendar, Clock, Users, Settings, BarChart3, Bell, Menu, X } from "lucide-react";
+import { Calendar, Heart, Users, Settings, BarChart3, Bell, Menu, X, Syringe, Utensils } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Timetable } from "./Timetable";
@@ -9,13 +9,15 @@ interface DashboardProps {
 }
 
 export function Dashboard({ className }: DashboardProps) {
-  const [activeView, setActiveView] = useState("timetable");
+  const [activeView, setActiveView] = useState("calendar");
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const navigationItems = [
-    { id: "timetable", label: "Timetable", icon: Calendar },
+    { id: "calendar", label: "Pet Calendar", icon: Calendar },
+    { id: "vaccines", label: "Vaccines", icon: Syringe },
+    { id: "feeding", label: "Feeding", icon: Utensils },
+    { id: "pets", label: "My Pets", icon: Heart },
     { id: "analytics", label: "Analytics", icon: BarChart3 },
-    { id: "students", label: "Students", icon: Users },
     { id: "settings", label: "Settings", icon: Settings },
   ];
 
@@ -35,9 +37,9 @@ export function Dashboard({ className }: DashboardProps) {
             </Button>
             <div className="flex items-center space-x-2">
               <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-                <Clock className="h-5 w-5 text-primary-foreground" />
+                <Heart className="h-5 w-5 text-primary-foreground" />
               </div>
-              <span className="text-xl font-bold text-foreground">TimeTable Pro</span>
+              <span className="text-xl font-bold text-foreground">PetCare Pro</span>
             </div>
           </div>
 
@@ -98,15 +100,15 @@ export function Dashboard({ className }: DashboardProps) {
         {/* Main Content */}
         <main className="flex-1 overflow-auto bg-dashboard-content">
           <div className="p-4 md:p-6">
-            {activeView === "timetable" && (
+            {activeView === "calendar" && (
               <div className="space-y-4 md:space-y-6">
                 <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                   <div>
-                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">Class Timetable</h1>
-                    <p className="text-muted-foreground mt-1">Manage your weekly schedule</p>
+                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">Pet Care Calendar</h1>
+                    <p className="text-muted-foreground mt-1">Track vaccines, feeding times, and appointments</p>
                   </div>
                   <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
-                    Add Class
+                    Add Event
                   </Button>
                 </div>
 
@@ -114,55 +116,100 @@ export function Dashboard({ className }: DashboardProps) {
               </div>
             )}
             
+            {activeView === "vaccines" && (
+              <div className="space-y-4 md:space-y-6">
+                <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
+                  <div>
+                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">Vaccine Schedule</h1>
+                    <p className="text-muted-foreground mt-1">Keep your pets healthy with timely vaccinations</p>
+                  </div>
+                  <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
+                    Schedule Vaccine
+                  </Button>
+                </div>
+                <Card className="p-6 md:p-8 bg-card border-border text-center">
+                  <Syringe className="h-10 w-10 md:h-12 md:w-12 text-muted-foreground mx-auto mb-4" />
+                  <p className="text-muted-foreground text-sm md:text-base">Vaccine management coming soon...</p>
+                </Card>
+              </div>
+            )}
+
+            {activeView === "feeding" && (
+              <div className="space-y-4 md:space-y-6">
+                <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
+                  <div>
+                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">Feeding Schedule</h1>
+                    <p className="text-muted-foreground mt-1">Track meal times and nutrition for your pets</p>
+                  </div>
+                  <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
+                    Add Feeding Time
+                  </Button>
+                </div>
+                <Card className="p-6 md:p-8 bg-card border-border text-center">
+                  <Utensils className="h-10 w-10 md:h-12 md:w-12 text-muted-foreground mx-auto mb-4" />
+                  <p className="text-muted-foreground text-sm md:text-base">Feeding management coming soon...</p>
+                </Card>
+              </div>
+            )}
+
+            {activeView === "pets" && (
+              <div className="space-y-4 md:space-y-6">
+                <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
+                  <div>
+                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">My Pets</h1>
+                    <p className="text-muted-foreground mt-1">Manage your pet profiles and information</p>
+                  </div>
+                  <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
+                    Add Pet
+                  </Button>
+                </div>
+                <Card className="p-6 md:p-8 bg-card border-border text-center">
+                  <Heart className="h-10 w-10 md:h-12 md:w-12 text-muted-foreground mx-auto mb-4" />
+                  <p className="text-muted-foreground text-sm md:text-base">Pet management coming soon...</p>
+                </Card>
+              </div>
+            )}
+
             {activeView === "analytics" && (
               <div className="space-y-4 md:space-y-6">
-                <h1 className="text-2xl md:text-3xl font-bold text-foreground">Analytics</h1>
+                <h1 className="text-2xl md:text-3xl font-bold text-foreground">Pet Care Analytics</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                   <Card className="p-6 bg-card border-border">
                     <div className="flex items-center space-x-2">
-                      <BarChart3 className="h-5 w-5 text-primary" />
-                      <span className="text-foreground font-medium">Weekly Hours</span>
+                      <Syringe className="h-5 w-5 text-primary" />
+                      <span className="text-foreground font-medium">Vaccines This Month</span>
                     </div>
                     <div className="mt-2">
-                      <span className="text-2xl font-bold text-foreground">32</span>
-                      <span className="text-muted-foreground ml-1">hours</span>
+                      <span className="text-2xl font-bold text-foreground">3</span>
+                      <span className="text-muted-foreground ml-1">scheduled</span>
                     </div>
                   </Card>
-                  
+
                   <Card className="p-6 bg-card border-border">
                     <div className="flex items-center space-x-2">
-                      <Users className="h-5 w-5 text-success" />
-                      <span className="text-foreground font-medium">Total Students</span>
+                      <Heart className="h-5 w-5 text-success" />
+                      <span className="text-foreground font-medium">Active Pets</span>
                     </div>
                     <div className="mt-2">
-                      <span className="text-2xl font-bold text-foreground">156</span>
-                      <span className="text-muted-foreground ml-1">students</span>
+                      <span className="text-2xl font-bold text-foreground">2</span>
+                      <span className="text-muted-foreground ml-1">pets</span>
                     </div>
                   </Card>
-                  
+
                   <Card className="p-6 bg-card border-border">
                     <div className="flex items-center space-x-2">
-                      <Calendar className="h-5 w-5 text-info" />
-                      <span className="text-foreground font-medium">Classes Today</span>
+                      <Utensils className="h-5 w-5 text-info" />
+                      <span className="text-foreground font-medium">Meals Today</span>
                     </div>
                     <div className="mt-2">
                       <span className="text-2xl font-bold text-foreground">6</span>
-                      <span className="text-muted-foreground ml-1">classes</span>
+                      <span className="text-muted-foreground ml-1">scheduled</span>
                     </div>
                   </Card>
                 </div>
               </div>
             )}
             
-            {activeView === "students" && (
-              <div className="space-y-4 md:space-y-6">
-                <h1 className="text-2xl md:text-3xl font-bold text-foreground">Students</h1>
-                <Card className="p-6 md:p-8 bg-card border-border text-center">
-                  <Users className="h-10 w-10 md:h-12 md:w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground text-sm md:text-base">Student management coming soon...</p>
-                </Card>
-              </div>
-            )}
 
             {activeView === "settings" && (
               <div className="space-y-4 md:space-y-6">
