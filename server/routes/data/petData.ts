@@ -411,6 +411,18 @@ export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
   ],
   Thursday: [
     {
+      id: "schedule-thu-0",
+      petName: "Luna",
+      type: "exercise",
+      title: "Cat Tower Time",
+      description: "Climbing and stretching exercise",
+      time: "09:00",
+      color: "bg-indigo-500/20 text-indigo-400 border-indigo-500/30",
+      icon: "zap",
+      status: "scheduled",
+      location: "Home",
+    },
+    {
       id: "schedule-thu-1",
       petName: "Max",
       type: "appointment",
