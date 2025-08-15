@@ -59,6 +59,12 @@ export interface GetSummaryResponse {
   summary: PetCareSummary;
 }
 
+export interface GetCalendarResponse {
+  events: PetCareEvent[];
+  weeklySchedule: Record<string, WeeklyScheduleItem[]>;
+  total: number;
+}
+
 // Error response type
 export interface ApiError {
   error: string;
