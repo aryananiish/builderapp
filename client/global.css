@@ -57,6 +57,12 @@
     --success: 142.1 76.2% 36.3%;
     --warning: 38 92% 50%;
     --info: 217.2 91.2% 59.8%;
+
+    /* Pet care specific colors */
+    --petcare-vaccine: 0 84.2% 60.2%;
+    --petcare-food: 217.2 91.2% 59.8%;
+    --petcare-grooming: 142.1 76.2% 36.3%;
+    --petcare-vet: 271.5 81.3% 55.9%;
   }
 
   .light {
