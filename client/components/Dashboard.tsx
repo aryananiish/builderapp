@@ -11,6 +11,7 @@ import {
   Syringe,
   Utensils,
   Loader2,
+  Zap,
 } from "lucide-react";
 import { useSummary } from "@/hooks/usePetData";
 import { Button } from "@/components/ui/button";
