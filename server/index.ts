@@ -24,5 +24,13 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
 
+  // Pet Care API routes
+  app.get("/api/pets", handleGetPets);
+  app.get("/api/vaccines", handleGetVaccines);
+  app.get("/api/food-schedules", handleGetFoodSchedules);
+  app.get("/api/events", handleGetEvents);
+  app.get("/api/weekly-schedule", handleGetWeeklySchedule);
+  app.get("/api/summary", handleGetSummary);
+
   return app;
 }
