@@ -266,6 +266,18 @@ export const sampleEvents: PetCareEvent[] = [
 export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
   Monday: [
     {
+      id: "schedule-mon-0",
+      petName: "Max",
+      type: "exercise",
+      title: "Morning Walk",
+      description: "30-minute neighborhood walk",
+      time: "06:30",
+      color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
+      icon: "zap",
+      status: "scheduled",
+      location: "Neighborhood",
+    },
+    {
       id: "schedule-mon-1",
       petName: "Max",
       type: "food",
