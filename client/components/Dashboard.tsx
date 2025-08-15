@@ -24,6 +24,7 @@ import { PetCareCalendar } from "./PetCareCalendar";
 import { VaccineSchedule } from "./VaccineSchedule";
 import { DietSchedule } from "./DietSchedule";
 import { PetProfile } from "./PetProfile";
+import { Settings as SettingsComponent } from "./Settings";
 
 interface DashboardProps {
   className?: string;
