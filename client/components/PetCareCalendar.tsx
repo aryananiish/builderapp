@@ -272,7 +272,7 @@ export function PetCareCalendar({ className }: PetCareCalendarProps) {
             <div className="flex items-center space-x-2">
               <Utensils className="h-4 w-4 text-blue-400" />
               <span className="text-sm text-foreground font-medium">
-                Feeding
+                Diet
               </span>
             </div>
             <span className="text-xs text-muted-foreground">
