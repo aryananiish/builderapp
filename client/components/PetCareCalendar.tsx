@@ -83,6 +83,8 @@ export function PetCareCalendar({ className }: PetCareCalendarProps) {
         return <Utensils className="h-3 w-3" />;
       case "heart":
         return <Heart className="h-3 w-3" />;
+      case "zap":
+        return <Zap className="h-3 w-3" />;
       default:
         return <CalendarIcon className="h-3 w-3" />;
     }
