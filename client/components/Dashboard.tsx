@@ -168,12 +168,7 @@ export function Dashboard({ className }: DashboardProps) {
                     Schedule Vaccine
                   </Button>
                 </div>
-                <Card className="p-6 md:p-8 bg-card border-border text-center">
-                  <Syringe className="h-10 w-10 md:h-12 md:w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground text-sm md:text-base">
-                    Vaccine management coming soon...
-                  </p>
-                </Card>
+                <VaccineSchedule />
               </div>
             )}
 
