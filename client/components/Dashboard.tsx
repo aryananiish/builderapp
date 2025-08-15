@@ -155,21 +155,21 @@ export function Dashboard({ className }: DashboardProps) {
             )}
             
             {activeView === "students" && (
-              <div className="space-y-6">
-                <h1 className="text-3xl font-bold text-foreground">Students</h1>
-                <Card className="p-8 bg-card border-border text-center">
-                  <Users className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground">Student management coming soon...</p>
+              <div className="space-y-4 md:space-y-6">
+                <h1 className="text-2xl md:text-3xl font-bold text-foreground">Students</h1>
+                <Card className="p-6 md:p-8 bg-card border-border text-center">
+                  <Users className="h-10 w-10 md:h-12 md:w-12 text-muted-foreground mx-auto mb-4" />
+                  <p className="text-muted-foreground text-sm md:text-base">Student management coming soon...</p>
                 </Card>
               </div>
             )}
-            
+
             {activeView === "settings" && (
-              <div className="space-y-6">
-                <h1 className="text-3xl font-bold text-foreground">Settings</h1>
-                <Card className="p-8 bg-card border-border text-center">
-                  <Settings className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground">Settings panel coming soon...</p>
+              <div className="space-y-4 md:space-y-6">
+                <h1 className="text-2xl md:text-3xl font-bold text-foreground">Settings</h1>
+                <Card className="p-6 md:p-8 bg-card border-border text-center">
+                  <Settings className="h-10 w-10 md:h-12 md:w-12 text-muted-foreground mx-auto mb-4" />
+                  <p className="text-muted-foreground text-sm md:text-base">Settings panel coming soon...</p>
                 </Card>
               </div>
             )}
