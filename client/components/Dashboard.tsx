@@ -491,7 +491,10 @@ export function Dashboard({ className }: DashboardProps) {
                   </Card>
                 ) : (
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
-                    <Card className="p-6 bg-card border-border">
+                    <Card
+                      className="p-6 bg-card border-border cursor-pointer hover:shadow-md hover:border-primary/50 transition-all duration-200 hover:scale-105"
+                      onClick={() => setActiveView("vaccines")}
+                    >
                       <div className="flex items-center space-x-2">
                         <Syringe className="h-5 w-5 text-primary" />
                         <span className="text-foreground font-medium">
@@ -508,7 +511,10 @@ export function Dashboard({ className }: DashboardProps) {
                       </div>
                     </Card>
 
-                    <Card className="p-6 bg-card border-border">
+                    <Card
+                      className="p-6 bg-card border-border cursor-pointer hover:shadow-md hover:border-primary/50 transition-all duration-200 hover:scale-105"
+                      onClick={() => setActiveView("profiles")}
+                    >
                       <div className="flex items-center space-x-2">
                         <Heart className="h-5 w-5 text-success" />
                         <span className="text-foreground font-medium">
@@ -523,7 +529,10 @@ export function Dashboard({ className }: DashboardProps) {
                       </div>
                     </Card>
 
-                    <Card className="p-6 bg-card border-border">
+                    <Card
+                      className="p-6 bg-card border-border cursor-pointer hover:shadow-md hover:border-primary/50 transition-all duration-200 hover:scale-105"
+                      onClick={() => setActiveView("feeding")}
+                    >
                       <div className="flex items-center space-x-2">
                         <Utensils className="h-5 w-5 text-info" />
                         <span className="text-foreground font-medium">
@@ -540,7 +549,10 @@ export function Dashboard({ className }: DashboardProps) {
                       </div>
                     </Card>
 
-                    <Card className="p-6 bg-card border-border">
+                    <Card
+                      className="p-6 bg-card border-border cursor-pointer hover:shadow-md hover:border-primary/50 transition-all duration-200 hover:scale-105"
+                      onClick={() => setActiveView("calendar")}
+                    >
                       <div className="flex items-center space-x-2">
                         <Zap className="h-5 w-5 text-cyan-400" />
                         <span className="text-foreground font-medium">
@@ -557,7 +569,10 @@ export function Dashboard({ className }: DashboardProps) {
                       </div>
                     </Card>
 
-                    <Card className="p-6 bg-card border-border">
+                    <Card
+                      className="p-6 bg-card border-border cursor-pointer hover:shadow-md hover:border-primary/50 transition-all duration-200 hover:scale-105"
+                      onClick={() => setActiveView("calendar")}
+                    >
                       <div className="flex items-center space-x-2">
                         <Calendar className="h-5 w-5 text-warning" />
                         <span className="text-foreground font-medium">
