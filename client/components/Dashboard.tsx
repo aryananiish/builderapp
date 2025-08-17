@@ -15,7 +15,6 @@ import {
   PawPrint,
   ShoppingBag,
   User,
-  Users,
   MessageCircle,
 } from "lucide-react";
 import { useSummary } from "@/hooks/usePetData";
