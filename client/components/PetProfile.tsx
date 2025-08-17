@@ -58,15 +58,15 @@ export function PetProfile({ className }: PetProfileProps) {
       dog: {
         emoji: "🐕",
         images: [
-          "https://images.pexels.com/photos/7752793/pexels-photo-7752793.jpeg",  // Golden Retriever
+          "https://images.pexels.com/photos/7752793/pexels-photo-7752793.jpeg", // Golden Retriever
         ],
         color: "bg-blue-100 text-blue-800",
-        label: "Dog"
+        label: "Dog",
       },
       cat: {
         emoji: "🐱",
         images: [
-          "https://images.pexels.com/photos/4336274/pexels-photo-4336274.jpeg",  // Maine Coon
+          "https://images.pexels.com/photos/4336274/pexels-photo-4336274.jpeg", // Maine Coon
         ],
         color: "bg-purple-100 text-purple-800",
         label: "Cat",
@@ -103,7 +103,9 @@ export function PetProfile({ className }: PetProfileProps) {
 
     // Select image based on pet ID for consistency
     if (info.images) {
-      const imageIndex = petId.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) % info.images.length;
+      const imageIndex =
+        petId.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0) %
+        info.images.length;
       return { ...info, image: info.images[imageIndex] };
     }
 

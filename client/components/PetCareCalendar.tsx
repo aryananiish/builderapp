@@ -32,7 +32,10 @@ interface PetCareItem {
   location?: string;
 }
 
-export function PetCareCalendar({ className, onNavigate }: PetCareCalendarProps) {
+export function PetCareCalendar({
+  className,
+  onNavigate,
+}: PetCareCalendarProps) {
   const timeSlots = [
     "06:00",
     "07:00",
@@ -293,9 +296,7 @@ export function PetCareCalendar({ className, onNavigate }: PetCareCalendarProps)
           <div className="flex items-center space-x-3">
             <div className="flex items-center space-x-2">
               <Utensils className="h-4 w-4 text-blue-400" />
-              <span className="text-sm text-foreground font-medium">
-                Diet
-              </span>
+              <span className="text-sm text-foreground font-medium">Diet</span>
             </div>
             <span className="text-xs text-muted-foreground">
               Meals & Nutrition
