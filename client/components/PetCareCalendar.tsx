@@ -173,9 +173,9 @@ export function PetCareCalendar({
         </div>
 
         <div className="overflow-x-auto">
-          <div className="min-w-[1000px]">
+          <div className="w-full">
             {/* Header */}
-            <div className="grid grid-cols-8 gap-1 md:gap-2 mb-4">
+            <div className="grid grid-cols-8 gap-1 mb-4">
               <div className="p-2 md:p-3 bg-timetable-header rounded-lg">
                 <span className="text-xs md:text-sm font-medium text-foreground">
                   Time
@@ -197,10 +197,13 @@ export function PetCareCalendar({
             {/* Time Grid */}
             <div className="space-y-2">
               {timeSlots.map((time) => (
-                <div key={time} className="grid grid-cols-8 gap-2 min-h-[60px]">
+                <div
+                  key={time}
+                  className="grid grid-cols-8 gap-1 min-h-[50px] md:min-h-[60px]"
+                >
                   {/* Time Column */}
-                  <div className="p-3 bg-timetable-cell rounded-lg flex items-center">
-                    <span className="text-sm text-muted-foreground font-mono">
+                  <div className="p-1 md:p-3 bg-timetable-cell rounded-lg flex items-center justify-center">
+                    <span className="text-xs md:text-sm text-muted-foreground font-mono">
                       {time}
                     </span>
                   </div>
@@ -217,7 +220,7 @@ export function PetCareCalendar({
                         {eventAtTime ? (
                           <div
                             className={cn(
-                              "p-3 rounded-lg border h-full min-h-[60px] transition-all duration-200 hover:scale-105 hover:shadow-lg cursor-pointer",
+                              "p-1 md:p-3 rounded-lg border h-full min-h-[50px] md:min-h-[60px] transition-all duration-200 hover:scale-105 hover:shadow-lg cursor-pointer",
                               eventAtTime.color,
                             )}
                             onClick={() => handleEventClick(eventAtTime)}
@@ -258,7 +261,7 @@ export function PetCareCalendar({
                             </div>
                           </div>
                         ) : (
-                          <div className="p-3 bg-timetable-cell rounded-lg h-full min-h-[60px] border border-timetable-border hover:bg-accent/50 transition-colors cursor-pointer group">
+                          <div className="p-1 md:p-3 bg-timetable-cell rounded-lg h-full min-h-[50px] md:min-h-[60px] border border-timetable-border hover:bg-accent/50 transition-colors cursor-pointer group">
                             <div className="flex items-center justify-center h-full">
                               <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
                                 Free
