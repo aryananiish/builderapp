@@ -15,6 +15,8 @@ import {
   PawPrint,
   ShoppingBag,
   User,
+  Users,
+  MessageCircle,
 } from "lucide-react";
 import { useSummary } from "@/hooks/usePetData";
 import { Button } from "@/components/ui/button";
