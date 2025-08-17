@@ -140,7 +140,7 @@ export function Dashboard({ className }: DashboardProps) {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 bg-dashboard-content overflow-y-auto h-[calc(100vh-4rem)]">
+        <main className="flex-1 bg-dashboard-content overflow-y-auto">
           <div className="p-4 md:p-6">
             {activeView === "calendar" && (
               <div className="space-y-4 md:space-y-6">
