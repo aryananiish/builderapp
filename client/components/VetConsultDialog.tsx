@@ -48,7 +48,8 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
       rating: 4.8,
       availableToday: true,
       consultationFee: "₹800",
-      image: "https://images.pexels.com/photos/5407206/pexels-photo-5407206.jpeg",
+      image:
+        "https://images.pexels.com/photos/5407206/pexels-photo-5407206.jpeg",
       location: "Pet Care Center, Mumbai",
       phone: "+91 98765 43210",
     },
@@ -60,7 +61,8 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
       rating: 4.9,
       availableToday: false,
       consultationFee: "₹1200",
-      image: "https://images.pexels.com/photos/6129507/pexels-photo-6129507.jpeg",
+      image:
+        "https://images.pexels.com/photos/6129507/pexels-photo-6129507.jpeg",
       location: "Animal Hospital, Delhi",
       phone: "+91 98765 43211",
     },
@@ -72,7 +74,8 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
       rating: 4.7,
       availableToday: true,
       consultationFee: "₹900",
-      image: "https://images.pexels.com/photos/5407205/pexels-photo-5407205.jpeg",
+      image:
+        "https://images.pexels.com/photos/5407205/pexels-photo-5407205.jpeg",
       location: "Skin & Coat Clinic, Bangalore",
       phone: "+91 98765 43212",
     },
@@ -94,7 +97,7 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
 
   const handleBookAppointment = () => {
     const selectedVetInfo = veterinarians.find((vet) => vet.id === selectedVet);
-    
+
     // Here you would typically send the data to your backend
     console.log("Booking appointment:", {
       ...formData,
@@ -317,7 +320,9 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
                     <SelectItem value="general">General Checkup</SelectItem>
                     <SelectItem value="vaccination">Vaccination</SelectItem>
                     <SelectItem value="emergency">Emergency</SelectItem>
-                    <SelectItem value="surgery">Surgery Consultation</SelectItem>
+                    <SelectItem value="surgery">
+                      Surgery Consultation
+                    </SelectItem>
                     <SelectItem value="dental">Dental Care</SelectItem>
                     <SelectItem value="skin">Skin & Allergies</SelectItem>
                   </SelectContent>
@@ -371,7 +376,9 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="low">Low - Routine Care</SelectItem>
-                    <SelectItem value="medium">Medium - Some Concern</SelectItem>
+                    <SelectItem value="medium">
+                      Medium - Some Concern
+                    </SelectItem>
                     <SelectItem value="high">High - Urgent Care</SelectItem>
                     <SelectItem value="emergency">Emergency</SelectItem>
                   </SelectContent>
