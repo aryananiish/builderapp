@@ -55,9 +55,15 @@ export function PetProfile({ className }: PetProfileProps) {
   // Get pet type display info
   const getPetTypeInfo = (type: Pet["type"]) => {
     const typeInfo = {
-      dog: { emoji: "🐕", color: "bg-blue-100 text-blue-800", label: "Dog" },
+      dog: {
+        emoji: "🐕",
+        image: "https://images.pexels.com/photos/28683176/pexels-photo-28683176.jpeg",
+        color: "bg-blue-100 text-blue-800",
+        label: "Dog"
+      },
       cat: {
         emoji: "🐱",
+        image: "https://images.pexels.com/photos/12573568/pexels-photo-12573568.jpeg",
         color: "bg-purple-100 text-purple-800",
         label: "Cat",
       },
