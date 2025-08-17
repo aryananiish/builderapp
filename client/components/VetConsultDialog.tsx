@@ -324,11 +324,27 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
                 <label className="text-sm font-medium text-foreground">
                   Pet Name *
                 </label>
-                <Input
-                  placeholder="Enter your pet's name"
-                  value={formData.petName}
-                  onChange={(e) => handleInputChange("petName", e.target.value)}
-                />
+                <div className="space-y-2">
+                  <Input
+                    placeholder="Enter your pet's name"
+                    value={formData.petName}
+                    onChange={(e) => handleInputChange("petName", e.target.value)}
+                  />
+                  <div className="flex gap-2">
+                    {samplePets.map((pet) => (
+                      <Button
+                        key={pet.id}
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        className="text-xs"
+                        onClick={() => handleInputChange("petName", pet.name)}
+                      >
+                        {pet.name} ({pet.breed})
+                      </Button>
+                    ))}
+                  </div>
+                </div>
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium text-foreground">
