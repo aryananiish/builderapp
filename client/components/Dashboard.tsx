@@ -13,12 +13,18 @@ import {
   Loader2,
   Zap,
   PawPrint,
+  ShoppingBag,
+  User,
 } from "lucide-react";
 import { useSummary } from "@/hooks/usePetData";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { PetCareCalendar } from "./PetCareCalendar";
 import { VaccineSchedule } from "./VaccineSchedule";
+import { DietSchedule } from "./DietSchedule";
+import { PetProfile } from "./PetProfile";
+import { Settings as SettingsComponent } from "./Settings";
 
 interface DashboardProps {
   className?: string;
@@ -36,10 +42,11 @@ export function Dashboard({ className }: DashboardProps) {
   } = useSummary();
 
   const navigationItems = [
+    { id: "profiles", label: "Pet Profiles", icon: User },
     { id: "calendar", label: "Pet Calendar", icon: Calendar },
     { id: "vaccines", label: "Vaccines", icon: Syringe },
     { id: "feeding", label: "Diet", icon: Utensils },
-    { id: "pets", label: "My Pets", icon: Heart },
+    { id: "shop", label: "Pet Shop", icon: ShoppingBag },
     { id: "analytics", label: "Analytics", icon: BarChart3 },
     { id: "settings", label: "Settings", icon: Settings },
   ];
@@ -186,39 +193,273 @@ export function Dashboard({ className }: DashboardProps) {
                     </p>
                   </div>
                   <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
-                    Add Diet Time
+                    Add Diet Schedule
                   </Button>
                 </div>
-                <Card className="p-6 md:p-8 bg-card border-border text-center">
-                  <Utensils className="h-10 w-10 md:h-12 md:w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground text-sm md:text-base">
-                    Diet management coming soon...
-                  </p>
-                </Card>
+                <DietSchedule />
               </div>
             )}
 
-            {activeView === "pets" && (
+            {activeView === "profiles" && (
               <div className="space-y-4 md:space-y-6">
                 <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                   <div>
                     <h1 className="text-2xl md:text-3xl font-bold text-foreground">
-                      My Pets
+                      Pet Profiles
                     </h1>
                     <p className="text-muted-foreground mt-1">
-                      Manage your pet profiles and information
+                      Manage your pets' information and health records
                     </p>
                   </div>
                   <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
-                    Add Pet
+                    Add New Pet
                   </Button>
                 </div>
-                <Card className="p-6 md:p-8 bg-card border-border text-center">
-                  <Heart className="h-10 w-10 md:h-12 md:w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground text-sm md:text-base">
-                    Pet management coming soon...
-                  </p>
-                </Card>
+                <PetProfile />
+              </div>
+            )}
+
+            {activeView === "shop" && (
+              <div className="space-y-4 md:space-y-6">
+                <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
+                  <div>
+                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">
+                      Pet Shop
+                    </h1>
+                    <p className="text-muted-foreground mt-1">
+                      Find everything your pets need
+                    </p>
+                  </div>
+                  <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
+                    View Cart (0)
+                  </Button>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+                  {/* Premium Dog Food */}
+                  <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
+                    <div className="aspect-square relative">
+                      <img
+                        src="https://images.pexels.com/photos/13581209/pexels-photo-13581209.jpeg"
+                        alt="Premium dog food with happy dog"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-2">
+                        Premium Dog Food
+                      </h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        High-quality nutrition for adult dogs
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <Badge variant="secondary">₹1,493</Badge>
+                        <Button
+                          size="sm"
+                          className="bg-primary hover:bg-primary/90"
+                        >
+                          Add to Cart
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Cat Toy Set */}
+                  <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
+                    <div className="aspect-square relative">
+                      <img
+                        src="https://images.pexels.com/photos/16577568/pexels-photo-16577568.jpeg"
+                        alt="Fluffy kitten playing with toys"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-2">
+                        Interactive Cat Toys
+                      </h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Set of 5 engaging toys for cats
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <Badge variant="secondary">₹995</Badge>
+                        <Button
+                          size="sm"
+                          className="bg-primary hover:bg-primary/90"
+                        >
+                          Add to Cart
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Dog Leash */}
+                  <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
+                    <div className="aspect-square relative">
+                      <img
+                        src="https://images.pexels.com/photos/32255850/pexels-photo-32255850.jpeg"
+                        alt="Happy Jack Russell Terrier in outdoor park"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-2">
+                        Reflective Dog Leash
+                      </h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        6ft durable leash with LED lights
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <Badge variant="secondary">₹1,244</Badge>
+                        <Button
+                          size="sm"
+                          className="bg-primary hover:bg-primary/90"
+                        >
+                          Add to Cart
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Pet Bed */}
+                  <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
+                    <div className="aspect-square relative">
+                      <img
+                        src="https://images.pexels.com/photos/2646483/pexels-photo-2646483.jpeg"
+                        alt="Gray tabby cat sleeping soundly"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-2">
+                        Cozy Pet Bed
+                      </h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Orthopedic support for better sleep
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <Badge variant="secondary">₹2,489</Badge>
+                        <Button
+                          size="sm"
+                          className="bg-primary hover:bg-primary/90"
+                        >
+                          Add to Cart
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Grooming Kit */}
+                  <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
+                    <div className="aspect-square relative">
+                      <img
+                        src="https://images.pexels.com/photos/9230441/pexels-photo-9230441.jpeg"
+                        alt="Professional grooming brushes and tools"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-2">
+                        Professional Grooming Kit
+                      </h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Complete set for pet grooming
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <Badge variant="secondary">₹1,991</Badge>
+                        <Button
+                          size="sm"
+                          className="bg-primary hover:bg-primary/90"
+                        >
+                          Add to Cart
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Digital Health Tracker */}
+                  <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
+                    <div className="aspect-square relative">
+                      <img
+                        src="https://images.pexels.com/photos/20782645/pexels-photo-20782645.jpeg"
+                        alt="White cat with smart collar"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-2">
+                        Digital Health Tracker
+                      </h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Smart collar for health monitoring
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <Badge variant="secondary">₹4,481</Badge>
+                        <Button
+                          size="sm"
+                          className="bg-primary hover:bg-primary/90"
+                        >
+                          Add to Cart
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Smart Water Fountain */}
+                  <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
+                    <div className="aspect-square relative">
+                      <img
+                        src="https://images.pexels.com/photos/22798164/pexels-photo-22798164.jpeg"
+                        alt="Beautiful decorative fountain with lotus flower"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-2">
+                        Smart Water Fountain
+                      </h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Auto-refilling with filtration system
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <Badge variant="secondary">₹2,987</Badge>
+                        <Button
+                          size="sm"
+                          className="bg-primary hover:bg-primary/90"
+                        >
+                          Add to Cart
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Training Treats */}
+                  <Card className="overflow-hidden bg-card border-border hover:shadow-lg transition-shadow">
+                    <div className="aspect-square relative">
+                      <img
+                        src="https://images.pexels.com/photos/4692169/pexels-photo-4692169.jpeg"
+                        alt="Delicious training treats and snacks"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground mb-2">
+                        Training Treat Pack
+                      </h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Healthy rewards for good behavior
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <Badge variant="secondary">₹796</Badge>
+                        <Button
+                          size="sm"
+                          className="bg-primary hover:bg-primary/90"
+                        >
+                          Add to Cart
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+                </div>
               </div>
             )}
 
@@ -339,15 +580,17 @@ export function Dashboard({ className }: DashboardProps) {
 
             {activeView === "settings" && (
               <div className="space-y-4 md:space-y-6">
-                <h1 className="text-2xl md:text-3xl font-bold text-foreground">
-                  Settings
-                </h1>
-                <Card className="p-6 md:p-8 bg-card border-border text-center">
-                  <Settings className="h-10 w-10 md:h-12 md:w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground text-sm md:text-base">
-                    Settings panel coming soon...
-                  </p>
-                </Card>
+                <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
+                  <div>
+                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">
+                      Settings
+                    </h1>
+                    <p className="text-muted-foreground mt-1">
+                      Customize your app preferences and account settings
+                    </p>
+                  </div>
+                </div>
+                <SettingsComponent />
               </div>
             )}
           </div>
