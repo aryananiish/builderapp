@@ -611,6 +611,12 @@ export function Dashboard({ className }: DashboardProps) {
               </div>
             )}
 
+            {activeView === "community" && (
+              <div className="space-y-4 md:space-y-6">
+                <Community />
+              </div>
+            )}
+
             {activeView === "settings" && (
               <div className="space-y-4 md:space-y-6">
                 <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
