@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Calendar, Clock, MapPin, Phone, Star, User } from "lucide-react";
 import {
   Dialog,
@@ -20,6 +20,8 @@ import {
 } from "@/components/ui/select";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { usePets } from "@/hooks/usePetData";
+import { samplePets } from "@/data/samplePetData";
 
 interface VetConsultDialogProps {
   children: React.ReactNode;
@@ -52,6 +54,13 @@ const getAvatarColor = (id: string): string => {
 export function VetConsultDialog({ children }: VetConsultDialogProps) {
   const [step, setStep] = useState(1);
   const [selectedVet, setSelectedVet] = useState<string | null>(null);
+  const { data: petsData } = usePets();
+
+  // Get primary pet data for autofill
+  const primaryPet = samplePets[0]; // Max - Golden Retriever
+  const primaryOwner = "Kunj Chaudhary"; // From user context
+  const ownerPhone = "+91 98765 43210"; // Sample phone from vet data
+
   const [formData, setFormData] = useState({
     petName: "",
     ownerName: "",
@@ -62,6 +71,22 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
     symptoms: "",
     urgency: "",
   });
+
+  // Autofill form when dialog opens
+  useEffect(() => {
+    if (primaryPet) {
+      setFormData({
+        petName: primaryPet.name,
+        ownerName: primaryOwner,
+        phone: ownerPhone,
+        appointmentDate: new Date().toISOString().split("T")[0], // Today's date
+        appointmentTime: "",
+        consultationType: "general", // Default to general checkup
+        symptoms: "",
+        urgency: "medium",
+      });
+    }
+  }, []);
 
   const veterinarians = [
     {
@@ -126,15 +151,16 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
     alert(`Appointment booked successfully with ${selectedVetInfo?.name}!`);
     setStep(1);
     setSelectedVet(null);
+    // Reset to autofilled data instead of empty
     setFormData({
-      petName: "",
-      ownerName: "",
-      phone: "",
-      appointmentDate: "",
+      petName: primaryPet.name,
+      ownerName: primaryOwner,
+      phone: ownerPhone,
+      appointmentDate: new Date().toISOString().split("T")[0],
       appointmentTime: "",
-      consultationType: "",
+      consultationType: "general",
       symptoms: "",
-      urgency: "",
+      urgency: "medium",
     });
   };
 
@@ -298,11 +324,29 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
                 <label className="text-sm font-medium text-foreground">
                   Pet Name *
                 </label>
-                <Input
-                  placeholder="Enter your pet's name"
-                  value={formData.petName}
-                  onChange={(e) => handleInputChange("petName", e.target.value)}
-                />
+                <div className="space-y-2">
+                  <Input
+                    placeholder="Enter your pet's name"
+                    value={formData.petName}
+                    onChange={(e) =>
+                      handleInputChange("petName", e.target.value)
+                    }
+                  />
+                  <div className="flex gap-2">
+                    {samplePets.map((pet) => (
+                      <Button
+                        key={pet.id}
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        className="text-xs"
+                        onClick={() => handleInputChange("petName", pet.name)}
+                      >
+                        {pet.name} ({pet.breed})
+                      </Button>
+                    ))}
+                  </div>
+                </div>
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium text-foreground">
@@ -413,12 +457,60 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
               <label className="text-sm font-medium text-foreground">
                 Symptoms or Concerns
               </label>
-              <Textarea
-                placeholder="Describe your pet's symptoms or the reason for the visit..."
-                rows={3}
-                value={formData.symptoms}
-                onChange={(e) => handleInputChange("symptoms", e.target.value)}
-              />
+              <div className="space-y-2">
+                <Textarea
+                  placeholder="Describe your pet's symptoms or the reason for the visit..."
+                  rows={3}
+                  value={formData.symptoms}
+                  onChange={(e) =>
+                    handleInputChange("symptoms", e.target.value)
+                  }
+                />
+                <div className="flex flex-wrap gap-2">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    className="text-xs"
+                    onClick={() =>
+                      handleInputChange(
+                        "symptoms",
+                        "Regular checkup and wellness visit",
+                      )
+                    }
+                  >
+                    Regular Checkup
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    className="text-xs"
+                    onClick={() =>
+                      handleInputChange(
+                        "symptoms",
+                        "Follow-up on vaccination schedule and health status",
+                      )
+                    }
+                  >
+                    Vaccination Follow-up
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    className="text-xs"
+                    onClick={() =>
+                      handleInputChange(
+                        "symptoms",
+                        "Skin examination for seasonal allergies or irritation",
+                      )
+                    }
+                  >
+                    Skin Check
+                  </Button>
+                </div>
+              </div>
             </div>
 
             <div className="flex justify-between">
