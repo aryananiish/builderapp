@@ -258,7 +258,7 @@ export function PetCareCalendar({
                             </div>
                           </div>
                         ) : (
-                          <div className="p-3 bg-timetable-cell rounded-lg h-full min-h-[60px] border border-timetable-border hover:bg-accent/50 transition-colors cursor-pointer group">
+                          <div className="p-1 md:p-3 bg-timetable-cell rounded-lg h-full min-h-[50px] md:min-h-[60px] border border-timetable-border hover:bg-accent/50 transition-colors cursor-pointer group">
                             <div className="flex items-center justify-center h-full">
                               <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
                                 Free
