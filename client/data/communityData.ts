@@ -110,7 +110,7 @@ export const sampleCommunityPosts: CommunityPost[] = [
         userId: "user-4",
         user: communityUsers[3],
         content:
-          "Looks like so much fun! Crissy Field is another great spot if you haven't tried it yet.",
+          "Looks like so much fun! Marine Drive is another great spot if you haven't tried it yet.",
         timestamp: "2024-01-20T14:30:00Z",
         likes: 5,
       },
