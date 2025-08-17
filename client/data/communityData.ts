@@ -44,7 +44,7 @@ export const communityUsers: CommunityUser[] = [
     name: "Sarah Johnson",
     avatar:
       "https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2",
-    location: "San Francisco, CA",
+    location: "Mumbai, Maharashtra",
     petCount: 2,
     memberSince: "2023-03-15",
     bio: "Dog mom to Max and Luna. Love hiking with my furry friends! 🐕🐱",
@@ -54,7 +54,7 @@ export const communityUsers: CommunityUser[] = [
     name: "Mike Chen",
     avatar:
       "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2",
-    location: "Seattle, WA",
+    location: "Bangalore, Karnataka",
     petCount: 1,
     memberSince: "2023-01-22",
     bio: "First-time cat owner learning every day. Always open to advice!",
@@ -64,7 +64,7 @@ export const communityUsers: CommunityUser[] = [
     name: "Emma Rodriguez",
     avatar:
       "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2",
-    location: "Austin, TX",
+    location: "Pune, Maharashtra",
     petCount: 3,
     memberSince: "2022-11-08",
     bio: "Rescue volunteer and proud mama of 2 dogs and 1 cat ❤️",
@@ -74,7 +74,7 @@ export const communityUsers: CommunityUser[] = [
     name: "David Park",
     avatar:
       "https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2",
-    location: "Denver, CO",
+    location: "Delhi, Delhi",
     petCount: 1,
     memberSince: "2023-08-03",
     bio: "Golden Retriever enthusiast. Love sharing training tips!",
@@ -84,7 +84,7 @@ export const communityUsers: CommunityUser[] = [
     name: "Lisa Thompson",
     avatar:
       "https://images.pexels.com/photos/1674752/pexels-photo-1674752.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2",
-    location: "Portland, OR",
+    location: "Chennai, Tamil Nadu",
     petCount: 2,
     memberSince: "2022-06-12",
     bio: "Veterinary technician sharing health tips for your pets 🩺",
