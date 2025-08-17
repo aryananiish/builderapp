@@ -173,7 +173,7 @@ export function PetCareCalendar({
         </div>
 
         <div className="overflow-x-auto">
-          <div className="min-w-[1000px]">
+          <div className="w-full">
             {/* Header */}
             <div className="grid grid-cols-8 gap-1 md:gap-2 mb-4">
               <div className="p-2 md:p-3 bg-timetable-header rounded-lg">
