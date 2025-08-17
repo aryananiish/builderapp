@@ -190,9 +190,9 @@ export function PetProfile({ className }: PetProfileProps) {
                         alt={pet.name}
                         className="w-16 h-16 rounded-full object-cover border-2 border-primary/20"
                       />
-                    ) : typeInfo.image ? (
+                    ) : "image" in typeInfo ? (
                       <img
-                        src={typeInfo.image}
+                        src={(typeInfo as any).image}
                         alt={`${typeInfo.label} - ${pet.name}`}
                         className="w-16 h-16 rounded-full object-cover border-2 border-primary/20"
                       />
