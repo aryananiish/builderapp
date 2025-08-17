@@ -54,7 +54,12 @@ export function PetProfile({ className }: PetProfileProps) {
 
   // Get pet type display info with multiple image options
   const getPetTypeInfo = (type: Pet["type"], petId: string) => {
-    const typeInfo = {
+    const typeInfo: Record<Pet["type"] | "other", {
+      emoji: string;
+      color: string;
+      label: string;
+      images?: string[];
+    }> = {
       dog: {
         emoji: "🐕",
         images: [
