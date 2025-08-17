@@ -168,7 +168,7 @@ export function PetProfile({ className }: PetProfileProps) {
       {/* Pet Profile Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {pets.map((pet) => {
-          const typeInfo = getPetTypeInfo(pet.type);
+          const typeInfo = getPetTypeInfo(pet.type, pet.id);
           const stats = getPetStats(pet.id);
 
           return (
@@ -189,7 +189,7 @@ export function PetProfile({ className }: PetProfileProps) {
                     ) : typeInfo.image ? (
                       <img
                         src={typeInfo.image}
-                        alt={`${typeInfo.label} ${pet.name}`}
+                        alt={`${typeInfo.label} - ${pet.name}`}
                         className="w-16 h-16 rounded-full object-cover border-2 border-primary/20"
                       />
                     ) : (
