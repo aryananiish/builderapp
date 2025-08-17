@@ -170,6 +170,12 @@ export function PetProfile({ className }: PetProfileProps) {
                         alt={pet.name}
                         className="w-16 h-16 rounded-full object-cover border-2 border-primary/20"
                       />
+                    ) : typeInfo.image ? (
+                      <img
+                        src={typeInfo.image}
+                        alt={`${typeInfo.label} ${pet.name}`}
+                        className="w-16 h-16 rounded-full object-cover border-2 border-primary/20"
+                      />
                     ) : (
                       <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center border-2 border-primary/20">
                         <span className="text-2xl">{typeInfo.emoji}</span>
