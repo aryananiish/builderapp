@@ -256,8 +256,8 @@ export const sampleCommunityPosts: CommunityPost[] = [
     userId: "user-1",
     user: communityUsers[0],
     content:
-      "🌟 Local event alert! SF SPCA is hosting a 'Paws in the Park' adoption event this Saturday from 10am-4pm at Golden Gate Park. They'll have adoptable pets, free health screenings, and training demos. Who's going?",
-    tags: ["event", "adoption", "sfspca", "goldengatepark"],
+      "🌟 Local event alert! Animal Welfare Society is hosting a 'Paws in the Park' adoption event this Saturday from 10am-4pm at Sanjay Gandhi National Park. They'll have adoptable pets, free health screenings, and training demos. Who's going?",
+    tags: ["event", "adoption", "animalwelfare", "sanjaygandhipark"],
     category: "events",
     likes: 29,
     comments: [
