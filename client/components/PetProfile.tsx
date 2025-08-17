@@ -52,12 +52,22 @@ export function PetProfile({ className }: PetProfileProps) {
     };
   };
 
-  // Get pet type display info
-  const getPetTypeInfo = (type: Pet["type"]) => {
+  // Get pet type display info with multiple image options
+  const getPetTypeInfo = (type: Pet["type"], petId: string) => {
     const typeInfo = {
-      dog: { emoji: "🐕", color: "bg-blue-100 text-blue-800", label: "Dog" },
+      dog: {
+        emoji: "🐕",
+        images: [
+          "https://images.pexels.com/photos/7752793/pexels-photo-7752793.jpeg", // Golden Retriever
+        ],
+        color: "bg-blue-100 text-blue-800",
+        label: "Dog",
+      },
       cat: {
         emoji: "🐱",
+        images: [
+          "https://images.pexels.com/photos/4336274/pexels-photo-4336274.jpeg", // Maine Coon
+        ],
         color: "bg-purple-100 text-purple-800",
         label: "Cat",
       },
@@ -88,7 +98,18 @@ export function PetProfile({ className }: PetProfileProps) {
         label: "Other",
       },
     };
-    return typeInfo[type] || typeInfo.other;
+
+    const info = typeInfo[type] || typeInfo.other;
+
+    // Select image based on pet ID for consistency
+    if (info.images) {
+      const imageIndex =
+        petId.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0) %
+        info.images.length;
+      return { ...info, image: info.images[imageIndex] };
+    }
+
+    return info;
   };
 
   // Handle edit pet
@@ -146,7 +167,7 @@ export function PetProfile({ className }: PetProfileProps) {
       {/* Pet Profile Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {pets.map((pet) => {
-          const typeInfo = getPetTypeInfo(pet.type);
+          const typeInfo = getPetTypeInfo(pet.type, pet.id);
           const stats = getPetStats(pet.id);
 
           return (
@@ -162,6 +183,12 @@ export function PetProfile({ className }: PetProfileProps) {
                       <img
                         src={pet.avatar}
                         alt={pet.name}
+                        className="w-16 h-16 rounded-full object-cover border-2 border-primary/20"
+                      />
+                    ) : typeInfo.image ? (
+                      <img
+                        src={typeInfo.image}
+                        alt={`${typeInfo.label} - ${pet.name}`}
                         className="w-16 h-16 rounded-full object-cover border-2 border-primary/20"
                       />
                     ) : (
