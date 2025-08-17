@@ -28,6 +28,7 @@ import { PetProfile } from "./PetProfile";
 import { Settings as SettingsComponent } from "./Settings";
 import { PetWellnessCharts } from "./PetWellnessCharts";
 import { Community } from "./Community";
+import { VetConsultDialog } from "./VetConsultDialog";
 
 interface DashboardProps {
   className?: string;
