@@ -16,6 +16,7 @@ import { useWeeklySchedule, useSummary } from "@/hooks/usePetData";
 
 interface PetCareCalendarProps {
   className?: string;
+  onNavigate?: (tab: string) => void;
 }
 
 interface PetCareItem {
@@ -31,7 +32,7 @@ interface PetCareItem {
   location?: string;
 }
 
-export function PetCareCalendar({ className }: PetCareCalendarProps) {
+export function PetCareCalendar({ className, onNavigate }: PetCareCalendarProps) {
   const timeSlots = [
     "06:00",
     "07:00",
@@ -98,6 +99,26 @@ export function PetCareCalendar({ className }: PetCareCalendarProps) {
         return "bg-red-100 text-red-800 border-red-200";
       default:
         return "bg-blue-100 text-blue-800 border-blue-200";
+    }
+  };
+
+  const getNavigationTab = (eventType: string) => {
+    switch (eventType) {
+      case "syringe":
+        return "vaccines";
+      case "utensils":
+        return "feeding";
+      case "zap":
+      case "heart":
+      default:
+        return "calendar";
+    }
+  };
+
+  const handleEventClick = (event: any) => {
+    if (onNavigate) {
+      const targetTab = getNavigationTab(event.icon);
+      onNavigate(targetTab);
     }
   };
 
@@ -196,6 +217,7 @@ export function PetCareCalendar({ className }: PetCareCalendarProps) {
                               "p-3 rounded-lg border h-full min-h-[60px] transition-all duration-200 hover:scale-105 hover:shadow-lg cursor-pointer",
                               eventAtTime.color,
                             )}
+                            onClick={() => handleEventClick(eventAtTime)}
                           >
                             <div className="flex flex-col h-full">
                               <div className="flex items-center space-x-1 mb-1">
