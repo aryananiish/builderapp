@@ -400,7 +400,7 @@ export const weeklySchedule = {
       color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
       icon: "heart" as const,
       status: "scheduled" as const,
-      location: "Central Dog Park",
+      location: "Cubbon Park",
     },
   ],
 };

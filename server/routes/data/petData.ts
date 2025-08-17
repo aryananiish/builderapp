@@ -380,7 +380,7 @@ export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
       color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
       icon: "zap",
       status: "scheduled",
-      location: "Central Dog Park",
+      location: "Cubbon Park",
     },
   ],
   Wednesday: [
@@ -394,7 +394,7 @@ export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
       color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
       icon: "zap",
       status: "scheduled",
-      location: "Park Trail",
+      location: "Lalbagh Botanical Garden",
     },
     {
       id: "schedule-wed-1",
@@ -446,7 +446,7 @@ export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
       color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
       icon: "zap",
       status: "scheduled",
-      location: "Sandy Beach",
+      location: "Marina Beach",
     },
     {
       id: "schedule-fri-1",
@@ -472,7 +472,7 @@ export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
       color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
       icon: "zap",
       status: "scheduled",
-      location: "Mountain Trail",
+      location: "Nandi Hills Trail",
     },
     {
       id: "schedule-sat-1",
@@ -521,7 +521,7 @@ export const weeklySchedule: Record<string, WeeklyScheduleItem[]> = {
       color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
       icon: "zap",
       status: "scheduled",
-      location: "Central Dog Park",
+      location: "Cubbon Park",
     },
   ],
 };

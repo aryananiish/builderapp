@@ -15,6 +15,7 @@ import {
   PawPrint,
   ShoppingBag,
   User,
+  MessageCircle,
 } from "lucide-react";
 import { useSummary } from "@/hooks/usePetData";
 import { Button } from "@/components/ui/button";
@@ -25,6 +26,8 @@ import { VaccineSchedule } from "./VaccineSchedule";
 import { DietSchedule } from "./DietSchedule";
 import { PetProfile } from "./PetProfile";
 import { Settings as SettingsComponent } from "./Settings";
+import { PetWellnessCharts } from "./PetWellnessCharts";
+import { Community } from "./Community";
 
 interface DashboardProps {
   className?: string;
@@ -46,6 +49,7 @@ export function Dashboard({ className }: DashboardProps) {
     { id: "calendar", label: "Pet Calendar", icon: Calendar },
     { id: "vaccines", label: "Vaccines", icon: Syringe },
     { id: "feeding", label: "Diet", icon: Utensils },
+    { id: "community", label: "Community", icon: MessageCircle },
     { id: "shop", label: "Pet Shop", icon: ShoppingBag },
     { id: "analytics", label: "Analytics", icon: BarChart3 },
     { id: "settings", label: "Settings", icon: Settings },
@@ -140,7 +144,7 @@ export function Dashboard({ className }: DashboardProps) {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 bg-dashboard-content overflow-y-auto h-[calc(100vh-4rem)]">
+        <main className="flex-1 bg-dashboard-content overflow-y-auto">
           <div className="p-4 md:p-6">
             {activeView === "calendar" && (
               <div className="space-y-4 md:space-y-6">
@@ -154,7 +158,7 @@ export function Dashboard({ className }: DashboardProps) {
                     </p>
                   </div>
                   <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
-                    Add Event
+                    Consult
                   </Button>
                 </div>
 
@@ -465,10 +469,19 @@ export function Dashboard({ className }: DashboardProps) {
 
             {activeView === "analytics" && (
               <div className="space-y-4 md:space-y-6">
-                <h1 className="text-2xl md:text-3xl font-bold text-foreground">
-                  Pet Care Analytics
-                </h1>
+                <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
+                  <div>
+                    <h1 className="text-2xl md:text-3xl font-bold text-foreground">
+                      Pet Wellness Analytics
+                    </h1>
+                    <p className="text-muted-foreground mt-1">
+                      Visual insights into your pets' health, nutrition, and
+                      activity
+                    </p>
+                  </div>
+                </div>
 
+                {/* Quick Stats Overview */}
                 {summaryLoading ? (
                   <Card className="p-6 bg-card border-border">
                     <div className="flex items-center justify-center py-8">
@@ -490,106 +503,119 @@ export function Dashboard({ className }: DashboardProps) {
                     </div>
                   </Card>
                 ) : (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
-                    <Card
-                      className="p-6 bg-card border-border cursor-pointer hover:shadow-md hover:border-primary/50 transition-all duration-200 hover:scale-105"
-                      onClick={() => setActiveView("vaccines")}
-                    >
-                      <div className="flex items-center space-x-2">
-                        <Syringe className="h-5 w-5 text-primary" />
-                        <span className="text-foreground font-medium">
-                          Upcoming Vaccines
-                        </span>
-                      </div>
-                      <div className="mt-2">
-                        <span className="text-2xl font-bold text-foreground">
-                          {summaryData?.summary?.upcomingVaccines || 0}
-                        </span>
-                        <span className="text-muted-foreground ml-1">
-                          scheduled
-                        </span>
-                      </div>
-                    </Card>
+                  <>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
+                      <Card
+                        className="p-6 bg-card border-border cursor-pointer hover:shadow-md hover:border-primary/50 transition-all duration-200 hover:scale-105"
+                        onClick={() => setActiveView("vaccines")}
+                      >
+                        <div className="flex items-center space-x-2">
+                          <Syringe className="h-5 w-5 text-primary" />
+                          <span className="text-foreground font-medium">
+                            Upcoming Vaccines
+                          </span>
+                        </div>
+                        <div className="mt-2">
+                          <span className="text-2xl font-bold text-foreground">
+                            {summaryData?.summary?.upcomingVaccines || 0}
+                          </span>
+                          <span className="text-muted-foreground ml-1">
+                            scheduled
+                          </span>
+                        </div>
+                      </Card>
 
-                    <Card
-                      className="p-6 bg-card border-border cursor-pointer hover:shadow-md hover:border-primary/50 transition-all duration-200 hover:scale-105"
-                      onClick={() => setActiveView("profiles")}
-                    >
-                      <div className="flex items-center space-x-2">
-                        <Heart className="h-5 w-5 text-success" />
-                        <span className="text-foreground font-medium">
-                          Active Pets
-                        </span>
-                      </div>
-                      <div className="mt-2">
-                        <span className="text-2xl font-bold text-foreground">
-                          {summaryData?.summary?.totalPets || 0}
-                        </span>
-                        <span className="text-muted-foreground ml-1">pets</span>
-                      </div>
-                    </Card>
+                      <Card
+                        className="p-6 bg-card border-border cursor-pointer hover:shadow-md hover:border-primary/50 transition-all duration-200 hover:scale-105"
+                        onClick={() => setActiveView("profiles")}
+                      >
+                        <div className="flex items-center space-x-2">
+                          <Heart className="h-5 w-5 text-success" />
+                          <span className="text-foreground font-medium">
+                            Active Pets
+                          </span>
+                        </div>
+                        <div className="mt-2">
+                          <span className="text-2xl font-bold text-foreground">
+                            {summaryData?.summary?.totalPets || 0}
+                          </span>
+                          <span className="text-muted-foreground ml-1">
+                            pets
+                          </span>
+                        </div>
+                      </Card>
 
-                    <Card
-                      className="p-6 bg-card border-border cursor-pointer hover:shadow-md hover:border-primary/50 transition-all duration-200 hover:scale-105"
-                      onClick={() => setActiveView("feeding")}
-                    >
-                      <div className="flex items-center space-x-2">
-                        <Utensils className="h-5 w-5 text-info" />
-                        <span className="text-foreground font-medium">
-                          Daily Meals
-                        </span>
-                      </div>
-                      <div className="mt-2">
-                        <span className="text-2xl font-bold text-foreground">
-                          {summaryData?.summary?.dailyMeals || 0}
-                        </span>
-                        <span className="text-muted-foreground ml-1">
-                          scheduled
-                        </span>
-                      </div>
-                    </Card>
+                      <Card
+                        className="p-6 bg-card border-border cursor-pointer hover:shadow-md hover:border-primary/50 transition-all duration-200 hover:scale-105"
+                        onClick={() => setActiveView("feeding")}
+                      >
+                        <div className="flex items-center space-x-2">
+                          <Utensils className="h-5 w-5 text-info" />
+                          <span className="text-foreground font-medium">
+                            Daily Meals
+                          </span>
+                        </div>
+                        <div className="mt-2">
+                          <span className="text-2xl font-bold text-foreground">
+                            {summaryData?.summary?.dailyMeals || 0}
+                          </span>
+                          <span className="text-muted-foreground ml-1">
+                            scheduled
+                          </span>
+                        </div>
+                      </Card>
 
-                    <Card
-                      className="p-6 bg-card border-border cursor-pointer hover:shadow-md hover:border-primary/50 transition-all duration-200 hover:scale-105"
-                      onClick={() => setActiveView("calendar")}
-                    >
-                      <div className="flex items-center space-x-2">
-                        <Zap className="h-5 w-5 text-cyan-400" />
-                        <span className="text-foreground font-medium">
-                          Weekly Exercises
-                        </span>
-                      </div>
-                      <div className="mt-2">
-                        <span className="text-2xl font-bold text-foreground">
-                          {summaryData?.summary?.weeklyExercises || 0}
-                        </span>
-                        <span className="text-muted-foreground ml-1">
-                          activities
-                        </span>
-                      </div>
-                    </Card>
+                      <Card
+                        className="p-6 bg-card border-border cursor-pointer hover:shadow-md hover:border-primary/50 transition-all duration-200 hover:scale-105"
+                        onClick={() => setActiveView("calendar")}
+                      >
+                        <div className="flex items-center space-x-2">
+                          <Zap className="h-5 w-5 text-cyan-400" />
+                          <span className="text-foreground font-medium">
+                            Weekly Exercises
+                          </span>
+                        </div>
+                        <div className="mt-2">
+                          <span className="text-2xl font-bold text-foreground">
+                            {summaryData?.summary?.weeklyExercises || 0}
+                          </span>
+                          <span className="text-muted-foreground ml-1">
+                            activities
+                          </span>
+                        </div>
+                      </Card>
 
-                    <Card
-                      className="p-6 bg-card border-border cursor-pointer hover:shadow-md hover:border-primary/50 transition-all duration-200 hover:scale-105"
-                      onClick={() => setActiveView("calendar")}
-                    >
-                      <div className="flex items-center space-x-2">
-                        <Calendar className="h-5 w-5 text-warning" />
-                        <span className="text-foreground font-medium">
-                          Upcoming Events
-                        </span>
-                      </div>
-                      <div className="mt-2">
-                        <span className="text-2xl font-bold text-foreground">
-                          {summaryData?.summary?.upcomingEvents || 0}
-                        </span>
-                        <span className="text-muted-foreground ml-1">
-                          events
-                        </span>
-                      </div>
-                    </Card>
-                  </div>
+                      <Card
+                        className="p-6 bg-card border-border cursor-pointer hover:shadow-md hover:border-primary/50 transition-all duration-200 hover:scale-105"
+                        onClick={() => setActiveView("calendar")}
+                      >
+                        <div className="flex items-center space-x-2">
+                          <Calendar className="h-5 w-5 text-warning" />
+                          <span className="text-foreground font-medium">
+                            Upcoming Events
+                          </span>
+                        </div>
+                        <div className="mt-2">
+                          <span className="text-2xl font-bold text-foreground">
+                            {summaryData?.summary?.upcomingEvents || 0}
+                          </span>
+                          <span className="text-muted-foreground ml-1">
+                            events
+                          </span>
+                        </div>
+                      </Card>
+                    </div>
+
+                    {/* Wellness Visualization Charts */}
+                    <PetWellnessCharts />
+                  </>
                 )}
+              </div>
+            )}
+
+            {activeView === "community" && (
+              <div className="space-y-4 md:space-y-6">
+                <Community />
               </div>
             )}
 
