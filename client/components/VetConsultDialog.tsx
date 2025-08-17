@@ -25,6 +25,30 @@ interface VetConsultDialogProps {
   children: React.ReactNode;
 }
 
+// Helper function to get initials from a name
+const getInitials = (name: string): string => {
+  return name
+    .split(' ')
+    .map(word => word[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2);
+};
+
+// Helper function to generate a consistent color for each vet
+const getAvatarColor = (id: string): string => {
+  const colors = [
+    'bg-blue-500',
+    'bg-green-500',
+    'bg-purple-500',
+    'bg-orange-500',
+    'bg-red-500',
+    'bg-indigo-500'
+  ];
+  const index = parseInt(id) % colors.length;
+  return colors[index];
+};
+
 export function VetConsultDialog({ children }: VetConsultDialogProps) {
   const [step, setStep] = useState(1);
   const [selectedVet, setSelectedVet] = useState<string | null>(null);
@@ -48,8 +72,6 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
       rating: 4.8,
       availableToday: true,
       consultationFee: "₹800",
-      image:
-        "https://images.pexels.com/photos/5407206/pexels-photo-5407206.jpeg",
       location: "Pet Care Center, Mumbai",
       phone: "+91 98765 43210",
     },
@@ -61,8 +83,6 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
       rating: 4.9,
       availableToday: false,
       consultationFee: "₹1200",
-      image:
-        "https://images.pexels.com/photos/6129507/pexels-photo-6129507.jpeg",
       location: "Animal Hospital, Delhi",
       phone: "+91 98765 43211",
     },
@@ -74,8 +94,6 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
       rating: 4.7,
       availableToday: true,
       consultationFee: "₹900",
-      image:
-        "https://images.pexels.com/photos/5407205/pexels-photo-5407205.jpeg",
       location: "Skin & Coat Clinic, Bangalore",
       phone: "+91 98765 43212",
     },
@@ -163,11 +181,9 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
                     onClick={() => setSelectedVet(vet.id)}
                   >
                     <div className="flex items-start space-x-4">
-                      <img
-                        src={vet.image}
-                        alt={vet.name}
-                        className="w-16 h-16 rounded-full object-cover"
-                      />
+                      <div className={`w-16 h-16 rounded-full flex items-center justify-center text-white font-semibold text-lg ${getAvatarColor(vet.id)}`}>
+                        {getInitials(vet.name)}
+                      </div>
                       <div className="flex-1 space-y-2">
                         <div className="flex items-center justify-between">
                           <h4 className="font-semibold text-foreground">
@@ -240,13 +256,11 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
             {selectedVet && (
               <Card className="p-4 bg-muted/20">
                 <div className="flex items-center space-x-3">
-                  <img
-                    src={
-                      veterinarians.find((vet) => vet.id === selectedVet)?.image
-                    }
-                    alt="Selected vet"
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
+                  <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold text-sm ${
+                    selectedVet ? getAvatarColor(selectedVet) : 'bg-gray-500'
+                  }`}>
+                    {selectedVet ? getInitials(veterinarians.find((vet) => vet.id === selectedVet)?.name || '') : ''}
+                  </div>
                   <div>
                     <h4 className="font-semibold text-foreground">
                       {
