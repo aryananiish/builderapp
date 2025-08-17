@@ -119,7 +119,7 @@ export const sampleCommunityPosts: CommunityPost[] = [
         userId: "user-3",
         user: communityUsers[2],
         content:
-          "Max looks so happy! We love Ocean Beach on weekdays when it's less crowded.",
+          "Max looks so happy! We love Juhu Beach on weekdays when it's less crowded.",
         timestamp: "2024-01-20T15:45:00Z",
         likes: 3,
       },
