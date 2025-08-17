@@ -158,7 +158,7 @@ export function Dashboard({ className }: DashboardProps) {
                     </p>
                   </div>
                   <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
-                    Add Event
+                    Consult
                   </Button>
                 </div>
 
