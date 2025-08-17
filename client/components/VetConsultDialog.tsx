@@ -455,12 +455,43 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
               <label className="text-sm font-medium text-foreground">
                 Symptoms or Concerns
               </label>
-              <Textarea
-                placeholder="Describe your pet's symptoms or the reason for the visit..."
-                rows={3}
-                value={formData.symptoms}
-                onChange={(e) => handleInputChange("symptoms", e.target.value)}
-              />
+              <div className="space-y-2">
+                <Textarea
+                  placeholder="Describe your pet's symptoms or the reason for the visit..."
+                  rows={3}
+                  value={formData.symptoms}
+                  onChange={(e) => handleInputChange("symptoms", e.target.value)}
+                />
+                <div className="flex flex-wrap gap-2">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    className="text-xs"
+                    onClick={() => handleInputChange("symptoms", "Regular checkup and wellness visit")}
+                  >
+                    Regular Checkup
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    className="text-xs"
+                    onClick={() => handleInputChange("symptoms", "Follow-up on vaccination schedule and health status")}
+                  >
+                    Vaccination Follow-up
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    className="text-xs"
+                    onClick={() => handleInputChange("symptoms", "Skin examination for seasonal allergies or irritation")}
+                  >
+                    Skin Check
+                  </Button>
+                </div>
+              </div>
             </div>
 
             <div className="flex justify-between">
