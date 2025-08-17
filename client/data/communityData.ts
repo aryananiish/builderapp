@@ -125,7 +125,7 @@ export const sampleCommunityPosts: CommunityPost[] = [
       },
     ],
     timestamp: "2024-01-20T10:15:00Z",
-    location: "San Francisco, CA",
+    location: "Mumbai, Maharashtra",
   },
   {
     id: "post-2",
@@ -191,7 +191,7 @@ export const sampleCommunityPosts: CommunityPost[] = [
       },
     ],
     timestamp: "2024-01-18T18:45:00Z",
-    location: "Austin, TX",
+    location: "Pune, Maharashtra",
   },
   {
     id: "post-4",
@@ -217,7 +217,7 @@ export const sampleCommunityPosts: CommunityPost[] = [
       },
     ],
     timestamp: "2024-01-17T12:20:00Z",
-    location: "Denver, CO",
+    location: "Delhi, Delhi",
   },
   {
     id: "post-5",
@@ -249,7 +249,7 @@ export const sampleCommunityPosts: CommunityPost[] = [
       },
     ],
     timestamp: "2024-01-16T17:00:00Z",
-    location: "Seattle, WA",
+    location: "Bangalore, Karnataka",
   },
   {
     id: "post-6",
@@ -272,7 +272,7 @@ export const sampleCommunityPosts: CommunityPost[] = [
       },
     ],
     timestamp: "2024-01-15T14:30:00Z",
-    location: "San Francisco, CA",
+    location: "Mumbai, Maharashtra",
   },
 ];
 
