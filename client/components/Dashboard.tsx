@@ -152,7 +152,7 @@ export function Dashboard({ className }: DashboardProps) {
                 <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                   <div>
                     <h1 className="text-2xl md:text-3xl font-bold text-foreground">
-                      Pet Care Calendar
+                      Pet Care
                     </h1>
                     <p className="text-muted-foreground mt-1">
                       Track vaccines, feeding times, and appointments

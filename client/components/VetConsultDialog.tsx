@@ -58,7 +58,7 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
 
   // Get primary pet data for autofill
   const primaryPet = samplePets[0]; // Max - Golden Retriever
-  const primaryOwner = "Kunj Chaudhary"; // From user context
+  const primaryOwner = "Kunj Desai"; // From user context
   const ownerPhone = "+91 98765 43210"; // Sample phone from vet data
 
   const [formData, setFormData] = useState({
@@ -91,7 +91,7 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
   const veterinarians = [
     {
       id: "1",
-      name: "Dr. Sarah Johnson",
+      name: "Dr. Atharv Gavade",
       specialization: "General Practice",
       experience: "8 years",
       rating: 4.8,
@@ -102,24 +102,24 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
     },
     {
       id: "2",
-      name: "Dr. Michael Chen",
+      name: "Dr. Sushil Sharma",
       specialization: "Surgery & Emergency",
       experience: "12 years",
       rating: 4.9,
       availableToday: false,
       consultationFee: "₹1200",
-      location: "Animal Hospital, Delhi",
+      location: "Animal Hospital, Mumbai",
       phone: "+91 98765 43211",
     },
     {
       id: "3",
-      name: "Dr. Emily Rodriguez",
+      name: "Dr. Udhav Sharma",
       specialization: "Dermatology",
       experience: "6 years",
       rating: 4.7,
       availableToday: true,
       consultationFee: "₹900",
-      location: "Skin & Coat Clinic, Bangalore",
+      location: "Skin & Coat Clinic, Mumbai",
       phone: "+91 98765 43212",
     },
   ];
