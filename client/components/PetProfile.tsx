@@ -52,18 +52,25 @@ export function PetProfile({ className }: PetProfileProps) {
     };
   };
 
-  // Get pet type display info
-  const getPetTypeInfo = (type: Pet["type"]) => {
+  // Get pet type display info with multiple image options
+  const getPetTypeInfo = (type: Pet["type"], petId: string) => {
     const typeInfo = {
       dog: {
         emoji: "🐕",
-        image: "https://images.pexels.com/photos/28683176/pexels-photo-28683176.jpeg",
+        images: [
+          "https://images.pexels.com/photos/28683176/pexels-photo-28683176.jpeg", // Golden Retriever
+          "https://images.pexels.com/photos/7538666/pexels-photo-7538666.jpeg",   // Long-haired Chihuahua
+        ],
         color: "bg-blue-100 text-blue-800",
         label: "Dog"
       },
       cat: {
         emoji: "🐱",
-        image: "https://images.pexels.com/photos/12573568/pexels-photo-12573568.jpeg",
+        images: [
+          "https://images.pexels.com/photos/12573568/pexels-photo-12573568.jpeg", // Ginger tabby kitten
+          "https://images.pexels.com/photos/28343903/pexels-photo-28343903.jpeg", // White cat with blue eyes
+          "https://images.pexels.com/photos/12492543/pexels-photo-12492543.jpeg", // Scottish Fold with amber eyes
+        ],
         color: "bg-purple-100 text-purple-800",
         label: "Cat",
       },
@@ -94,7 +101,16 @@ export function PetProfile({ className }: PetProfileProps) {
         label: "Other",
       },
     };
-    return typeInfo[type] || typeInfo.other;
+
+    const info = typeInfo[type] || typeInfo.other;
+
+    // Select image based on pet ID for consistency
+    if (info.images) {
+      const imageIndex = petId.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) % info.images.length;
+      return { ...info, image: info.images[imageIndex] };
+    }
+
+    return info;
   };
 
   // Handle edit pet
