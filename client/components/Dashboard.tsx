@@ -28,6 +28,7 @@ import { PetProfile } from "./PetProfile";
 import { Settings as SettingsComponent } from "./Settings";
 import { PetWellnessCharts } from "./PetWellnessCharts";
 import { Community } from "./Community";
+import { VetConsultDialog } from "./VetConsultDialog";
 
 interface DashboardProps {
   className?: string;
@@ -157,9 +158,11 @@ export function Dashboard({ className }: DashboardProps) {
                       Track vaccines, feeding times, and appointments
                     </p>
                   </div>
-                  <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
-                    Consult
-                  </Button>
+                  <VetConsultDialog>
+                    <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
+                      Consult
+                    </Button>
+                  </VetConsultDialog>
                 </div>
 
                 <PetCareCalendar onNavigate={setActiveView} />
