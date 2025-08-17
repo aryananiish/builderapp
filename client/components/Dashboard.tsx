@@ -109,7 +109,7 @@ export function Dashboard({ className }: DashboardProps) {
           w-64 border-r border-border bg-dashboard-nav transition-transform duration-300 ease-in-out
           md:translate-x-0 md:static md:inset-0
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
-          fixed inset-y-0 left-0 z-50 md:z-auto
+          fixed inset-y-0 left-0 z-50 md:z-auto md:h-[calc(100vh-4rem)] md:overflow-y-auto
         `}
         >
           <div className="p-4 md:p-6">
