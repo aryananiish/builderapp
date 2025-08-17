@@ -97,11 +97,11 @@ export const sampleCommunityPosts: CommunityPost[] = [
     userId: "user-1",
     user: communityUsers[0],
     content:
-      "Just had the most amazing day at the dog beach with Max! 🏖️ He made so many new friends and even learned to fetch in the water. Any other Bay Area dog parents have favorite beach spots to share?",
+      "Just had the most amazing day at the dog beach with Max! 🏖️ He made so many new friends and even learned to fetch in the water. Any other Mumbai Metropolitan Area dog parents have favorite beach spots to share?",
     images: [
       "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=2",
     ],
-    tags: ["dogbeach", "bayarea", "goldenretriever", "socialization"],
+    tags: ["dogbeach", "mumbai", "goldenretriever", "socialization"],
     category: "general",
     likes: 24,
     comments: [
