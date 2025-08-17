@@ -199,8 +199,8 @@ export function PetCareCalendar({
               {timeSlots.map((time) => (
                 <div key={time} className="grid grid-cols-8 gap-1 min-h-[50px] md:min-h-[60px]">
                   {/* Time Column */}
-                  <div className="p-3 bg-timetable-cell rounded-lg flex items-center">
-                    <span className="text-sm text-muted-foreground font-mono">
+                  <div className="p-1 md:p-3 bg-timetable-cell rounded-lg flex items-center justify-center">
+                    <span className="text-xs md:text-sm text-muted-foreground font-mono">
                       {time}
                     </span>
                   </div>
