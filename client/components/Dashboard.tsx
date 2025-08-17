@@ -28,6 +28,7 @@ import { DietSchedule } from "./DietSchedule";
 import { PetProfile } from "./PetProfile";
 import { Settings as SettingsComponent } from "./Settings";
 import { PetWellnessCharts } from "./PetWellnessCharts";
+import { Community } from "./Community";
 
 interface DashboardProps {
   className?: string;
