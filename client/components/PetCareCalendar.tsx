@@ -217,7 +217,7 @@ export function PetCareCalendar({
                         {eventAtTime ? (
                           <div
                             className={cn(
-                              "p-3 rounded-lg border h-full min-h-[60px] transition-all duration-200 hover:scale-105 hover:shadow-lg cursor-pointer",
+                              "p-1 md:p-3 rounded-lg border h-full min-h-[50px] md:min-h-[60px] transition-all duration-200 hover:scale-105 hover:shadow-lg cursor-pointer",
                               eventAtTime.color,
                             )}
                             onClick={() => handleEventClick(eventAtTime)}
