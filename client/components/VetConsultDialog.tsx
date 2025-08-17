@@ -79,7 +79,7 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
         petName: primaryPet.name,
         ownerName: primaryOwner,
         phone: ownerPhone,
-        appointmentDate: new Date().toISOString().split('T')[0], // Today's date
+        appointmentDate: new Date().toISOString().split("T")[0], // Today's date
         appointmentTime: "",
         consultationType: "general", // Default to general checkup
         symptoms: "",
@@ -156,7 +156,7 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
       petName: primaryPet.name,
       ownerName: primaryOwner,
       phone: ownerPhone,
-      appointmentDate: new Date().toISOString().split('T')[0],
+      appointmentDate: new Date().toISOString().split("T")[0],
       appointmentTime: "",
       consultationType: "general",
       symptoms: "",
@@ -328,7 +328,9 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
                   <Input
                     placeholder="Enter your pet's name"
                     value={formData.petName}
-                    onChange={(e) => handleInputChange("petName", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("petName", e.target.value)
+                    }
                   />
                   <div className="flex gap-2">
                     {samplePets.map((pet) => (
@@ -460,7 +462,9 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
                   placeholder="Describe your pet's symptoms or the reason for the visit..."
                   rows={3}
                   value={formData.symptoms}
-                  onChange={(e) => handleInputChange("symptoms", e.target.value)}
+                  onChange={(e) =>
+                    handleInputChange("symptoms", e.target.value)
+                  }
                 />
                 <div className="flex flex-wrap gap-2">
                   <Button
@@ -468,7 +472,12 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
                     variant="outline"
                     size="sm"
                     className="text-xs"
-                    onClick={() => handleInputChange("symptoms", "Regular checkup and wellness visit")}
+                    onClick={() =>
+                      handleInputChange(
+                        "symptoms",
+                        "Regular checkup and wellness visit",
+                      )
+                    }
                   >
                     Regular Checkup
                   </Button>
@@ -477,7 +486,12 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
                     variant="outline"
                     size="sm"
                     className="text-xs"
-                    onClick={() => handleInputChange("symptoms", "Follow-up on vaccination schedule and health status")}
+                    onClick={() =>
+                      handleInputChange(
+                        "symptoms",
+                        "Follow-up on vaccination schedule and health status",
+                      )
+                    }
                   >
                     Vaccination Follow-up
                   </Button>
@@ -486,7 +500,12 @@ export function VetConsultDialog({ children }: VetConsultDialogProps) {
                     variant="outline"
                     size="sm"
                     className="text-xs"
-                    onClick={() => handleInputChange("symptoms", "Skin examination for seasonal allergies or irritation")}
+                    onClick={() =>
+                      handleInputChange(
+                        "symptoms",
+                        "Skin examination for seasonal allergies or irritation",
+                      )
+                    }
                   >
                     Skin Check
                   </Button>
