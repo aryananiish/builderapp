@@ -158,7 +158,7 @@ export function Dashboard({ className }: DashboardProps) {
                   </Button>
                 </div>
 
-                <PetCareCalendar />
+                <PetCareCalendar onNavigate={setActiveView} />
               </div>
             )}
 
