@@ -117,7 +117,7 @@ export function PetWellnessCharts({ className }: PetWellnessChartsProps) {
           <ResponsiveContainer width="100%" height={200}>
             <RadialBarChart cx="50%" cy="50%" innerRadius="40%" outerRadius="90%" data={activityLevels}>
               <RadialBar
-                minAngle={15}
+                startAngle={15}
                 label={{ position: "insideStart", fill: "#fff" }}
                 background
                 clockWise
