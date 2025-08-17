@@ -24,13 +24,13 @@ import {
 } from "lucide-react";
 import { CommunityPostCard } from "./CommunityPostCard";
 import { NewPostDialog } from "./NewPostDialog";
-import { 
-  sampleCommunityPosts, 
-  communityUsers, 
-  getPostsByCategory, 
-  getPopularPosts, 
+import {
+  sampleCommunityPosts,
+  communityUsers,
+  getPostsByCategory,
+  getPopularPosts,
   getRecentPosts,
-  CommunityPost 
+  CommunityPost,
 } from "@/data/communityData";
 import { cn } from "@/lib/utils";
 
@@ -48,7 +48,10 @@ export function Community({ className }: CommunityProps) {
   const stats = {
     totalMembers: communityUsers.length,
     totalPosts: sampleCommunityPosts.length,
-    totalEngagement: sampleCommunityPosts.reduce((acc, post) => acc + post.likes + post.comments.length, 0),
+    totalEngagement: sampleCommunityPosts.reduce(
+      (acc, post) => acc + post.likes + post.comments.length,
+      0,
+    ),
   };
 
   // Filter and sort posts
@@ -63,18 +66,19 @@ export function Community({ className }: CommunityProps) {
     // Filter by search query
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
-      posts = posts.filter(post => 
-        post.content.toLowerCase().includes(query) ||
-        post.user.name.toLowerCase().includes(query) ||
-        post.tags.some(tag => tag.toLowerCase().includes(query))
+      posts = posts.filter(
+        (post) =>
+          post.content.toLowerCase().includes(query) ||
+          post.user.name.toLowerCase().includes(query) ||
+          post.tags.some((tag) => tag.toLowerCase().includes(query)),
       );
     }
 
     // Sort posts
     if (sortBy === "popular") {
-      posts = getPopularPosts().filter(post => posts.includes(post));
+      posts = getPopularPosts().filter((post) => posts.includes(post));
     } else {
-      posts = getRecentPosts().filter(post => posts.includes(post));
+      posts = getRecentPosts().filter((post) => posts.includes(post));
     }
 
     return posts;
@@ -82,11 +86,31 @@ export function Community({ className }: CommunityProps) {
 
   const categories = [
     { value: "all", label: "All Posts", count: sampleCommunityPosts.length },
-    { value: "general", label: "General", count: getPostsByCategory("general").length },
-    { value: "health", label: "Health", count: getPostsByCategory("health").length },
-    { value: "training", label: "Training", count: getPostsByCategory("training").length },
-    { value: "adoption", label: "Adoption", count: getPostsByCategory("adoption").length },
-    { value: "events", label: "Events", count: getPostsByCategory("events").length },
+    {
+      value: "general",
+      label: "General",
+      count: getPostsByCategory("general").length,
+    },
+    {
+      value: "health",
+      label: "Health",
+      count: getPostsByCategory("health").length,
+    },
+    {
+      value: "training",
+      label: "Training",
+      count: getPostsByCategory("training").length,
+    },
+    {
+      value: "adoption",
+      label: "Adoption",
+      count: getPostsByCategory("adoption").length,
+    },
+    {
+      value: "events",
+      label: "Events",
+      count: getPostsByCategory("events").length,
+    },
     { value: "tips", label: "Tips", count: getPostsByCategory("tips").length },
   ];
 
@@ -120,7 +144,9 @@ export function Community({ className }: CommunityProps) {
                 <div className="text-lg font-semibold text-foreground">
                   {stats.totalMembers}
                 </div>
-                <div className="text-sm text-muted-foreground">Active Members</div>
+                <div className="text-sm text-muted-foreground">
+                  Active Members
+                </div>
               </div>
             </div>
           </Card>
@@ -131,7 +157,9 @@ export function Community({ className }: CommunityProps) {
                 <div className="text-lg font-semibold text-foreground">
                   {stats.totalPosts}
                 </div>
-                <div className="text-sm text-muted-foreground">Community Posts</div>
+                <div className="text-sm text-muted-foreground">
+                  Community Posts
+                </div>
               </div>
             </div>
           </Card>
@@ -142,7 +170,9 @@ export function Community({ className }: CommunityProps) {
                 <div className="text-lg font-semibold text-foreground">
                   {stats.totalEngagement}
                 </div>
-                <div className="text-sm text-muted-foreground">Total Engagement</div>
+                <div className="text-sm text-muted-foreground">
+                  Total Engagement
+                </div>
               </div>
             </div>
           </Card>
@@ -172,7 +202,10 @@ export function Community({ className }: CommunityProps) {
             </div>
 
             {/* Category Filter */}
-            <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+            <Select
+              value={selectedCategory}
+              onValueChange={setSelectedCategory}
+            >
               <SelectTrigger className="w-full md:w-32">
                 <Filter className="h-4 w-4 mr-2" />
                 <SelectValue />
@@ -192,7 +225,10 @@ export function Community({ className }: CommunityProps) {
             </Select>
 
             {/* Sort */}
-            <Select value={sortBy} onValueChange={(value: "recent" | "popular") => setSortBy(value)}>
+            <Select
+              value={sortBy}
+              onValueChange={(value: "recent" | "popular") => setSortBy(value)}
+            >
               <SelectTrigger className="w-full md:w-32">
                 {sortBy === "recent" ? (
                   <Clock className="h-4 w-4 mr-2" />
@@ -224,9 +260,10 @@ export function Community({ className }: CommunityProps) {
                     No posts found
                   </h3>
                   <p className="text-muted-foreground mb-4">
-                    Try adjusting your filters or be the first to share something!
+                    Try adjusting your filters or be the first to share
+                    something!
                   </p>
-                  <NewPostDialog 
+                  <NewPostDialog
                     trigger={
                       <Button>
                         <PlusCircle className="h-4 w-4 mr-2" />
@@ -251,7 +288,10 @@ export function Community({ className }: CommunityProps) {
                       <Avatar className="h-8 w-8">
                         <AvatarImage src={user.avatar} alt={user.name} />
                         <AvatarFallback className="text-xs">
-                          {user.name.split(" ").map(n => n[0]).join("")}
+                          {user.name
+                            .split(" ")
+                            .map((n) => n[0])
+                            .join("")}
                         </AvatarFallback>
                       </Avatar>
                       <div className="flex-1 min-w-0">
@@ -277,7 +317,16 @@ export function Community({ className }: CommunityProps) {
                   Trending Tags
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {["goldenretriever", "rescue", "training", "health", "dogbeach", "kitten", "adoption", "tips"].map((tag) => (
+                  {[
+                    "goldenretriever",
+                    "rescue",
+                    "training",
+                    "health",
+                    "dogbeach",
+                    "kitten",
+                    "adoption",
+                    "tips",
+                  ].map((tag) => (
                     <button
                       key={tag}
                       onClick={() => setSearchQuery(`#${tag}`)}

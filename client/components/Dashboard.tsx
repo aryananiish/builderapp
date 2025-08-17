@@ -475,7 +475,8 @@ export function Dashboard({ className }: DashboardProps) {
                       Pet Wellness Analytics
                     </h1>
                     <p className="text-muted-foreground mt-1">
-                      Visual insights into your pets' health, nutrition, and activity
+                      Visual insights into your pets' health, nutrition, and
+                      activity
                     </p>
                   </div>
                 </div>
@@ -538,7 +539,9 @@ export function Dashboard({ className }: DashboardProps) {
                           <span className="text-2xl font-bold text-foreground">
                             {summaryData?.summary?.totalPets || 0}
                           </span>
-                          <span className="text-muted-foreground ml-1">pets</span>
+                          <span className="text-muted-foreground ml-1">
+                            pets
+                          </span>
                         </div>
                       </Card>
 

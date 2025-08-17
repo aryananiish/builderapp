@@ -34,12 +34,16 @@ export function CommunityPostCard({ post, className }: CommunityPostCardProps) {
   const formatTimeAgo = (timestamp: string) => {
     const now = new Date();
     const postTime = new Date(timestamp);
-    const diffInSeconds = Math.floor((now.getTime() - postTime.getTime()) / 1000);
+    const diffInSeconds = Math.floor(
+      (now.getTime() - postTime.getTime()) / 1000,
+    );
 
     if (diffInSeconds < 60) return "Just now";
     if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)}m ago`;
-    if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)}h ago`;
-    if (diffInSeconds < 604800) return `${Math.floor(diffInSeconds / 86400)}d ago`;
+    if (diffInSeconds < 86400)
+      return `${Math.floor(diffInSeconds / 3600)}h ago`;
+    if (diffInSeconds < 604800)
+      return `${Math.floor(diffInSeconds / 86400)}d ago`;
     return postTime.toLocaleDateString();
   };
 
@@ -82,7 +86,10 @@ export function CommunityPostCard({ post, className }: CommunityPostCardProps) {
                 <h4 className="text-sm font-semibold text-foreground">
                   {post.user.name}
                 </h4>
-                <Badge variant="outline" className={getCategoryColor(post.category)}>
+                <Badge
+                  variant="outline"
+                  className={getCategoryColor(post.category)}
+                >
                   {post.category}
                 </Badge>
               </div>
@@ -108,8 +115,10 @@ export function CommunityPostCard({ post, className }: CommunityPostCardProps) {
 
       {/* Content */}
       <div className="px-4 pb-3">
-        <p className="text-sm text-foreground leading-relaxed">{post.content}</p>
-        
+        <p className="text-sm text-foreground leading-relaxed">
+          {post.content}
+        </p>
+
         {/* Tags */}
         {post.tags.length > 0 && (
           <div className="flex flex-wrap gap-1 mt-3">
@@ -151,7 +160,7 @@ export function CommunityPostCard({ post, className }: CommunityPostCardProps) {
               onClick={handleLike}
               className={cn(
                 "flex items-center space-x-1 text-muted-foreground hover:text-foreground",
-                isLiked && "text-red-500 hover:text-red-600"
+                isLiked && "text-red-500 hover:text-red-600",
               )}
             >
               <Heart className={cn("h-4 w-4", isLiked && "fill-current")} />
@@ -199,7 +208,10 @@ export function CommunityPostCard({ post, className }: CommunityPostCardProps) {
               {post.comments.map((comment) => (
                 <div key={comment.id} className="flex items-start space-x-3">
                   <Avatar className="h-6 w-6">
-                    <AvatarImage src={comment.user.avatar} alt={comment.user.name} />
+                    <AvatarImage
+                      src={comment.user.avatar}
+                      alt={comment.user.name}
+                    />
                     <AvatarFallback className="text-xs">
                       {comment.user.name
                         .split(" ")
@@ -217,7 +229,9 @@ export function CommunityPostCard({ post, className }: CommunityPostCardProps) {
                           {formatTimeAgo(comment.timestamp)}
                         </span>
                       </div>
-                      <p className="text-xs text-foreground">{comment.content}</p>
+                      <p className="text-xs text-foreground">
+                        {comment.content}
+                      </p>
                     </div>
                     {comment.likes > 0 && (
                       <button className="text-xs text-muted-foreground hover:text-foreground mt-1 flex items-center space-x-1">

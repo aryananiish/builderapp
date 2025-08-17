@@ -26,7 +26,12 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { useSummary } from "@/hooks/usePetData";
-import { samplePets, sampleVaccines, sampleFoodSchedules, sampleEvents } from "@/data/samplePetData";
+import {
+  samplePets,
+  sampleVaccines,
+  sampleFoodSchedules,
+  sampleEvents,
+} from "@/data/samplePetData";
 
 interface PetWellnessChartsProps {
   className?: string;
@@ -78,14 +83,23 @@ export function PetWellnessCharts({ className }: PetWellnessChartsProps) {
     { type: "Snacks", calories: 0, meals: 0 },
   ];
 
-  const COLORS = ["#3b82f6", "#8b5cf6", "#10b981", "#f59e0b", "#ef4444", "#06b6d4"];
+  const COLORS = [
+    "#3b82f6",
+    "#8b5cf6",
+    "#10b981",
+    "#f59e0b",
+    "#ef4444",
+    "#06b6d4",
+  ];
 
   if (loading) {
     return (
       <div className={className}>
         <Card className="p-6 bg-card border-border">
           <div className="text-center py-8">
-            <div className="text-muted-foreground">Loading wellness data...</div>
+            <div className="text-muted-foreground">
+              Loading wellness data...
+            </div>
           </div>
         </Card>
       </div>
@@ -112,30 +126,46 @@ export function PetWellnessCharts({ className }: PetWellnessChartsProps) {
         <Card className="p-6 bg-card border-border">
           <div className="flex items-center space-x-2 mb-4">
             <Heart className="h-5 w-5 text-primary" />
-            <h3 className="text-lg font-semibold text-foreground">Overall Wellness Score</h3>
+            <h3 className="text-lg font-semibold text-foreground">
+              Overall Wellness Score
+            </h3>
           </div>
           <ResponsiveContainer width="100%" height={200}>
-            <RadialBarChart cx="50%" cy="50%" innerRadius="40%" outerRadius="90%" data={activityLevels}>
+            <RadialBarChart
+              cx="50%"
+              cy="50%"
+              innerRadius="40%"
+              outerRadius="90%"
+              data={activityLevels}
+            >
               <RadialBar
                 label={{ position: "insideStart", fill: "#fff" }}
                 background
                 dataKey="overall"
                 fill="#10b981"
               />
-              <Legend iconSize={18} layout="horizontal" verticalAlign="bottom" />
+              <Legend
+                iconSize={18}
+                layout="horizontal"
+                verticalAlign="bottom"
+              />
               <Tooltip formatter={(value) => [`${value}%`, "Wellness Score"]} />
             </RadialBarChart>
           </ResponsiveContainer>
           <div className="text-center mt-4">
             <div className="text-2xl font-bold text-primary">85%</div>
-            <div className="text-sm text-muted-foreground">Average Wellness</div>
+            <div className="text-sm text-muted-foreground">
+              Average Wellness
+            </div>
           </div>
         </Card>
 
         <Card className="p-6 bg-card border-border">
           <div className="flex items-center space-x-2 mb-4">
             <Shield className="h-5 w-5 text-green-400" />
-            <h3 className="text-lg font-semibold text-foreground">Vaccination Status</h3>
+            <h3 className="text-lg font-semibold text-foreground">
+              Vaccination Status
+            </h3>
           </div>
           <ResponsiveContainer width="100%" height={200}>
             <PieChart>
@@ -163,7 +193,9 @@ export function PetWellnessCharts({ className }: PetWellnessChartsProps) {
                   className="w-3 h-3 rounded-full"
                   style={{ backgroundColor: item.color }}
                 />
-                <span className="text-xs text-muted-foreground">{item.name}</span>
+                <span className="text-xs text-muted-foreground">
+                  {item.name}
+                </span>
               </div>
             ))}
           </div>
@@ -175,7 +207,9 @@ export function PetWellnessCharts({ className }: PetWellnessChartsProps) {
         <Card className="p-6 bg-card border-border">
           <div className="flex items-center space-x-2 mb-4">
             <Activity className="h-5 w-5 text-blue-400" />
-            <h3 className="text-lg font-semibold text-foreground">Health Metrics by Category</h3>
+            <h3 className="text-lg font-semibold text-foreground">
+              Health Metrics by Category
+            </h3>
           </div>
           <ResponsiveContainer width="100%" height={250}>
             <BarChart data={healthMetrics}>
@@ -209,7 +243,9 @@ export function PetWellnessCharts({ className }: PetWellnessChartsProps) {
         <Card className="p-6 bg-card border-border">
           <div className="flex items-center space-x-2 mb-4">
             <TrendingUp className="h-5 w-5 text-cyan-400" />
-            <h3 className="text-lg font-semibold text-foreground">Weekly Activity Trends</h3>
+            <h3 className="text-lg font-semibold text-foreground">
+              Weekly Activity Trends
+            </h3>
           </div>
           <ResponsiveContainer width="100%" height={250}>
             <AreaChart data={weeklyActivityData}>
@@ -250,7 +286,9 @@ export function PetWellnessCharts({ className }: PetWellnessChartsProps) {
         <Card className="p-6 bg-card border-border">
           <div className="flex items-center space-x-2 mb-4">
             <Utensils className="h-5 w-5 text-orange-400" />
-            <h3 className="text-lg font-semibold text-foreground">Daily Nutrition Breakdown</h3>
+            <h3 className="text-lg font-semibold text-foreground">
+              Daily Nutrition Breakdown
+            </h3>
           </div>
           <ResponsiveContainer width="100%" height={250}>
             <BarChart data={nutritionBreakdown}>
@@ -276,7 +314,9 @@ export function PetWellnessCharts({ className }: PetWellnessChartsProps) {
         <Card className="p-6 bg-card border-border">
           <div className="flex items-center space-x-2 mb-4">
             <Calendar className="h-5 w-5 text-purple-400" />
-            <h3 className="text-lg font-semibold text-foreground">Pet Type Distribution</h3>
+            <h3 className="text-lg font-semibold text-foreground">
+              Pet Type Distribution
+            </h3>
           </div>
           <ResponsiveContainer width="100%" height={250}>
             <PieChart>
@@ -287,7 +327,7 @@ export function PetWellnessCharts({ className }: PetWellnessChartsProps) {
                 outerRadius={80}
                 fill="#8884d8"
                 dataKey="value"
-                label={({ name, value, percent }) => 
+                label={({ name, value, percent }) =>
                   value > 0 ? `${name}: ${(percent * 100).toFixed(0)}%` : null
                 }
               >
@@ -305,22 +345,34 @@ export function PetWellnessCharts({ className }: PetWellnessChartsProps) {
       <Card className="p-6 bg-card border-border">
         <div className="flex items-center space-x-2 mb-6">
           <Heart className="h-5 w-5 text-red-400" />
-          <h3 className="text-lg font-semibold text-foreground">Individual Pet Wellness</h3>
+          <h3 className="text-lg font-semibold text-foreground">
+            Individual Pet Wellness
+          </h3>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {activityLevels.map((pet, index) => (
             <div key={pet.pet} className="space-y-4">
               <div className="flex items-center justify-between">
-                <h4 className="text-base font-medium text-foreground">{pet.pet}</h4>
+                <h4 className="text-base font-medium text-foreground">
+                  {pet.pet}
+                </h4>
                 <Badge
-                  variant={pet.overall >= 85 ? "default" : pet.overall >= 70 ? "secondary" : "destructive"}
+                  variant={
+                    pet.overall >= 85
+                      ? "default"
+                      : pet.overall >= 70
+                        ? "secondary"
+                        : "destructive"
+                  }
                 >
                   {pet.overall}% Wellness
                 </Badge>
               </div>
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">Exercise</span>
+                  <span className="text-sm text-muted-foreground">
+                    Exercise
+                  </span>
                   <div className="flex items-center space-x-2">
                     <div className="w-24 bg-secondary rounded-full h-2">
                       <div
@@ -328,11 +380,15 @@ export function PetWellnessCharts({ className }: PetWellnessChartsProps) {
                         style={{ width: `${pet.exercise}%` }}
                       />
                     </div>
-                    <span className="text-sm text-foreground w-8">{pet.exercise}%</span>
+                    <span className="text-sm text-foreground w-8">
+                      {pet.exercise}%
+                    </span>
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">Nutrition</span>
+                  <span className="text-sm text-muted-foreground">
+                    Nutrition
+                  </span>
                   <div className="flex items-center space-x-2">
                     <div className="w-24 bg-secondary rounded-full h-2">
                       <div
@@ -340,7 +396,9 @@ export function PetWellnessCharts({ className }: PetWellnessChartsProps) {
                         style={{ width: `${pet.nutrition}%` }}
                       />
                     </div>
-                    <span className="text-sm text-foreground w-8">{pet.nutrition}%</span>
+                    <span className="text-sm text-foreground w-8">
+                      {pet.nutrition}%
+                    </span>
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
@@ -352,7 +410,9 @@ export function PetWellnessCharts({ className }: PetWellnessChartsProps) {
                         style={{ width: `${pet.health}%` }}
                       />
                     </div>
-                    <span className="text-sm text-foreground w-8">{pet.health}%</span>
+                    <span className="text-sm text-foreground w-8">
+                      {pet.health}%
+                    </span>
                   </div>
                 </div>
               </div>

@@ -35,7 +35,8 @@ interface NewPostDialogProps {
 export function NewPostDialog({ trigger, onPostCreate }: NewPostDialogProps) {
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState("");
-  const [category, setCategory] = useState<CommunityPost["category"]>("general");
+  const [category, setCategory] =
+    useState<CommunityPost["category"]>("general");
   const [location, setLocation] = useState("");
   const [tags, setTags] = useState<string[]>([]);
   const [newTag, setNewTag] = useState("");
@@ -43,13 +44,29 @@ export function NewPostDialog({ trigger, onPostCreate }: NewPostDialogProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const categories = [
-    { value: "general", label: "General", description: "General pet discussions" },
+    {
+      value: "general",
+      label: "General",
+      description: "General pet discussions",
+    },
     { value: "health", label: "Health", description: "Health tips and advice" },
-    { value: "training", label: "Training", description: "Training tips and progress" },
-    { value: "adoption", label: "Adoption", description: "Adoption stories and opportunities" },
+    {
+      value: "training",
+      label: "Training",
+      description: "Training tips and progress",
+    },
+    {
+      value: "adoption",
+      label: "Adoption",
+      description: "Adoption stories and opportunities",
+    },
     { value: "events", label: "Events", description: "Local pet events" },
     { value: "tips", label: "Tips", description: "Helpful pet care tips" },
-    { value: "lost-found", label: "Lost & Found", description: "Missing or found pets" },
+    {
+      value: "lost-found",
+      label: "Lost & Found",
+      description: "Missing or found pets",
+    },
   ] as const;
 
   const handleAddTag = () => {
@@ -60,7 +77,7 @@ export function NewPostDialog({ trigger, onPostCreate }: NewPostDialogProps) {
   };
 
   const handleRemoveTag = (tagToRemove: string) => {
-    setTags(tags.filter(tag => tag !== tagToRemove));
+    setTags(tags.filter((tag) => tag !== tagToRemove));
   };
 
   const handleSubmit = async () => {
@@ -79,7 +96,7 @@ export function NewPostDialog({ trigger, onPostCreate }: NewPostDialogProps) {
       };
 
       onPostCreate?.(newPost);
-      
+
       // Reset form
       setContent("");
       setCategory("general");
@@ -102,8 +119,9 @@ export function NewPostDialog({ trigger, onPostCreate }: NewPostDialogProps) {
       "https://images.pexels.com/photos/1458925/pexels-photo-1458925.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=2",
       "https://images.pexels.com/photos/1254140/pexels-photo-1254140.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=2",
     ];
-    
-    const randomImage = placeholderImages[Math.floor(Math.random() * placeholderImages.length)];
+
+    const randomImage =
+      placeholderImages[Math.floor(Math.random() * placeholderImages.length)];
     setImages([...images, randomImage]);
   };
 
@@ -134,7 +152,9 @@ export function NewPostDialog({ trigger, onPostCreate }: NewPostDialogProps) {
             </Avatar>
             <div>
               <h4 className="text-sm font-semibold text-foreground">You</h4>
-              <p className="text-xs text-muted-foreground">Share with the community</p>
+              <p className="text-xs text-muted-foreground">
+                Share with the community
+              </p>
             </div>
           </div>
 
@@ -143,7 +163,12 @@ export function NewPostDialog({ trigger, onPostCreate }: NewPostDialogProps) {
             <label className="text-sm font-medium text-foreground mb-2 block">
               Category
             </label>
-            <Select value={category} onValueChange={(value: CommunityPost["category"]) => setCategory(value)}>
+            <Select
+              value={category}
+              onValueChange={(value: CommunityPost["category"]) =>
+                setCategory(value)
+              }
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Select a category" />
               </SelectTrigger>
@@ -152,7 +177,9 @@ export function NewPostDialog({ trigger, onPostCreate }: NewPostDialogProps) {
                   <SelectItem key={cat.value} value={cat.value}>
                     <div>
                       <div className="font-medium">{cat.label}</div>
-                      <div className="text-xs text-muted-foreground">{cat.description}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {cat.description}
+                      </div>
                     </div>
                   </SelectItem>
                 ))}
@@ -200,9 +227,9 @@ export function NewPostDialog({ trigger, onPostCreate }: NewPostDialogProps) {
             </label>
             <div className="flex flex-wrap gap-2 mb-2">
               {tags.map((tag) => (
-                <Badge 
-                  key={tag} 
-                  variant="secondary" 
+                <Badge
+                  key={tag}
+                  variant="secondary"
                   className="flex items-center space-x-1"
                 >
                   <span>#{tag}</span>
@@ -225,7 +252,12 @@ export function NewPostDialog({ trigger, onPostCreate }: NewPostDialogProps) {
                 onKeyPress={(e) => e.key === "Enter" && handleAddTag()}
                 className="flex-1 p-2 bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm"
               />
-              <Button type="button" variant="outline" size="sm" onClick={handleAddTag}>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={handleAddTag}
+              >
                 Add
               </Button>
             </div>
@@ -237,7 +269,7 @@ export function NewPostDialog({ trigger, onPostCreate }: NewPostDialogProps) {
               <ImageIcon className="h-4 w-4 mr-1" />
               Photos
             </label>
-            
+
             {/* Image Preview */}
             {images.length > 0 && (
               <div className="grid grid-cols-2 gap-2 mb-3">
@@ -276,8 +308,8 @@ export function NewPostDialog({ trigger, onPostCreate }: NewPostDialogProps) {
             <Button variant="outline" onClick={() => setOpen(false)}>
               Cancel
             </Button>
-            <Button 
-              onClick={handleSubmit} 
+            <Button
+              onClick={handleSubmit}
               disabled={!content.trim() || isSubmitting}
               className="bg-primary hover:bg-primary/90"
             >
